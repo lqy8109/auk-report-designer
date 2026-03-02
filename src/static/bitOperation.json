@@ -1,0 +1,202 @@
+[
+    {
+        "name": "算术",
+        "list": [
+            {
+                "name": "^",
+                "value": "^",
+                "syntax": "<表达式1> ^ <表达式2>",
+                "description": "求幂次方。",
+                "example": "{Quantity ^ 2}"
+            },
+            {
+                "name": "*",
+                "value": "*",
+                "syntax": "<表达式1> * <表达式2>",
+                "description": "执行乘法，返回积。",
+                "example": "{Quantity * 5}"
+            },
+            {
+                "name": "/",
+                "value": "/",
+                "syntax": "<表达式1> / <表达式2>",
+                "description": "执行除法，返回浮点数商。",
+                "example": "{AnnualSales / 2}"
+            },
+            {
+                "name": "\\",
+                "value": "\\",
+                "syntax": "<表达式1> \\ <表达式2>",
+                "description": "执行除法，返回整数商。",
+                "example": "{AnnualSales \\ 2}"
+            },
+            {
+                "name": "Mod",
+                "value": "Mod",
+                "syntax": "<表达式1> Mod <表达式2>",
+                "description": "返回两数相除的余数。",
+                "example": "{AnnualSales Mod 12}"
+            },
+            {
+                "name": "+",
+                "value": "+",
+                "syntax": "<表达式1> + <表达式2>",
+                "description": "计算两个数值的和或者串接两个字符串。",
+                "example": "{Quantity + 2}"
+            },
+            {
+                "name": "-",
+                "value": "-",
+                "syntax": "<表达式1> - <表达式2>",
+                "description": "执行减法，返回差。",
+                "example": "{Quantity - 2}"
+            }
+        ]
+    },
+    {
+        "name": "比较",
+        "list": [
+            {
+                "name": "<",
+                "value": "<",
+                "syntax": "<表达式1> < <表达式2>",
+                "description": "如果左操作数小于右操作数，返回True。",
+                "example": "{AnnualSales < 80000}"
+            },
+            {
+                "name": "<=",
+                "value": "<=",
+                "syntax": "<表达式1> <= <表达式2>",
+                "description": "如果左操作数小于或等于右操作数，返回True。",
+                "example": "{AnnualSales <= 80000}"
+            },
+            {
+                "name": ">",
+                "value": ">",
+                "syntax": "<表达式1> > <表达式2>",
+                "description": "如果左操作数大于右操作数，返回True。",
+                "example": "{AnnualSales > 80000}"
+            },
+            {
+                "name": ">=",
+                "value": ">=",
+                "syntax": "<表达式1> >= <表达式2>",
+                "description": "如果左操作数大于或等于右操作数，返回True。",
+                "example": "{AnnualSales >= 80000}"
+            },
+            {
+                "name": "=",
+                "value": "=",
+                "syntax": "<表达式1> = <表达式2>",
+                "description": "如果左操作数等于右操作数，返回True。",
+                "example": "{AnnualSales = 80000}"
+            },
+            {
+                "name": "<>",
+                "value": "<>",
+                "syntax": "<表达式1> <> <表达式2>",
+                "description": "如果左操作数不等于右操作数，返回True。",
+                "example": "{AnnualSales <> 80000}"
+            },
+            {
+                "name": "Like",
+                "value": "Like",
+                "syntax": "<表达式1> Like <表达式2>",
+                "description": "比较两个字符串，如果左操作数给定的字符串与右操作数指定的模式相匹配，返回True。",
+                "example": "{FirstName Like \"A*\"}"
+            },
+            {
+                "name": "Is",
+                "value": "Is",
+                "syntax": "<表达式1> Is <表达式2>",
+                "description": "比较两个对象引用，如果做操作数与右操作数是同一个对象，返回True。",
+                "example": "{FirstName Is LastName}"
+            }
+        ]
+    },
+    {
+        "name": "连接",
+        "list": [
+            {
+                "name": "&",
+                "value": "&",
+                "syntax": "<表达式1> & <表达式2>",
+                "description": "串接两个字符串。",
+                "example": "{FirstName & \" \" & LastName}"
+            },
+             {
+                "name": "+",
+                "value": "+",
+                "syntax": "<表达式1> + <表达式2>",
+                "description": "计算两个数值的和或者串接两个字符串。",
+                "example": "{FirstName + \" \" + LastName}"
+            }
+        ]
+    },
+    {
+        "name": "逻辑/位运算",
+        "list": [
+            {
+                "name": "And",
+                "value": "And",
+                "syntax": "<表达式1> And <表达式2>",
+                "description": "返回两个布尔表达式的逻辑与操作结果，或者两个数值表达式的按位与操作结果。",
+                "example": "{AnnualSales > 80000 And Quantity > 5}"
+            },
+            {
+                "name": "Not",
+                "value": "Not",
+                "syntax": "Not <表达式>",
+                "description": "返回布尔表达式的逻辑取反结果，或者是数值表达式的按位取反结果。",
+                "example": "{Not AnnualSales > 80000}"
+            },
+            {
+                "name": "Or",
+                "value": "Or",
+                "syntax": "<表达式1> Or <表达式2>",
+                "description": "返回两个布尔表达式的逻辑或操作结果，或者两个数值表达式的按位或操作结果。",
+                "example": "{AnnualSales > 80000 Or Quantity > 5}"
+            },
+            {
+                "name": "Xor",
+                "value": "Xor",
+                "syntax": "<表达式1> Xor <表达式2>",
+                "description": "返回两个布尔表达式的逻辑异或操作结果，或者两个数值表达式的按位异或操作结果。",
+                "example": "{AnnualSales > 80000 Xor Quantity > 5}"
+            },
+            {
+                "name": "AndAlso",
+                "value": "AndAlso",
+                "syntax": "<布尔表达式1> AndAlso <布尔表达式2>",
+                "description": "返回两个布尔表达式的逻辑与操作结果，如果第一个表达式为False则跳过第二个表达式的判断。",
+                "example": "{AnnualSales > 80000 AndAlso Quantity > 1}"
+            },
+            {
+                "name": "OrElse",
+                "value": "OrElse",
+                "syntax": "<布尔表达式1> OrElse <布尔表达式2>",
+                "description": "返回两个布尔表达式的逻辑或操作结果，如果第一个表达式为True则跳过第二个表达式的判断。",
+                "example": "{AnnualSales > 80000 OrElse Quantity > 1}"
+            }
+        ]
+    },
+    {
+        "name": "位移",
+        "list": [
+            {
+                "name": "<<",
+                "value": "<<",
+                "syntax": "<表达式1> << <表达式2>",
+                "description": "执行左移，例如：4<<2 表示将数字4的二进制数形式（100）左移2位，成为二进制的10000，即十进制数的16。",
+                "example": "{RegionID << 2}"
+            },
+            {
+                "name": ">>",
+                "value": ">>",
+                "syntax": "<表达式1> >> <表达式2>",
+                "description": "执行右移，例如：4>>1表示将数字4的二进制数形式（100）右移1位，成为二进制的10，即十进制2。",
+                "example": "{RegionID >> 2}"
+            }
+        ]
+    }
+]

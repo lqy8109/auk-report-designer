@@ -1,0 +1,1064 @@
+[
+    {
+        "name": "日期",
+        "list": [
+            {
+                "name": "DateAdd",
+                "value": "DateAdd()",
+                "syntax": "DateAdd(<时间单位>, <增减数值>, <日期时间表达式>)",
+                "description": "返回一个日期值增减一个指定单位时间间隔的结果。如DataAdd(\"d\",-1,\"2017-1-1\")表示在2017-1-1基础上增加-1天，返回值为\"2016-12-31\"。",
+                "example": "DateAdd(\"d\", 1, \"2023-01-01\")"
+            },
+            {
+                "name": "DateDiff",
+                "value": "DateDiff()",
+                "syntax": "DateDiff(<时间单位>, <日期时间值1>, <日期时间值2>[, <周内某天0-6>[, <年中某周1-53>]])",
+                "description": "返回一个长整型（Long）值，该值为两个日期值之间的时间间隔数。如DateDiff(\"yyyy\",\"2016-12-31\",\"2017-1-1\")返回值为1，表示两个日期值之间的年份差值为1。",
+                "example": "{DateDiff(\"yyyy\", SaleDate, \"1/1/2015\")}; {DateDiff(DateInterval.Year, SaleDate, \"1/1/2015\")}"
+            },
+            {
+                "name": "DatePart",
+                "value": "DatePart()",
+                "syntax": "DatePart(<时间单位>, <日期时间值>[, <一周的第一天>[, <一年的第一周>]])",
+                "description": "返回一个整型（Integer）值，其中包含给定 Date 值的指定部分（年，月，日，时，分，秒，毫秒，星期几等）。",
+                "example": "{DatePart(\"m\", SaleDate)}"
+            },
+            {
+                "name": "DateSerial",
+                "value": "DateSerial()",
+                "syntax": "DateSerial(<年度数字>, <月份数字>, <日期数字>)",
+                "description": "返回表示指定年月日的日期时间值，其时间信息被设置为午夜 (00:00:00)。",
+                "example": "{DateSerial(DatePart(\"yyyy\", SaleDate) - 10, DatePart(\"m\", SaleDate) + 5, DatePart(\"d\", SaleDate) - 1)}"
+            },
+            {
+                "name": "DateString",
+                "value": "DateString()",
+                "syntax": "DateString()",
+                "description": "返回当前日期按当前区域设定中的日期格式显示的字符串。",
+                "example": "{DateString()}; {DatePart(\"m\", DateString())}"
+            },
+            {
+                "name": "DateValue",
+                "value": "DateValue()",
+                "syntax": "DateValue(<日期形式的字符串>)",
+                "description": "返回一个 Date 值，该值包含用字符串表示的日期信息，其时间信息设置为午夜 (00:00:00)。例如：DateValue(\"2012-12-31\")。",
+                "example": "{DateValue(\"December 12, 2015\")}"
+            },
+            {
+                "name": "Day",
+                "value": "Day()",
+                "syntax": "Day(<日期时间>)",
+                "description": "返回日期值的\"日\"（1-31）。",
+                "example": "{Day(SaleDate)}"
+            },
+            {
+                "name": "Hour",
+                "value": "Hour()",
+                "syntax": "Hour(<日期时间>)",
+                "description": "返回时间值的小时部分（0-23）。",
+                "example": "{Hour(SaleDate)}"
+            },
+            {
+                "name": "Minute",
+                "value": "Minute()",
+                "syntax": "Minute(<日期时间>)",
+                "description": "返回时间值的分钟部分（0-59）。",
+                "example": "{Minute(SaleDate)}"
+            },
+            {
+                "name": "Month",
+                "value": "Month()",
+                "syntax": "Month(<日期时间>)",
+                "description": "返回日期值的月份部分（1-12）。",
+                "example": "{Month(SaleDate)}"
+            },
+            {
+                "name": "MonthName",
+                "value": "MonthName()",
+                "syntax": "MonthName(<月份数字>[, <是否简写>])",
+                "description": "返回月份数的月份名称，例如：MonthName(3)返回\"三月\"。",
+                "example": "{MonthName(MonthNumber)}"
+            },
+            {
+                "name": "Now",
+                "value": "Now()",
+                "syntax": "Now()",
+                "description": "返回当前的系统日期时间值。",
+                "example": "{Now()}"
+            },
+            {
+                "name": "Second",
+                "value": "Second()",
+                "syntax": "Second(<日期时间>)",
+                "description": "返回日期时间值的秒（0-59）。",
+                "example": "{Second(SaleDate)}"
+            },
+            {
+                "name": "TimeOfDay",
+                "value": "TimeOfDay()",
+                "syntax": "TimeOfDay()",
+                "description": "返回当前系统时间的时间部分，返回值不带日期部分，显示为字符串形式为\"0001/1/1 9:55:36\"。",
+                "example": "{TimeOfDay()}"
+            },
+            {
+                "name": "Timer",
+                "value": "Timer()",
+                "syntax": "Timer()",
+                "description": "返回一个双精度数值，表示从0时到现在的时间，单位是秒，如 36472.149871。",
+                "example": "{Timer()}"
+            },
+            {
+                "name": "TimeSerial",
+                "value": "TimeSerial()",
+                "syntax": "TimeSerial(<小时数字>, <分钟数字>, <秒数字>)",
+                "description": "返回一个日期时间值，该值表示指定的小时、分钟和秒，其日期信息设置基点为公元元年 1 月 1 日，如TimeSerial(23,45,58)。",
+                "example": "{TimeSerial(DatePart(\"h\", SaleDate), DatePart(\"n\", SaleDate), DatePart(\"s\", SaleDate))}"
+            },
+            {
+                "name": "TimeString",
+                "value": "TimeString()",
+                "syntax": "TimeString()",
+                "description": "返回当前时间的字符串形式，如10:17:43。",
+                "example": "{TimeString()}"
+            },
+            {
+                "name": "TimeValue",
+                "value": "TimeValue()",
+                "syntax": "TimeValue(<日期时间>)",
+                "description": "返回一个日期型数据的时间值。如TimeValue(Now)返回\"0001/1/1 10:19:00\"。",
+                "example": "{TimeValue(\"15:25:45\")}; {TimeValue(SaleDate)}"
+            },
+            {
+                "name": "Today",
+                "value": "Today()",
+                "syntax": "Today()",
+                "description": "返回当前系统日期。",
+                "example": "{Today()}"
+            },
+            {
+                "name": "Weekday",
+                "value": "Weekday()",
+                "syntax": "Weekday(<日期时间>[, <一周第一天>])",
+                "description": "返回代表一星期中某天的整数，如Weekday(Today)返回7，表示星期六，如果返回1表示星期日。",
+                "example": "{Weekday(SaleDate, 0)}"
+            },
+            {
+                "name": "WeekdayName",
+                "value": "WeekdayName()",
+                "syntax": "WeekdayName(<星期几的数字>[, <是否简写>[, <一周第一天>]])",
+                "description": "返回代表一星期中某天的星期几名称。",
+                "example": "{WeekdayName(3, true, 0)}; {WeekDayName(DatePart(\"w\", SaleDate), true, 0)}"
+            },
+            {
+                "name": "Quarter",
+                "value": "Quarter()",
+                "syntax": "Quarter(<日期时间>)",
+                "description": "返回日期值的季度部分（1-4）。",
+                "example": "{Quarter(SaleDate)}"
+            },
+            {
+                "name": "QuarterName",
+                "value": "QuarterName()",
+                "syntax": "QuarterName(<日期时间>)",
+                "description": "返回季度数的季度名称，例如：QuarterName(2020/01/05)返回\"一季度\"。",
+                "example": "{QuarterName(SaleDate)}"
+            },
+            {
+                "name": "Year",
+                "value": "Year()",
+                "syntax": "Year(<日期时间>)",
+                "description": "返回一个日期型数据的年度值（1-9999）。",
+                "example": "{Year(SaleDate)}"
+            },
+            {
+                "name": "AddYears",
+                "value": ".AddYears()",
+                "syntax": "<DateTime>.AddYears(<增减年数>)",
+                "description": "在指定的日期时间基础上，再加/减指定的年数。比如，\"2019/08/06\".AddYears(2)将返回2021/08/06。",
+                "example": "{OrderDate.AddYears(3)}"
+            },
+            {
+                "name": "AddMonths",
+                "value": ".AddMonths()",
+                "syntax": "<DateTime>.AddMonths(<增减月数>)",
+                "description": "在指定的日期时间基础上，再加/减指定的月数。比如，\"2019/08/06\".AddMonths(2)将返回2019/10/06。",
+                "example": "{OrderDate.AddMonths(2)}"
+            },
+            {
+                "name": "AddDays",
+                "value": ".AddDays()",
+                "syntax": "<DateTime>.AddDays(<增减天数>)",
+                "description": "在指定的日期时间基础上，再加/减指定的天数。比如，\"2019/08/06\".AddDays(2)将返回2019/08/08；\"2019/08/06\".AddDays(-3)将返回2019/08/03。",
+                "example": "{OrderDate.AddDays(5)}"
+            },
+            {
+                "name": "AddHours",
+                "value": ".AddHours()",
+                "syntax": "<DateTime>.AddHours(<增减小时数>)",
+                "description": "在指定的日期时间基础上，再加/减指定的小时数。比如，\"2019/08/06 15:28:02\".AddHours(2)将返回2019/08/06 17:28:02；\"2019/08/06 15:28:02\".AddHours(-3)将返回2019/08/06 12:28:02。",
+                "example": "{OrderDate.AddHours(12)}"
+            },
+            {
+                "name": "AddMinutes",
+                "value": ".AddMinutes()",
+                "syntax": "<DateTime>.AddMinutes(<增减分钟数>)",
+                "description": "在指定的日期时间基础上，再加/减指定的分钟数。",
+                "example": "{OrderDate.AddMinutes(30)}"
+            },
+            {
+                "name": "AddSeconds",
+                "value": ".AddSeconds()",
+                "syntax": "<DateTime>.AddSeconds(<增减秒数>)",
+                "description": "在指定的日期时间基础上，再加/减指定的秒数。比如，\"2019/08/06 15:28:02\".AddSeconds(2)将返回2019/08/06 15:28:04。",
+                "example": "{OrderDate.AddSeconds(30)}"
+            },
+            {
+                "name": "AddMilliseconds",
+                "value": ".AddMilliseconds()",
+                "syntax": "<DateTime>.AddMilliseconds(<增减毫秒数>)",
+                "description": "在指定的日期时间基础上，再加/减指定的毫秒数。",
+                "example": "{OrderDate.AddMilliseconds(500)}"
+            },
+            {
+                "name": "DateTime.Parse",
+                "value": "DateTime.Parse()",
+                "syntax": "DateTime.Parse(<格式字符串>[, <String>])",
+                "description": "将一个日期时间值，返回为指定的格式。",
+                "example": "{DateTime.Parse(\"01/01/1970\")}"
+            }
+        ]
+    },
+    {
+        "name": "数学",
+        "list": [
+            {
+                "name": "Abs",
+                "value": "Abs()",
+                "syntax": "Abs(<数值表达式>)",
+                "description": "返回一个数值的绝对值。",
+                "example": "{Abs(-5.5)}; {Abs(YearlyIncome - 80000)}"
+            },
+            {
+                "name": "Acos",
+                "value": "Acos()",
+                "syntax": "Acos(<数值表达式>)",
+                "description": "返回一个数值的反余弦函数值。",
+                "example": "{Acos(0.5)}; {Acos(Angle)}"
+            },
+            {
+                "name": "Asin",
+                "value": "Asin()",
+                "syntax": "Asin(<Number>)",
+                "description": "返回一个数值的反正弦函数值。",
+                "example": "{Asin(0.5)}; {Asin(Angle)}"
+            },
+            {
+                "name": "Atan",
+                "value": "Atan()",
+                "syntax": "Atan(<数值表达式>)",
+                "description": "返回一个数值的反正切函数值。",
+                "example": "{Atan(0.5)}; {Atan(Angle)}"
+            },
+            {
+                "name": "Atan2",
+                "value": "Atan2()",
+                "syntax": "Atan2(<数值表达式1>, <数值表达式2>)",
+                "description": "返回两个数值之商的反正切函数值。",
+                "example": "{Atan2(3, 7)}; {Atan2(CoordinateY, CoordinateX)}"
+            },
+            {
+                "name": "Ceiling",
+                "value": "Ceiling()",
+                "syntax": "Ceiling(<数值表达式>)",
+                "description": "返回不小于指定浮点数的最小整数。",
+                "example": "{Ceiling(98.4331)}; {Ceiling(AnnualSales / 6)}"
+            },
+            {
+                "name": "Cos",
+                "value": "Cos()",
+                "syntax": "Cos(<数值表达式>)",
+                "description": "返回一个数值的余弦函数值。",
+                "example": "{Cos(60)}"
+            },
+            {
+                "name": "Cosh",
+                "value": "Cosh()",
+                "syntax": "Cosh(<数值表达式>)",
+                "description": "返回一个数值的双曲余弦函数值。",
+                "example": "{Cosh(60)}"
+            },
+            {
+                "name": "E",
+                "value": "E",
+                "syntax": "E",
+                "description": "返回自然对数的底（欧拉数E）的数值，即2.71828182845905。",
+                "example": "{E * 2}"
+            },
+            {
+                "name": "Exp",
+                "value": "Exp()",
+                "syntax": "Exp(<数值表达式>)",
+                "description": "返回欧拉数E的幂次方。本函数是Log函数的反函数。",
+                "example": "{Exp(3)}; {Exp(IntegerCounter)}"
+            },
+            {
+                "name": "Fix",
+                "value": "Fix()",
+                "syntax": "Fix(<数值表达式>)",
+                "description": "返回将浮点数值直接舍弃小数部分的整数部分。",
+                "example": "{Fix(-7.15)}; {Fix(AnnualSales / -5)}"
+            },
+            {
+                "name": "Floor",
+                "value": "Floor()",
+                "syntax": "Floor(<数值表达式>)",
+                "description": "返回不大于浮点数值的最大整数。",
+                "example": "{Floor(4.67)}; {Floor(AnnualSales / 12)}"
+            },
+            {
+                "name": "IEEERemainder",
+                "value": "IEEERemainder()",
+                "syntax": "IEEERemainder(<数值表达式1>, <数值表达式2>)",
+                "description": "返回一指定数字被另一指定数字相除的余数，取余操作遵循IEEE标准。",
+                "example": "{IEEERemainder(9, 8)}"
+            },
+            {
+                "name": "Log",
+                "value": "Log()",
+                "syntax": "Log(<数值表达式>)",
+                "description": "返回一个数值的自然对数值。",
+                "example": "{Log(20.5)}; {Log(NumberValue)}"
+            },
+            {
+                "name": "Log10",
+                "value": "Log10()",
+                "syntax": "Log10(<数值表达式>)",
+                "description": "返回一个数值的常用对数值（以10为底）。",
+                "example": "{Log10(20.5)}; {Log10(NumberValue)}"
+            },
+            {
+                "name": "Max",
+                "value": "Max()",
+                "syntax": "Max(<数值表达式>)",
+                "description": "返回指定表达式中所有非空数值的最大值。",
+                "example": "{Max(OrderTotal)}"
+            },
+            {
+                "name": "Min",
+                "value": "Min()",
+                "syntax": "Min(<数值表达式>)",
+                "description": "返回指定表达式中所有非空数值的最小值。",
+                "example": "{Min(OrderTotal)}"
+            },
+            {
+                "name": "PI",
+                "value": "PI",
+                "syntax": "PI",
+                "description": "返回圆周率PI的值，即3.14159265358979。",
+                "example": "{2 * PI * Radius}"
+            },
+            {
+                "name": "Pow",
+                "value": "Pow()",
+                "syntax": "Pow(<数值表达式1>, <数值表达式2>)",
+                "description": "返回数值的幂次方。",
+                "example": "{Pow(Quantity, 2)}"
+            },
+            {
+                "name": "Round",
+                "value": "Round()",
+                "syntax": "Round(<数值表达式>)",
+                "description": "返回浮点参数值四舍五入的最邻近整数。",
+                "example": "{Round(12.456)}; {Round(AnnualSales / 12.3)}"
+            },
+            {
+                "name": "Sign",
+                "value": "Sign()",
+                "syntax": "Sign(<数值表达式>)",
+                "description": "返回一个6位数字的正负号（-1或+1）。",
+                "example": "{Sign(AnnualSales - 60000)}"
+            },
+            {
+                "name": "Sin",
+                "value": "Sin()",
+                "syntax": "Sin(<数值表达式>)",
+                "description": "返回一个数值的正弦函数值。",
+                "example": "{Sin(60)}"
+            },
+            {
+                "name": "Sinh",
+                "value": "Sinh()",
+                "syntax": "Sinh(<数值表达式>)",
+                "description": "返回一个数值的双曲正弦函数值。",
+                "example": "{Sinh(60)}"
+            },
+            {
+                "name": "Sqrt",
+                "value": "Sqrt()",
+                "syntax": "Sqrt(<数值表达式>)",
+                "description": "返回一个数值的平方根。",
+                "example": "{Sqrt(121)}"
+            },
+            {
+                "name": "Tan",
+                "value": "Tan()",
+                "syntax": "Tan(<数值表达式>)",
+                "description": "返回一个数值的正切函数值。",
+                "example": "{Tan(60)}"
+            },
+            {
+                "name": "Tanh",
+                "value": "Tanh()",
+                "syntax": "Tanh(<数值表达式>)",
+                "description": "返回一个数值的正切函数值。",
+                "example": "{Tanh(60)}"
+            },
+            {
+                "name": "Truncate",
+                "value": "Truncate()",
+                "syntax": "Truncate(<Number>)",
+                "description": "删除小数点后的数字而不四舍五入，并返回整数值。",
+                "example": "{Truncate(UnitPrice)}"
+            }
+        ]
+    },
+    {
+        "name": "文本",
+        "list": [
+            {
+                "name": "Contains",
+                "value": ".Contains()",
+                "syntax": "<主字符串>.Contains(<子字符串>)",
+                "description": "判断主字符串中是否包含子字符串，包含返回true，不包含则返回false。",
+                "example": "{ShipAddress.Contains(\"street\")}"
+            },
+            {
+                "name": "EndsWith",
+                "value": ".EndsWith()",
+                "syntax": "<主字符串>.EndsWith(<子字符串>)",
+                "description": "判断主字符串的末尾是否以子字符串结束，是返回true，不是则返回false。",
+                "example": "{Description.EndsWith(\"documents\")}"
+            },
+            {
+                "name": "IndexOf",
+                "value": ".IndexOf()",
+                "syntax": "<主字符串>.IndexOf(<子字符串>[, <搜索起始位置>])",
+                "description": "判断子字符串在主字符串中出现的索引位置，从0位置开始查找，找到返回对应的索引位置，未找到则返回-1。",
+                "example": "{Description.IndexOf(\"documents\")}"
+            },
+            {
+                "name": "InStr",
+                "value": "InStr()",
+                "syntax": "InStr(<String>, <String>)",
+                "description": "返回指定子字符串在字符串中首次出现的起始位置",
+                "example": "{InStr(Description, \"documents\")}"
+            },
+            {
+                "name": "LastIndexOf",
+                "value": ".LastIndexOf()",
+                "syntax": "<主字符串>.LastIndexOf(<子字符串>[, <搜索起始位置>])",
+                "description": "判断子字符串在主字符串中最后一次出现的索引位置，从0位置开始查找，找到返回对应的索引位置，未找到则返回-1。",
+                "example": "{Description.LastIndexOf(\"documents\")}"
+            },
+            {
+                "name": "Replace",
+                "value": ".Replace()",
+                "syntax": "<主字符串>.Replace(<旧字符串>, <新字符串>)",
+                "description": "在主字符串中，查找所有旧字符串，如果找到就使用新字符串进行替换，未找到就不做任何更改。",
+                "example": "{Description.Replace(\"documents\", \"invoices\")}"
+            },
+            {
+                "name": "StartsWith",
+                "value": ".StartsWith()",
+                "syntax": "<主字符串>.StartsWith(<子字符串>)",
+                "description": "判断主字符串的开始是否与子字符串一致，一致返回true，不一致则返回false。",
+                "example": "{Description.StartsWith(\"Invoice\")}"
+            },
+            {
+                "name": "Substring",
+                "value": ".Substring()",
+                "syntax": "<主字符串>.Substring(<起始字符位置>, <字符长度>)",
+                "description": "从主字符串中返回一个子字符串，子字符串从指定的字符位置开始且具有指定的长度。",
+                "example": "{Description.Substring(1, 10)}"
+            },
+            {
+                "name": "ToLower",
+                "value": ".ToLower()",
+                "syntax": "<主字符串>.ToLower()",
+                "description": "将主字符串全部字符转换为小写形式。",
+                "example": "{ShipCountry.ToLower()}"
+            },
+            {
+                "name": "ToUpper",
+                "value": ".ToUpper()",
+                "syntax": "<主字符串>.ToUpper()",
+                "description": "将主字符串全部字符转换为大写形式。",
+                "example": "{ShipCountry.ToUpper()}"
+            },
+            {
+                "name": "Trim",
+                "value": ".Trim()",
+                "syntax": "<主字符串>.Trim()",
+                "description": "从主字符串的开头和结尾删除所有空白字符后剩余的字符串。",
+                "example": "{@Info.Trim()}"
+            },
+            {
+                "name": "TrimEnd",
+                "value": ".TrimEnd()",
+                "syntax": "<主字符串>.TrimEnd()",
+                "description": "从主字符串的结尾删除所有空白字符后剩余的字符串。",
+                "example": "{@Info.TrimEnd()}"
+            },
+            {
+                "name": "TrimStart",
+                "value": ".TrimStart()",
+                "syntax": "<主字符串>.TrimStart()",
+                "description": "从主字符串的开头删除所有空白字符后剩余的字符串。",
+                "example": "{@Info.TrimStart()}"
+            }
+        ]
+    },
+    {
+        "name": "检测",
+        "list": [
+            {
+                "name": "IsArray",
+                "value": "IsArray()",
+                "syntax": "IsArray(<表达式>)",
+                "description": "如果表达式是数组，返回True。",
+                "example": "{IsArray(@Initials)}"
+            },
+            {
+                "name": "IsDate",
+                "value": "IsDate()",
+                "syntax": "IsDate(<表达式>)",
+                "description": "如果表达式是日期时间值，返回True。",
+                "example": "{IsDate(BirthDate)}; {IsDate(\"31/12/2010\")}"
+            },
+            {
+                "name": "IsNothing",
+                "value": "IsNothing()",
+                "syntax": "IsNothing(<表达式>)",
+                "description": "如果表达式是一个空引用指针对象，返回True。",
+                "example": "{IsNothing(MiddleInitial)}"
+            },
+            {
+                "name": "IsNumeric",
+                "value": "IsNumeric()",
+                "syntax": "IsNumeric(<表达式>)",
+                "description": "如果表达式是一个数值型数据，返回True。",
+                "example": "{IsNumeric(AnnualSales)}"
+            }
+        ]
+    },
+    {
+        "name": "流程",
+        "list": [
+            {
+                "name": "Choose",
+                "value": "Choose()",
+                "syntax": "Choose(<索引>, <表达式1>[, <表达式2>,...[, <表达式N>]])",
+                "description": "以第一个参数为索引，返回后续参数中的一个。例如Choose(1,\"a\",\"b\")返回字符串\"a\"。",
+                "example": "{Choose(3, \"10\", \"15\", \"20\", \"25\")}"
+            },
+            {
+                "name": "IIF",
+                "value": "IIF()",
+                "syntax": "IIF(<条件表达式>, <TruePart>, <FalsePart>)",
+                "description": "根据第一个参数的结果逻辑值（真/假），返回第二个或第三个参数的值。",
+                "example": "{IIF(AnnualSales >= 80000, \"Above Average\", \"Below Average\")}"
+            },
+            {
+                "name": "Partition",
+                "value": "Partition()",
+                "syntax": "Partition(<整数表达式>, <区段起始值>, <区段结束值>, <区段间隔步长>)",
+                "description": "返回一个字符串，表示一个指定数值，出现在一个系列值中的哪一个区段。比如Partition(230,1,1000,100) 返回字符串“201:300”。其含义是：从1开始至1000为止，每隔100为一个区间，230落在201-300这个区间内。",
+                "example": "{Partition(1999, 1980, 2000, 10)}"
+            },
+            {
+                "name": "Switch",
+                "value": "Switch()",
+                "syntax": "Switch(<条件表达式1>, <表达式1>[, <条件表达式2>, <表达式2>,...[, <条件表达式N>, <表达式N>]])",
+                "description": "计算一组表达式列表的值，然后返回与表达式列表中最先为真的表达式所相关的数值或表达式。",
+                "example": "{Switch(FirstName = \"Abraham\", \"Adria\", FirstName = \"Charelotte\", \"Cherrie\")}"
+            }
+        ]
+    },
+    {
+        "name": "集合",
+        "list": [
+            {
+                "name": "AggregateIf",
+                "value": "AggregateIf()",
+                "syntax": "AggregateIf(<条件表达式>, <集合函数>, <集合函数参数>)",
+                "description": "如果布尔表达式符合给定条件，则计算指定表达式的集合函数值。",
+                "example": "{AggregateIf(Discontinued = true, \"Sum\", InStock)}"
+            },
+            {
+                "name": "AggregateIf（with scope）",
+                "value": "AggregateIf()",
+                "syntax": "AggregateIf(<条件表达式>, <集合函数>, <集合函数参数>, <作用域>)",
+                "description": "在指定作用域内，如果布尔表达式符合给定条件，则计算指定表达式的集合函数值。",
+                "example": "{AggregateIf(Discontinued = true, \"Sum\", InStock, \"Category\")}"
+            },
+            {
+                "name": "Avg",
+                "value": "Avg()",
+                "syntax": "Avg(<数值表达式>)",
+                "description": "计算指定表达式中所有非空数值的平均数。",
+                "example": "{Avg(LifeExpentancy)}"
+            },
+            {
+                "name": "Avg（with scope）",
+                "value": "Avg()",
+                "syntax": "Avg(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，计算表达式中所有非空数值的平均数。",
+                "example": "{Avg(LifeExpentancy, \"GroupByCountry\")}"
+            },
+            {
+                "name": "Count",
+                "value": "Count()",
+                "syntax": "Count(<数值表达式>)",
+                "description": "计算指定表达式中所有非空数值的总个数。",
+                "example": "{Count(EmployeeID)}"
+            },
+            {
+                "name": "Count（with scope）",
+                "value": "Count()",
+                "syntax": "Count(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，计算指定表达式中所有非空数值的总个数。",
+                "example": "{Count(EmployeeID, \"Title\")}"
+            },
+            {
+                "name": "CountDistinct",
+                "value": "CountDistinct()",
+                "syntax": "CountDistinct(<数值表达式>)",
+                "description": "计算指定表达式中所有非重复值的个数。",
+                "example": "{CountDistinct(OrderID)}"
+            },
+            {
+                "name": "CountDistinct（with scope）",
+                "value": "CountDistinct()",
+                "syntax": "CountDistinct(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，计算指定表达式中所有非重复值的个数。",
+                "example": "{CountDistinct(OrderID, \"GroupByCategory\")}"
+            },
+            {
+                "name": "CountRows",
+                "value": "CountRows()",
+                "syntax": "CountRows()",
+                "description": "计算记录行数。",
+                "example": "{CountRows()}"
+            },
+            {
+                "name": "CountRows（with scope）",
+                "value": "CountRows()",
+                "syntax": "CountRows(<作用域>)",
+                "description": "计算指定范围内的记录行数。",
+                "example": "{CountRows(\"Title\")}"
+            },
+            {
+                "name": "CrossAggregate",
+                "value": "CrossAggregate()",
+                "syntax": "CrossAggregate(<表达式>, <聚合函数>, <列分组名称>, <行分组名称>)",
+                "description": "计算指定行和列分组对应单元格的数值，计算公式由给定的聚合函数名称决定，比如：Sum、Count等",
+                "example": "{CrossAggregate(Amount, \"Sum\", \"YearGroup\", \"CategoryGroup\")}"
+            },
+            {
+                "name": "CumulativeTotal",
+                "value": "CumulativeTotal()",
+                "syntax": "CumulativeTotal(<数值表达式>, <聚合函数>)",
+                "description": "计算当前页面级别的数据统计结果。",
+                "example": "{CumulativeTotal(OrderID, \"Count\")}"
+            },
+            {
+                "name": "DistinctSum",
+                "value": "DistinctSum()",
+                "syntax": "DistinctSum(<非重复数值表达式>, <待汇总数值表达式>)",
+                "description": "当一个表达式的数值不重复时，计算另一表达式的总和。",
+                "example": "{DistinctSum(OrderID, OrderFreight)}"
+            },
+            {
+                "name": "DistinctSum（with scope）",
+                "value": "DistinctSum()",
+                "syntax": "DistinctSum(<非重复数值表达式>, <待汇总数值表达式>, <作用域>)",
+                "description": "在指定作用域内，当一个表达式的数值不重复时，计算另一表达式的总和。",
+                "example": "{DistinctSum(OrderID, OrderFreight, \"Order\")}"
+            },
+            {
+                "name": "First",
+                "value": "First()",
+                "syntax": "First(<数值表达式>)",
+                "description": "返回指定表达式的第一个值。",
+                "example": "{First(ProductNumber)}"
+            },
+            {
+                "name": "First（with scope）",
+                "value": "First()",
+                "syntax": "First(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，返回指定表达式的第一个值。",
+                "example": "{First(ProductNumber, \"Category\")}"
+            },
+            {
+                "name": "Last",
+                "value": "Last()",
+                "syntax": "Last(<数值表达式>)",
+                "description": "返回指定表达式的最后一个值。",
+                "example": "{Last(ProductNumber)}"
+            },
+            {
+                "name": "Last（with scope）",
+                "value": "Last()",
+                "syntax": "Last(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，返回指定表达式的最后一个值。",
+                "example": "{Last(ProductNumber, \"Category\")}"
+            },
+            {
+                "name": "Max",
+                "value": "Max()",
+                "syntax": "Max(<数值表达式>)",
+                "description": "返回指定表达式中所有非空数值的最大值。",
+                "example": "{Max(OrderTotal)}"
+            },
+            {
+                "name": "Max（with scope）",
+                "value": "Max()",
+                "syntax": "Max(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，返回指定表达式中所有非空数值的最大值。",
+                "example": "{Max(OrderTotal, \"Year\")}"
+            },
+            {
+                "name": "Median",
+                "value": "Median()",
+                "syntax": "Median(<数值表达式>)",
+                "description": "返回指定表达式中所有数值的中位数。",
+                "example": "{Median(OrderTotal)}"
+            },
+            {
+                "name": "Median（with scope）",
+                "value": "Median()",
+                "syntax": "Median(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，返回指定表达式中所有数值的中位数。",
+                "example": "{Median(OrderTotal, \"Year\")}"
+            },
+            {
+                "name": "Min",
+                "value": "Min()",
+                "syntax": "Min(<数值表达式>)",
+                "description": "返回指定表达式中所有非空数值的最小值。",
+                "example": "{Min(OrderTotal)}"
+            },
+            {
+                "name": "Min（with scope）",
+                "value": "Min()",
+                "syntax": "Min(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，返回指定表达式中所有非空数值的最小值。",
+                "example": "{Min(OrderTotal, \"Year\")}"
+            },
+            {
+                "name": "Mode",
+                "value": "Mode()",
+                "syntax": "Mode(<数值表达式>)",
+                "description": "返回指定表达式中重复次数最多的数值。",
+                "example": "{Mode(OrderTotal)}"
+            },
+            {
+                "name": "Mode（with scope）",
+                "value": "Mode()",
+                "syntax": "Mode(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，返回指定表达式中重复次数最多的数值。",
+                "example": "{Mode(OrderTotal, \"Year\")}"
+            },
+            {
+                "name": "RunningValue",
+                "value": "RunningValue()",
+                "syntax": "RunningValue(<数值表达式>, <集合函数>)",
+                "description": "以另一集合函数为参数，计算指定表达式的累进集合函数值。",
+                "example": "{RunningValue(Price, \"Sum\")}"
+            },
+            {
+                "name": "RunningValue（with scope）",
+                "value": "RunningValue()",
+                "syntax": "RunningValue(<数值表达式>, <集合函数>, <作用域>)",
+                "description": "在指定作用域内，以另一集合函数为参数，计算指定表达式的累进集合函数值。",
+                "example": "{RunningValue(Price, \"Sum\", \"Nwind\")}"
+            },
+            {
+                "name": "StDev",
+                "value": "StDev()",
+                "syntax": "StDev(<数值表达式>)",
+                "description": "计算指定表达式所有非空数值的标准差。",
+                "example": "{StDev(LineTotal)}"
+            },
+            {
+                "name": "StDev（with scope）",
+                "value": "StDev()",
+                "syntax": "StDev(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，计算指定表达式所有非空数值的标准差。",
+                "example": "{StDev(LineTotal, \"Nwind\")}"
+            },
+            {
+                "name": "StDevP",
+                "value": "StDevP()",
+                "syntax": "StDevP(<数值表达式>)",
+                "description": "计算指定表达式所有非空数值的总体标准差。",
+                "example": "{StDevP(LineTotal)}"
+            },
+            {
+                "name": "StDevP（with scope）",
+                "value": "StDevP()",
+                "syntax": "StDevP(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，计算指定表达式所有非空数值的总体标准差。",
+                "example": "{StDevP(LineTotal, \"Order\")}"
+            },
+            {
+                "name": "Sum",
+                "value": "Sum()",
+                "syntax": "Sum(<数值表达式>)",
+                "description": "计算指定表达式所有数值的总和。",
+                "example": "{Sum(Price)}"
+            },
+            {
+                "name": "Sum（with scope）",
+                "value": "Sum()",
+                "syntax": "Sum(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，计算指定表达式所有数值的总和。",
+                "example": "{Sum(Price, \"Category\")}"
+            },
+            {
+                "name": "Var",
+                "value": "Var()",
+                "syntax": "Var(<数值表达式>)",
+                "description": "计算指定表达式所有非空数值的方差（标准差的平方）。",
+                "example": "{Var(LineTotal)}"
+            },
+            {
+                "name": "Var（with scope）",
+                "value": "Var()",
+                "syntax": "Var(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，计算指定表达式所有非空数值的方差（标准差的平方）。",
+                "example": "{Var(LineTotal, \"Order\")}"
+            },
+            {
+                "name": "VarP",
+                "value": "VarP()",
+                "syntax": "VarP(<数值表达式>)",
+                "description": "计算指定表达式所有非空数值的总体方差（总体标准差的平方）。",
+                "example": "{VarP(LineTotal)}"
+            },
+            {
+                "name": "VarP（with scope）",
+                "value": "VarP()",
+                "syntax": "VarP(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，计算指定表达式所有非空数值的总体方差（总体标准差的平方）。",
+                "example": "{VarP(LineTotal, \"Order\")}"
+            }
+        ]
+    },
+    {
+        "name": "转换",
+        "list": [
+            {
+                "name": "ToBoolean",
+                "value": "ToBoolean()",
+                "syntax": "ToBoolean(<表达式>)",
+                "description": "将一个数值或字符串变成布尔值（真/假）。所有非0数值，无论正负，都会转换成真。",
+                "example": "{ToBoolean(HouseOwnerFlag)}"
+            },
+            {
+                "name": "ToByte",
+                "value": "ToByte()",
+                "syntax": "ToByte(<表达式>)",
+                "description": "将参数转换为一个0-255的字节数值。",
+                "example": "{ToByte(ProductNumber)}"
+            },
+            {
+                "name": "ToChar",
+                "value": "ToChar()",
+                "syntax": "ToChar(<表达式>)",
+                "description": "将一个数值转换成对应ASCII值的字符，例如ToChar(65)返回A。",
+                "example": "{ToChar(OrderStatus)}; {ToChar(“Hello”)}"
+            },
+            {
+                "name": "ToDateTime",
+                "value": "ToDateTime()",
+                "syntax": "ToDateTime(<表达式>)",
+                "description": "将一个字符串（如\"2017-1-1 23:59:59\"）转换成一个日期时间型数据。",
+                "example": "{ToDateTime(SaleDate)}; {ToDateTime(\"1 January, 2017\")}"
+            },
+            {
+                "name": "ToDecimal",
+                "value": "ToDecimal()",
+                "syntax": "ToDecimal(<表达式>)",
+                "description": "将一个字符串或数值转换成带小数位的数值。",
+                "example": "{ToDecimal(Sales)}"
+            },
+            {
+                "name": "ToDouble",
+                "value": "ToDouble()",
+                "syntax": "ToDouble(<表达式>)",
+                "description": "将一个字符串或数值转换成双精度的数值。",
+                "example": "{ToDouble(AnnualSales)}; {ToDouble(535.85 * 0.2691 * 67483)}"
+            },
+            {
+                "name": "ToInt16",
+                "value": "ToInt16()",
+                "syntax": "ToInt16(<表达式>)",
+                "description": "将一个字符串或数值转换成2字节的带符号整数值。",
+                "example": "{ToInt16(AnnualSales)}; {ToInt16(535.85)}"
+            },
+            {
+                "name": "ToInt32",
+                "value": "ToInt32()",
+                "syntax": "ToInt32(<表达式>)",
+                "description": "将一个字符串或数值转换成4字节的带符号整数值。",
+                "example": "{ToInt32(AnnualSales)}"
+            },
+            {
+                "name": "ToInt64",
+                "value": "ToInt64()",
+                "syntax": "ToInt64(<表达式>)",
+                "description": "将一个字符串或数值转换成8字节的带符号整数值。",
+                "example": "{ToInt64(AnnualSales)}"
+            },
+            {
+                "name": "ToSingle",
+                "value": "ToSingle()",
+                "syntax": "ToSingle(<表达式>)",
+                "description": "将一个字符串或数值转换成单精度浮点数。",
+                "example": "{ToSingle(AnnualSales)}; {ToSingle(15.857692134)}"
+            },
+            {
+                "name": "ToString",
+                "value": "ToString()",
+                "syntax": "ToString(<表达式>)",
+                "description": "将任意类型数据转换为一个字符串。对象型参数的转换结果为\"Object\"。",
+                "example": "{ToString(YearlyIncome)}; {ToString(13.5)}"
+            },
+            {
+                "name": ".ToString",
+                "value": ".ToString()",
+                "syntax": "<数值表达式>.ToString(<格式字符串>)",
+                "description": "将一个数值转换为格式化之后的字符串，比如：\"0.85642\".ToString(\"0.00%\")将返回 85.64%。",
+                "example": "{OrderDate.ToString(\"dd MMM yyyy\")}"
+            },
+            {
+                "name": "ToUInt16",
+                "value": "ToUInt16()",
+                "syntax": "ToUInt16(<表达式>)",
+                "description": "将一个字符串或数值转换成2字节的无符号整数值。",
+                "example": "{ToUInt16(AnnualSales)}"
+            },
+            {
+                "name": "ToUInt32",
+                "value": "ToUInt32()",
+                "syntax": "ToUInt32(<表达式>)",
+                "description": "将一个字符串或数值转换成4字节的无符号整数值。",
+                "example": "{ToUInt32(AnnualSales)}"
+            },
+            {
+                "name": "ToUInt64",
+                "value": "ToUInt64()",
+                "syntax": "ToUInt64(<表达式>)",
+                "description": "将一个字符串或数值转换成8字节的无符号整数值。",
+                "example": "{ToUInt64(AnnualSales)}"
+            },
+            {
+                "name": "Format",
+                "value": "Format()",
+                "syntax": "Format(<数值表达式>, <格式字符串>)",
+                "description": "将数值按照格式化字符串的设置进行转换，最终返回相应的格式化之后的字符串。比如：Format(0.23645, \"0.00%\")将返回23.65%。",
+                "example": "{Format(OrderDate, \"dd MMM yyyy\")}"
+            }
+        ]
+    },
+    {
+        "name": "其它",
+        "list": [
+            {
+                "name": "InScope",
+                "value": "InScope()",
+                "syntax": "InScope(<作用域>)",
+                "description": "如果当前值在某个作用域内，返回True。",
+                "example": "{InScope(\"Order\")}"
+            },
+            {
+                "name": "Level",
+                "value": "Level()",
+                "syntax": "Level()",
+                "description": "返回当前值在层次结构中的级别。层次结构的第一级是0。",
+                "example": "{Level()}"
+            },
+            {
+                "name": "Level（with scope）",
+                "value": "Level()",
+                "syntax": "Level(<作用域>)",
+                "description": "在指定的作用域内，返回当前值在层次结构中的级别。层次结构的第一级是0。",
+                "example": "{Level(\"Order\")}"
+            },
+            {
+                "name": "Lookup",
+                "value": "Lookup()",
+                "syntax": "Lookup(<主数据集字段>, <关联数据集匹配字段>, <关联数据集数据字段>, <关联数据集名称>)",
+                "description": "返回外键关联的另一数据集的指定字段值。",
+                "example": "{Lookup(ProductID, ProductID, Quantity, \"DataSet2\")}"
+            },
+            {
+                "name": "LookupSet",
+                "value": "LookupSet()",
+                "syntax": "LookupSet(<主数据集字段>, <关联数据集匹配字段>, <关联数据集数据字段>, <关联数据集名称>)",
+                "description": "返回外键关联的另一数据集的指定字段的一组匹配值。",
+                "example": "{LookupSet(ProductID, ProductID, Quantity, \"DataSet2\")}"
+            },
+            {
+                "name": "Previous",
+                "value": "Previous()",
+                "syntax": "Previous(<表达式>)",
+                "description": "返回指定作用域中的前一个值，例如上一行记录的某一字段的值。",
+                "example": "{Previous(OrderID)}"
+            },
+            {
+                "name": "Previous（with scope）",
+                "value": "Previous()",
+                "syntax": "Previous(<表达式>, <作用域>)",
+                "description": "计算指定范围内上一行数据的表达式数值。",
+                "example": "{Previous(OrderID, \"Order\")}"
+            },
+            {
+                "name": "RowNumber",
+                "value": "RowNumber()",
+                "syntax": "RowNumber()",
+                "description": "返回记录行号。",
+                "example": "{RowNumber()}"
+            },
+            {
+                "name": "RowNumber（with scope）",
+                "value": "RowNumber()",
+                "syntax": "RowNumber(<作用域>)",
+                "description": "返回指定作用域内的记录行号。",
+                "example": "{RowNumber(\"OrderID\")}"
+            },
+            {
+                "name": "GetLength",
+                "value": ".GetLength()",
+                "syntax": "<Collection>.GetLength(<Number>)",
+                "description": "返回指定数组中的元素个数。",
+                "example": "{@MultiValueParameter.GetLength(0)}"
+            },
+            {
+                "name": "Item",
+                "value": ".Item()",
+                "syntax": "<Object | Record>.Item(<String>)",
+                "description": "通过名称，返回一个字段、参数或者报表元素",
+                "example": "{Fields.Item(\"Company Name\").Name}; {Parameters.Item(\"Parameter1\").Name}; {ReportItems.Item(\"TextBox1\").Value}"
+            },
+            {
+                "name": "Join",
+                "value": "Join()",
+                "syntax": "Join(<数组>, <分隔符>)",
+                "description": "连接指定数组的元素或集合的成员，在每个元素或成员之间使用指定的分隔符。",
+                "example": "{Join(@MultiValueParameter, \", \")}"
+            }
+        ]
+    }
+]

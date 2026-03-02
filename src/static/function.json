@@ -1,0 +1,2018 @@
+[
+    {
+        "name": "日期",
+        "list": [
+            {
+                "name": "DATE",
+                "value": "DATE()",
+                "syntax": "DATE(年份, 月份, 日期)",
+                "description": "根据给定的年、月和日创建日期。",
+                "example": "DATE(2008, 7, 8)"
+            },
+            {
+                "name": "DATEVALUE",
+                "value": "DATEVALUE()",
+                "syntax": "DATEVALUE(表示日期的文本字符串)",
+                "description": "将文本格式的日期转换为日期序列号。",
+                "example": "DATEVALUE('8/22/2011')"
+            },
+            {
+                "name": "DAY",
+                "value": "DAY()",
+                "syntax": "DAY(日期值或日期文本字符串)",
+                "description": "返回指定日期中的日部分。",
+                "example": "DAY('15-Apr-11')"
+            },
+            {
+                "name": "DAYS",
+                "value": "DAYS()",
+                "syntax": "DAYS(结束日期, 开始日期)",
+                "description": "计算两个日期之间的天数。",
+                "example": "DAYS('3/15/11', '2/1/11')"
+            },
+            {
+                "name": "DAYS360",
+                "value": "DAYS360()",
+                "syntax": "DAYS360(起始日期, 结束日期)",
+                "description": "基于一年360天计算两个日期间的天数。",
+                "example": "DAYS360('1-Jan-11', '31-Dec-11')"
+            },
+            {
+                "name": "EDATE",
+                "value": "EDATE()",
+                "syntax": "EDATE(起始日期, 月份数)",
+                "description": "返回指定月份数之前或之后的日期，正数为将来，负数为过去。",
+                "example": "EDATE('1/15/11', -1)"
+            },
+            {
+                "name": "EOMONTH",
+                "value": "EOMONTH()",
+                "syntax": "EOMONTH(起始日期, 月份数)",
+                "description": "返回指定月份数之前或之后的月末日期，正数为将来，负数为过去。",
+                "example": "EOMONTH('1/1/11', -3)"
+            },
+            {
+                "name": "HOUR",
+                "value": "HOUR()",
+                "syntax": "HOUR(时间值或时间文本字符串)",
+                "description": "返回时间中的小时部分。",
+                "example": "HOUR('7/18/2011 7:45:00 AM')"
+            },
+            {
+                "name": "MINUTE",
+                "value": "MINUTE()",
+                "syntax": "MINUTE(时间值或时间文本字符串)",
+                "description": "返回时间中的分钟部分。",
+                "example": "MINUTE('2/1/2011 12:45:00 PM')"
+            },
+            {
+                "name": "ISOWEEKNUM",
+                "value": "ISOWEEKNUM()",
+                "syntax": "ISOWEEKNUM(日期值或日期文本字符串)",
+                "description": "返回一年中给定日期所在的ISO周数。",
+                "example": "ISOWEEKNUM('3/9/2012')"
+            },
+            {
+                "name": "MONTH",
+                "value": "MONTH()",
+                "syntax": "MONTH(日期值或日期文本字符串)",
+                "description": "返回指定日期中的月部分。",
+                "example": "MONTH('15-Apr-11')"
+            },
+            {
+                "name": "NETWORKDAYS",
+                "value": "NETWORKDAYS()",
+                "syntax": "NETWORKDAYS(开始日期, 结束日期, [假期数组])",
+                "description": "计算两个日期间的工作日数，不包括周末和指定的假期，假期数组为可选参数。",
+                "example": "NETWORKDAYS('10/1/2012', '3/1/2013', ['11/22/2012'])"
+            },
+            {
+                "name": "NETWORKDAYSINTL",
+                "value": "NETWORKDAYSINTL()",
+                "syntax": "NETWORKDAYSINTL(开始日期, 结束日期, 周末模式, [假期数组])",
+                "description": "计算两个日期间的工作日数，允许自定义周末，并排除指定假期，假期数组为可选参数。",
+                "example": "NETWORKDAYSINTL('1/1/2006', '2/1/2006', 7, ['1/2/2006'])"
+            },
+            {
+                "name": "NOW",
+                "value": "NOW()",
+                "syntax": "NOW()",
+                "description": "返回当前的日期和时间，无参数。",
+                "example": "NOW()"
+            },
+            {
+                "name": "SECOND",
+                "value": "SECOND()",
+                "syntax": "SECOND(时间值或时间文本字符串)",
+                "description": "返回时间中的秒部分。",
+                "example": "SECOND('2/1/2011 4:48:18 PM')"
+            },
+            {
+                "name": "TIME",
+                "value": "TIME()",
+                "syntax": "TIME(小时, 分钟, 秒)",
+                "description": "根据给定的小时、分钟和秒创建时间，参数分别为0-23、0-59、0-59。",
+                "example": "TIME(16, 48, 10)"
+            },
+            {
+                "name": "TIMEVALUE",
+                "value": "TIMEVALUE()",
+                "syntax": "TIMEVALUE(表示时间的文本字符串)",
+                "description": "将文本格式的时间转换为时间序列号。",
+                "example": "TIMEVALUE('22-Aug-2011 6:35 AM')"
+            },
+            {
+                "name": "TODAY",
+                "value": "TODAY()",
+                "syntax": "TODAY()",
+                "description": "返回今天的日期，无参数。",
+                "example": "TODAY()"
+            },
+            {
+                "name": "WEEKDAY",
+                "value": "WEEKDAY()",
+                "syntax": "WEEKDAY(日期值或日期文本字符串, 返回类型)",
+                "description": "返回一周中某一天的数字，返回类型可选1-3。",
+                "example": "WEEKDAY('2/14/2008', 3)"
+            },
+            {
+                "name": "YEAR",
+                "value": "YEAR()",
+                "syntax": "YEAR(日期值或日期文本字符串)",
+                "description": "返回指定日期中的年部分。",
+                "example": "YEAR('7/5/2008')"
+            },
+            {
+                "name": "WEEKNUM",
+                "value": "WEEKNUM()",
+                "syntax": "WEEKNUM(日期值或日期文本字符串, [周开始日])",
+                "description": "返回一年中给定日期所在的周数，周开始日为可选参数，1=星期日，2=星期一。",
+                "example": "WEEKNUM('3/9/2012', 2)"
+            },
+            {
+                "name": "WORKDAY",
+                "value": "WORKDAY()",
+                "syntax": "WORKDAY(起始日期, 工作日数, [假期数组])",
+                "description": "返回从起始日期起指定工作日数之前或之后的日期，不包括周末和指定的假期，假期数组为可选参数。",
+                "example": "WORKDAY('10/1/2008', 151, ['11/26/2008', '12/4/2008'])"
+            },
+            {
+                "name": "WORKDAYINTL",
+                "value": "WORKDAYINTL()",
+                "syntax": "WORKDAYINTL(起始日期, 工作日数, 周末模式, [假期数组])",
+                "description": "返回从起始日期起指定工作日数之前或之后的日期，允许自定义周末，并排除指定假期，假期数组为可选参数。",
+                "example": "WORKDAYINTL('1/1/2012', 30, 17)"
+            },
+            {
+                "name": "YEARFRAC",
+                "value": "YEARFRAC()",
+                "syntax": "YEARFRAC(开始日期, 结束日期, [日计数基准])",
+                "description": "计算两个日期之间的年分数，日计数基准为可选参数。",
+                "example": "YEARFRAC('1/1/2012', '7/30/2012', 3)"
+            }
+        ]
+    },
+    {
+        "name": "金融",
+        "list": [
+            {
+                "name": "ACCRINT",
+                "value": "ACCRINT()",
+                "syntax": "ACCRINT(起始日期, 首次支付利息日期, 结算日期, 年利率, 面值, 期间数, 基础)",
+                "description": "计算定期支付利息的有价证券的应计利息。",
+                "example": "ACCRINT('01/01/2011', '02/01/2011', '07/01/2014', 0.1, 1000, 1, 0)"
+            },
+            {
+                "name": "CUMIPMT",
+                "value": "CUMIPMT()",
+                "syntax": "CUMIPMT(利率, 总期数, 现值, 开始期数, 结束期数, 支付类型)",
+                "description": "计算一系列付款中累积的利息支付，支付类型0=期末，1=期初。",
+                "example": "CUMIPMT(0.1/12, 30*12, 100000, 13, 24, 0)"
+            },
+            {
+                "name": "CUMPRINC",
+                "value": "CUMPRINC()",
+                "syntax": "CUMPRINC(利率, 总期数, 现值, 开始期数, 结束期数, 支付类型)",
+                "description": "计算一系列付款中累积的本金支付，支付类型0=期末，1=期初。",
+                "example": "CUMPRINC(0.1/12, 30*12, 100000, 13, 24, 0)"
+            },
+            {
+                "name": "DB",
+                "value": "DB()",
+                "syntax": "DB(成本, 残值, 使用寿命, 期间, 月份)",
+                "description": "使用固定余额递减法计算折旧。",
+                "example": "DB(1000000, 100000, 6, 1, 6)"
+            },
+            {
+                "name": "DDB",
+                "value": "DDB()",
+                "syntax": "DDB(成本, 残值, 使用寿命, 期间, 因子)",
+                "description": "使用双倍余额递减法或其他指定方法计算折旧。",
+                "example": "DDB(1000000, 100000, 6, 1, 1.5)"
+            },
+            {
+                "name": "DOLLARDE",
+                "value": "DOLLARDE()",
+                "syntax": "DOLLARDE(分数形式的美元价格, 分母)",
+                "description": "将分数表示的价格转换为小数表示。",
+                "example": "DOLLARDE(1.1, 16)"
+            },
+            {
+                "name": "DOLLARFR",
+                "value": "DOLLARFR()",
+                "syntax": "DOLLARFR(小数形式的美元价格, 分母)",
+                "description": "将小数表示的价格转换为分数表示。",
+                "example": "DOLLARFR(1.625, 16)"
+            },
+            {
+                "name": "EFFECT",
+                "value": "EFFECT()",
+                "syntax": "EFFECT(名义年利率, 每年复利次数)",
+                "description": "计算实际年利率。",
+                "example": "EFFECT(0.1, 4)"
+            },
+            {
+                "name": "FV",
+                "value": "FV()",
+                "syntax": "FV(每期利率, 期数, 每期支付额, 现值, 支付类型)",
+                "description": "计算投资的未来价值，支付类型0=期末，1=期初。",
+                "example": "FV(0.1/12, 10, -100, -1000, 0)"
+            },
+            {
+                "name": "FVSCHEDULE",
+                "value": "FVSCHEDULE()",
+                "syntax": "FVSCHEDULE(本金, 利率数组)",
+                "description": "根据一系列复利率计算本金的未来价值。",
+                "example": "FVSCHEDULE(100, [0.09,0.1,0.11])"
+            },
+            {
+                "name": "IPMT",
+                "value": "IPMT()",
+                "syntax": "IPMT(每期利率, 期间, 总期数, 现值, 未来值, 支付类型)",
+                "description": "计算特定期间内的利息支付，支付类型0=期末，1=期初。",
+                "example": "IPMT(0.1/12, 6, 2*12, 100000, 1000000, 0)"
+            },
+            {
+                "name": "IRR",
+                "value": "IRR()",
+                "syntax": "IRR(现金流数组, 估计值)",
+                "description": "计算内部收益率。",
+                "example": "IRR([-75000,12000,15000,18000,21000,24000], 0.075)"
+            },
+            {
+                "name": "ISPMT",
+                "value": "ISPMT()",
+                "syntax": "ISPMT(每期利率, 期间, 总期数, 贷款金额)",
+                "description": "计算特定期间内的利息支付，适用于贷款。",
+                "example": "ISPMT(0.1/12, 6, 2*12, 100000)"
+            },
+            {
+                "name": "MIRR",
+                "value": "MIRR()",
+                "syntax": "MIRR(现金流数组, 融资利率, 再投资利率)",
+                "description": "计算修正内部收益率。",
+                "example": "MIRR([-75000,12000,15000,18000,21000,24000], 0.1, 0.12)"
+            },
+            {
+                "name": "NOMINAL",
+                "value": "NOMINAL()",
+                "syntax": "NOMINAL(实际年利率, 每年复利次数)",
+                "description": "计算名义年利率。",
+                "example": "NOMINAL(0.1, 4)"
+            },
+            {
+                "name": "NPER",
+                "value": "NPER()",
+                "syntax": "NPER(每期利率, 每期支付额, 现值, 未来值, 支付类型)",
+                "description": "计算达到目标值所需的期数，支付类型0=期末，1=期初。",
+                "example": "NPER(0.1/12, -100, -1000, 10000, 0)"
+            },
+            {
+                "name": "NPV",
+                "value": "NPV()",
+                "syntax": "NPV(每期折现率, 现金流数组)",
+                "description": "计算一系列未来现金流的净现值。",
+                "example": "NPV(0.1, -10000, 2000, 4000, 8000)"
+            },
+            {
+                "name": "PDURATION",
+                "value": "PDURATION()",
+                "syntax": "PDURATION(每期利率, 现值, 未来值)",
+                "description": "计算达到特定值所需的时间。",
+                "example": "PDURATION(0.1, 1000, 2000)"
+            },
+            {
+                "name": "PMT",
+                "value": "PMT()",
+                "syntax": "PMT(每期利率, 总期数, 现值, 未来值, 支付类型)",
+                "description": "计算贷款的每期支付额，支付类型0=期末，1=期初。",
+                "example": "PMT(0.1/12, 2*12, 1000, 10000, 0)"
+            },
+            {
+                "name": "PPMT",
+                "value": "PPMT()",
+                "syntax": "PPMT(每期利率, 期间, 总期数, 现值, 未来值, 支付类型)",
+                "description": "计算特定期间内的本金支付，支付类型0=期末，1=期初。",
+                "example": "PPMT(0.1/12, 6, 2*12, 100000, 1000000, 0)"
+            },
+            {
+                "name": "PV",
+                "value": "PV()",
+                "syntax": "PV(每期利率, 期数, 每期支付额, 未来值, 支付类型)",
+                "description": "计算投资的现值，支付类型0=期末，1=期初。",
+                "example": "PV(0.1/12, 2*12, 1000, 10000, 0)"
+            },
+            {
+                "name": "RATE",
+                "value": "RATE()",
+                "syntax": "RATE(总期数, 每期支付额, 现值, 未来值, 支付类型, 估计值)",
+                "description": "计算每期利率，支付类型0=期末，1=期初。",
+                "example": "RATE(2*12, -1000, -10000, 100000, 0, 0.1)"
+            }
+        ]
+    },
+    {
+        "name": "工程",
+        "list": [
+            {
+                "name": "BIN2DEC",
+                "value": "BIN2DEC()",
+                "syntax": "BIN2DEC(二进制数值)",
+                "description": "将二进制数转换为十进制数。",
+                "example": "BIN2DEC(101010)"
+            },
+            {
+                "name": "BIN2HEX",
+                "value": "BIN2HEX()",
+                "syntax": "BIN2HEX(二进制数值)",
+                "description": "将二进制数转换为十六进制数。",
+                "example": "BIN2HEX(101010)"
+            },
+            {
+                "name": "BIN2OCT",
+                "value": "BIN2OCT()",
+                "syntax": "BIN2OCT(二进制数值)",
+                "description": "将二进制数转换为八进制数。",
+                "example": "BIN2OCT(101010)"
+            },
+            {
+                "name": "BITAND",
+                "value": "BITAND()",
+                "syntax": "BITAND(整数, 整数)",
+                "description": "执行两个数字的按位与运算。",
+                "example": "BITAND(42, 24)"
+            },
+            {
+                "name": "BITLSHIFT",
+                "value": "BITLSHIFT()",
+                "syntax": "BITLSHIFT(整数, 移位量)",
+                "description": "对数字进行左移位操作。",
+                "example": "BITLSHIFT(42, 24)"
+            },
+            {
+                "name": "BITOR",
+                "value": "BITOR()",
+                "syntax": "BITOR(整数, 整数)",
+                "description": "执行两个数字的按位或运算。",
+                "example": "BITOR(42, 24)"
+            },
+            {
+                "name": "BITRSHIFT",
+                "value": "BITRSHIFT()",
+                "syntax": "BITRSHIFT(整数, 移位量)",
+                "description": "对数字进行右移位操作。",
+                "example": "BITRSHIFT(42, 2)"
+            },
+            {
+                "name": "BITXOR",
+                "value": "BITXOR()",
+                "syntax": "BITXOR(整数, 整数)",
+                "description": "执行两个数字的按位异或运算。",
+                "example": "BITXOR(42, 24)"
+            },
+            {
+                "name": "COMPLEX",
+                "value": "COMPLEX()",
+                "syntax": "COMPLEX(实部, 虚部)",
+                "description": "创建复数。",
+                "example": "COMPLEX(3, 4)"
+            },
+            {
+                "name": "CONVERT",
+                "value": "CONVERT()",
+                "syntax": "CONVERT(数值, 原始单位, 目标单位)",
+                "description": "在不同单位之间转换数值。",
+                "example": "CONVERT(64, 'kibyte', 'bit')"
+            },
+            {
+                "name": "DEC2BIN",
+                "value": "DEC2BIN()",
+                "syntax": "DEC2BIN(十进制数值)",
+                "description": "将十进制数转换为二进制数。",
+                "example": "DEC2BIN(42)"
+            },
+            {
+                "name": "DEC2HEX",
+                "value": "DEC2HEX()",
+                "syntax": "DEC2HEX(十进制数值)",
+                "description": "将十进制数转换为十六进制数。",
+                "example": "DEC2HEX(42)"
+            },
+            {
+                "name": "DEC2OCT",
+                "value": "DEC2OCT()",
+                "syntax": "DEC2OCT(十进制数值)",
+                "description": "将十进制数转换为八进制数。",
+                "example": "DEC2OCT(42)"
+            },
+            {
+                "name": "DELTA",
+                "value": "DELTA()",
+                "syntax": "DELTA(数值, 数值)",
+                "description": "测试两个值是否相等。",
+                "example": "DELTA(42, 42)"
+            },
+            {
+                "name": "ERF",
+                "value": "ERF()",
+                "syntax": "ERF(上限)",
+                "description": "计算误差函数。",
+                "example": "ERF(1)"
+            },
+            {
+                "name": "ERFC",
+                "value": "ERFC()",
+                "syntax": "ERFC(下限)",
+                "description": "计算互补误差函数。",
+                "example": "ERFC(1)"
+            },
+            {
+                "name": "GESTEP",
+                "value": "GESTEP()",
+                "syntax": "GESTEP(数值, 阈值)",
+                "description": "测试一个数是否大于或等于另一个数。",
+                "example": "GESTEP(42, 24)"
+            },
+            {
+                "name": "HEX2BIN",
+                "value": "HEX2BIN()",
+                "syntax": "HEX2BIN(十六进制数值)",
+                "description": "将十六进制数转换为二进制数。",
+                "example": "HEX2BIN('2a')"
+            },
+            {
+                "name": "HEX2DEC",
+                "value": "HEX2DEC()",
+                "syntax": "HEX2DEC(十六进制数值)",
+                "description": "将十六进制数转换为十进制数。",
+                "example": "HEX2DEC('2a')"
+            },
+            {
+                "name": "HEX2OCT",
+                "value": "HEX2OCT()",
+                "syntax": "HEX2OCT(十六进制数值)",
+                "description": "将十六进制数转换为八进制数。",
+                "example": "HEX2OCT('2a')"
+            },
+            {
+                "name": "IMABS",
+                "value": "IMABS()",
+                "syntax": "IMABS(复数)",
+                "description": "计算复数的绝对值（模）。",
+                "example": "IMABS('3+4i')"
+            },
+            {
+                "name": "IMAGINARY",
+                "value": "IMAGINARY()",
+                "syntax": "IMAGINARY(复数)",
+                "description": "返回复数的虚部。",
+                "example": "IMAGINARY('3+4i')"
+            },
+            {
+                "name": "IMARGUMENT",
+                "value": "IMARGUMENT()",
+                "syntax": "IMARGUMENT(复数)",
+                "description": "计算复数的幅角。",
+                "example": "IMARGUMENT('3+4i')"
+            },
+            {
+                "name": "IMCONJUGATE",
+                "value": "IMCONJUGATE()",
+                "syntax": "IMCONJUGATE(复数)",
+                "description": "计算复数的共轭。",
+                "example": "IMCONJUGATE('3+4i')"
+            },
+            {
+                "name": "IMCOS",
+                "value": "IMCOS()",
+                "syntax": "IMCOS(复数)",
+                "description": "计算复数的余弦。",
+                "example": "IMCOS('1+i')"
+            },
+            {
+                "name": "IMCOSH",
+                "value": "IMCOSH()",
+                "syntax": "IMCOSH(复数)",
+                "description": "计算复数的双曲余弦。",
+                "example": "IMCOSH('1+i')"
+            },
+            {
+                "name": "IMCOT",
+                "value": "IMCOT()",
+                "syntax": "IMCOT(复数)",
+                "description": "计算复数的余切。",
+                "example": "IMCOT('1+i')"
+            },
+            {
+                "name": "IMCSC",
+                "value": "IMCSC()",
+                "syntax": "IMCSC(复数)",
+                "description": "计算复数的余割。",
+                "example": "IMCSC('1+i')"
+            },
+            {
+                "name": "IMCSCH",
+                "value": "IMCSCH()",
+                "syntax": "IMCSCH(复数)",
+                "description": "计算复数的双曲余割。",
+                "example": "IMCSCH('1+i')"
+            },
+            {
+                "name": "IMDIV",
+                "value": "IMDIV()",
+                "syntax": "IMDIV(被除复数, 除复数)",
+                "description": "计算两个复数的除法。",
+                "example": "IMDIV('1+2i', '3+4i')"
+            },
+            {
+                "name": "IMEXP",
+                "value": "IMEXP()",
+                "syntax": "IMEXP(复数)",
+                "description": "计算复数的指数。",
+                "example": "IMEXP('1+i')"
+            },
+            {
+                "name": "IMLN",
+                "value": "IMLN()",
+                "syntax": "IMLN(复数)",
+                "description": "计算复数的自然对数。",
+                "example": "IMLN('1+i')"
+            },
+            {
+                "name": "IMLOG10",
+                "value": "IMLOG10()",
+                "syntax": "IMLOG10(复数)",
+                "description": "计算复数的以10为底的对数。",
+                "example": "IMLOG10('1+i')"
+            },
+            {
+                "name": "IMLOG2",
+                "value": "IMLOG2()",
+                "syntax": "IMLOG2(复数)",
+                "description": "计算复数的以2为底的对数。",
+                "example": "IMLOG2('1+i')"
+            },
+            {
+                "name": "IMPOWER",
+                "value": "IMPOWER()",
+                "syntax": "IMPOWER(复数, 幂次)",
+                "description": "计算复数的幂。",
+                "example": "IMPOWER('1+i', 2)"
+            },
+            {
+                "name": "IMPRODUCT",
+                "value": "IMPRODUCT()",
+                "syntax": "IMPRODUCT(复数数组)",
+                "description": "计算多个复数的乘积。",
+                "example": "IMPRODUCT('1+2i', '3+4i', '5+6i')"
+            },
+            {
+                "name": "IMREAL",
+                "value": "IMREAL()",
+                "syntax": "IMREAL(复数)",
+                "description": "返回复数的实部。",
+                "example": "IMREAL('3+4i')"
+            },
+            {
+                "name": "IMSEC",
+                "value": "IMSEC()",
+                "syntax": "IMSEC(复数)",
+                "description": "计算复数的正割。",
+                "example": "IMSEC('1+i')"
+            },
+            {
+                "name": "IMSECH",
+                "value": "IMSECH()",
+                "syntax": "IMSECH(复数)",
+                "description": "计算复数的双曲正割。",
+                "example": "IMSECH('1+i')"
+            },
+            {
+                "name": "IMSIN",
+                "value": "IMSIN()",
+                "syntax": "IMSIN(复数)",
+                "description": "计算复数的正弦。",
+                "example": "IMSIN('1+i')"
+            },
+            {
+                "name": "IMSINH",
+                "value": "IMSINH()",
+                "syntax": "IMSINH(复数)",
+                "description": "计算复数的双曲正弦。",
+                "example": "IMSINH('1+i')"
+            },
+            {
+                "name": "IMSQRT",
+                "value": "IMSQRT()",
+                "syntax": "IMSQRT(复数)",
+                "description": "计算复数的平方根。",
+                "example": "IMSQRT('1+i')"
+            },
+            {
+                "name": "IMSUB",
+                "value": "IMSUB()",
+                "syntax": "IMSUB(被减复数, 减复数)",
+                "description": "计算两个复数的减法。",
+                "example": "IMSUB('3+4i', '1+2i')"
+            },
+            {
+                "name": "IMSUM",
+                "value": "IMSUM()",
+                "syntax": "IMSUM(复数数组)",
+                "description": "计算多个复数的和。",
+                "example": "IMSUM('1+2i', '3+4i', '5+6i')"
+            },
+            {
+                "name": "IMTAN",
+                "value": "IMTAN()",
+                "syntax": "IMTAN(复数)",
+                "description": "计算复数的正切。",
+                "example": "IMTAN('1+i')"
+            },
+            {
+                "name": "OCT2BIN",
+                "value": "OCT2BIN()",
+                "syntax": "OCT2BIN(八进制数值)",
+                "description": "将八进制数转换为二进制数。",
+                "example": "OCT2BIN('52')"
+            },
+            {
+                "name": "OCT2DEC",
+                "value": "OCT2DEC()",
+                "syntax": "OCT2DEC(八进制数值)",
+                "description": "将八进制数转换为十进制数。",
+                "example": "OCT2DEC('52')"
+            },
+            {
+                "name": "OCT2HEX",
+                "value": "OCT2HEX()",
+                "syntax": "OCT2HEX(八进制数值)",
+                "description": "将八进制数转换为十六进制数。",
+                "example": "OCT2HEX('52')"
+            }
+        ]
+    },
+    {
+        "name": "逻辑",
+        "list": [
+            {
+                "name": "AND",
+                "value": "AND()",
+                "syntax": "AND(逻辑值1, 逻辑值2, ...)",
+                "description": "当所有参数都为真时返回真，否则返回假，参数为一个或多个逻辑值。",
+                "example": "AND(true, false, true)"
+            },
+            {
+                "name": "FALSE",
+                "value": "FALSE()",
+                "syntax": "FALSE()",
+                "description": "返回逻辑值假，无参数。",
+                "example": "FALSE()"
+            },
+            {
+                "name": "IF",
+                "value": "IF()",
+                "syntax": "IF(条件, 条件为真时的值, 条件为假时的值)",
+                "description": "根据条件的真假返回不同的值。",
+                "example": "IF(true, 'Hello!', 'Goodbye!')"
+            },
+            {
+                "name": "IFS",
+                "value": "IFS()",
+                "syntax": "IFS(条件1, 结果值1, 条件2, 结果值2, ...)",
+                "description": "检查多个条件，并返回第一个为真的结果值，参数为多对条件和对应值。",
+                "example": "IFS(false, 'Hello!', true, 'Goodbye!')"
+            },
+            {
+                "name": "NOT",
+                "value": "NOT()",
+                "syntax": "NOT(逻辑值)",
+                "description": "反转逻辑值，真变假，假变真，参数为一个逻辑值。",
+                "example": "NOT(true)"
+            },
+            {
+                "name": "OR",
+                "value": "OR()",
+                "syntax": "OR(逻辑值1, 逻辑值2, ...)",
+                "description": "当任一参数为真时返回真，否则返回假，参数为一个或多个逻辑值。",
+                "example": "OR(true, false, true)"
+            },
+            {
+                "name": "SWITCH",
+                "value": "SWITCH()",
+                "syntax": "SWITCH(表达式, 匹配值1, 结果值1, ..., [默认值])",
+                "description": "根据表达式的值返回匹配的结果值，若无匹配则返回默认值，默认值为可选参数。",
+                "example": "SWITCH(7, 9, 'Nine', 7, 'Seven')"
+            },
+            {
+                "name": "TRUE",
+                "value": "TRUE()",
+                "syntax": "TRUE()",
+                "description": "返回逻辑值真，无参数。",
+                "example": "TRUE()"
+            },
+            {
+                "name": "XOR",
+                "value": "XOR()",
+                "syntax": "XOR(逻辑值1, 逻辑值2, ...)",
+                "description": "当且仅当有奇数个参数为真时返回真，否则返回假，参数为一个或多个逻辑值。",
+                "example": "XOR(true, false, true)"
+            }
+        ]
+    },
+    {
+        "name": "数学",
+        "list": [
+            {
+                "name": "ABS",
+                "value": "ABS()",
+                "syntax": "ABS(数值)",
+                "description": "返回数值的绝对值。",
+                "example": "ABS(-4)"
+            },
+            {
+                "name": "ACOS",
+                "value": "ACOS()",
+                "syntax": "ACOS(数值)",
+                "description": "计算反余弦值（弧度），参数介于-1和1之间。",
+                "example": "ACOS(-0.5)"
+            },
+            {
+                "name": "ACOSH",
+                "value": "ACOSH()",
+                "syntax": "ACOSH(数值)",
+                "description": "计算反双曲余弦值，参数大于等于1。",
+                "example": "ACOSH(10)"
+            },
+            {
+                "name": "ACOT",
+                "value": "ACOT()",
+                "syntax": "ACOT(数值)",
+                "description": "计算反余切值（弧度），参数为任意数值。",
+                "example": "ACOT(2)"
+            },
+            {
+                "name": "ACOTH",
+                "value": "ACOTH()",
+                "syntax": "ACOTH(数值)",
+                "description": "计算反双曲余切值，参数绝对值大于1。",
+                "example": "ACOTH(6)"
+            },
+            {
+                "name": "AGGREGATE",
+                "value": "AGGREGATE()",
+                "syntax": "AGGREGATE(函数号, 选项, 数组1, 数组2, ...)",
+                "description": "执行聚合运算，忽略错误或隐藏行。",
+                "example": "AGGREGATE(9, 4, [-5,15], [32,'Hello World!'])"
+            },
+            {
+                "name": "ARABIC",
+                "value": "ARABIC()",
+                "syntax": "ARABIC(罗马数字字符串)",
+                "description": "将罗马数字转换为阿拉伯数字。",
+                "example": "ARABIC('MCMXII')"
+            },
+            {
+                "name": "ASIN",
+                "value": "ASIN()",
+                "syntax": "ASIN(数值)",
+                "description": "计算反正弦值（弧度），参数介于-1和1之间。",
+                "example": "ASIN(-0.5)"
+            },
+            {
+                "name": "ASINH",
+                "value": "ASINH()",
+                "syntax": "ASINH(数值)",
+                "description": "计算反双曲正弦值，参数为任意数值。",
+                "example": "ASINH(-2.5)"
+            },
+            {
+                "name": "ATAN",
+                "value": "ATAN()",
+                "syntax": "ATAN(数值)",
+                "description": "计算反正切值（弧度），参数为任意数值。",
+                "example": "ATAN(1)"
+            },
+            {
+                "name": "ATAN2",
+                "value": "ATAN2()",
+                "syntax": "ATAN2(y坐标, x坐标)",
+                "description": "根据坐标计算反正切值（弧度）。",
+                "example": "ATAN2(-1, -1)"
+            },
+            {
+                "name": "ATANH",
+                "value": "ATANH()",
+                "syntax": "ATANH(数值)",
+                "description": "计算反双曲正切值，参数介于-1和1之间。",
+                "example": "ATANH(-0.1)"
+            },
+            {
+                "name": "BASE",
+                "value": "BASE()",
+                "syntax": "BASE(数值, 基数, [最小长度])",
+                "description": "将数值转换为指定基数的文本表示，最小长度为可选参数。",
+                "example": "BASE(15, 2, 10)"
+            },
+            {
+                "name": "CEILING",
+                "value": "CEILING()",
+                "syntax": "CEILING(数值, 倍数, [模式])",
+                "description": "将数值向上舍入到最接近的倍数，模式为可选参数。",
+                "example": "CEILING(-5.5, 2, -1)"
+            },
+            {
+                "name": "CEILINGMATH",
+                "value": "CEILINGMATH()",
+                "syntax": "CEILINGMATH(数值, [倍数], [模式])",
+                "description": "将数值向上舍入，使用指定的倍数和方向，倍数和模式为可选参数。",
+                "example": "CEILINGMATH(-5.5, 2, -1)"
+            },
+            {
+                "name": "CEILINGPRECISE",
+                "value": "CEILINGPRECISE()",
+                "syntax": "CEILINGPRECISE(数值, [倍数])",
+                "description": "将数值向上舍入到最接近的倍数，不考虑符号，倍数为可选参数。",
+                "example": "CEILINGPRECISE(-4.1, -2)"
+            },
+            {
+                "name": "COMBIN",
+                "value": "COMBIN()",
+                "syntax": "COMBIN(总数, 选中数)",
+                "description": "计算组合数。",
+                "example": "COMBIN(8, 2)"
+            },
+            {
+                "name": "COMBINA",
+                "value": "COMBINA()",
+                "syntax": "COMBINA(总数, 选中数)",
+                "description": "计算允许重复的组合数。",
+                "example": "COMBINA(4, 3)"
+            },
+            {
+                "name": "COS",
+                "value": "COS()",
+                "syntax": "COS(角度)",
+                "description": "计算余弦值（弧度），参数为弧度制角度。",
+                "example": "COS(1)"
+            },
+            {
+                "name": "COSH",
+                "value": "COSH()",
+                "syntax": "COSH(数值)",
+                "description": "计算双曲余弦值，参数为任意数值。",
+                "example": "COSH(1)"
+            },
+            {
+                "name": "COT",
+                "value": "COT()",
+                "syntax": "COT(角度)",
+                "description": "计算余切值（弧度），参数为弧度制角度。",
+                "example": "COT(30)"
+            },
+            {
+                "name": "COTH",
+                "value": "COTH()",
+                "syntax": "COTH(数值)",
+                "description": "计算双曲余切值，参数为任意数值。",
+                "example": "COTH(2)"
+            },
+            {
+                "name": "CSC",
+                "value": "CSC()",
+                "syntax": "CSC(角度)",
+                "description": "计算余割值（弧度），参数为弧度制角度。",
+                "example": "CSC(15)"
+            },
+            {
+                "name": "CSCH",
+                "value": "CSCH()",
+                "syntax": "CSCH(数值)",
+                "description": "计算双曲余割值，参数为任意数值。",
+                "example": "CSCH(1.5)"
+            },
+            {
+                "name": "DECIMAL",
+                "value": "DECIMAL()",
+                "syntax": "DECIMAL(文本, 基数)",
+                "description": "将文本形式的数字转换为十进制。",
+                "example": "DECIMAL('FF', 16)"
+            },
+            {
+                "name": "EVEN",
+                "value": "EVEN()",
+                "syntax": "EVEN(数值)",
+                "description": "将数值向上舍入到最接近的偶数。",
+                "example": "EVEN(-1)"
+            },
+            {
+                "name": "EXP",
+                "value": "EXP()",
+                "syntax": "EXP(指数)",
+                "description": "计算e的幂次方。",
+                "example": "EXP(1)"
+            },
+            {
+                "name": "FACT",
+                "value": "FACT()",
+                "syntax": "FACT(非负整数)",
+                "description": "计算阶乘，参数为非负整数。",
+                "example": "FACT(5)"
+            },
+            {
+                "name": "FACTDOUBLE",
+                "value": "FACTDOUBLE()",
+                "syntax": "FACTDOUBLE(非负整数)",
+                "description": "计算双阶乘，参数为非负整数。",
+                "example": "FACTDOUBLE(7)"
+            },
+            {
+                "name": "FLOOR",
+                "value": "FLOOR()",
+                "syntax": "FLOOR(数值, 倍数)",
+                "description": "将数值向下舍入到最接近的倍数。",
+                "example": "FLOOR(-3.1)"
+            },
+            {
+                "name": "FLOORMATH",
+                "value": "FLOORMATH()",
+                "syntax": "FLOORMATH(数值, [倍数], [模式])",
+                "description": "将数值向下舍入，使用指定的倍数和方向，倍数和模式为可选参数。",
+                "example": "FLOORMATH(-4.1, -2, -1)"
+            },
+            {
+                "name": "FLOORPRECISE",
+                "value": "FLOORPRECISE()",
+                "syntax": "FLOORPRECISE(数值, [倍数])",
+                "description": "将数值向下舍入到最接近的倍数，不考虑符号，倍数为可选参数。",
+                "example": "FLOORPRECISE(-3.1, -2)"
+            },
+            {
+                "name": "GCD",
+                "value": "GCD()",
+                "syntax": "GCD(整数1, 整数2, ...)",
+                "description": "计算最大公约数，参数为两个或多个整数。",
+                "example": "GCD(24, 36, 48)"
+            },
+            {
+                "name": "INT",
+                "value": "INT()",
+                "syntax": "INT(数值)",
+                "description": "将数值向下取整为最接近的整数。",
+                "example": "INT(-8.9)"
+            },
+            {
+                "name": "ISEVEN",
+                "value": "ISEVEN()",
+                "syntax": "ISEVEN(数值)",
+                "description": "测试数值是否为偶数。",
+                "example": "ISEVEN(-2.5)"
+            },
+            {
+                "name": "ISOCEILING",
+                "value": "ISOCEILING()",
+                "syntax": "ISOCEILING(数值, [倍数])",
+                "description": "将数值向上舍入到最接近的倍数，遵循ISO标准，倍数为可选参数。",
+                "example": "ISOCEILING(-4.1, -2)"
+            },
+            {
+                "name": "ISODD",
+                "value": "ISODD()",
+                "syntax": "ISODD(数值)",
+                "description": "测试数值是否为奇数。",
+                "example": "ISODD(-2.5)"
+            },
+            {
+                "name": "LCM",
+                "value": "LCM()",
+                "syntax": "LCM(整数1, 整数2, ...)",
+                "description": "计算最小公倍数，参数为两个或多个整数。",
+                "example": "LCM(24, 36, 48)"
+            },
+            {
+                "name": "LN",
+                "value": "LN()",
+                "syntax": "LN(正值)",
+                "description": "计算自然对数，参数为正值。",
+                "example": "LN(86)"
+            },
+            {
+                "name": "LOG",
+                "value": "LOG()",
+                "syntax": "LOG(数值, 底数)",
+                "description": "计算指定底数的对数。",
+                "example": "LOG(8, 2)"
+            },
+            {
+                "name": "LOG10",
+                "value": "LOG10()",
+                "syntax": "LOG10(正值)",
+                "description": "计算以10为底的对数，参数为正值。",
+                "example": "LOG10(100000)"
+            },
+            {
+                "name": "MOD",
+                "value": "MOD()",
+                "syntax": "MOD(被除数, 除数)",
+                "description": "计算两数相除的余数。",
+                "example": "MOD(3, -2)"
+            },
+            {
+                "name": "MROUND",
+                "value": "MROUND()",
+                "syntax": "MROUND(数值, 倍数)",
+                "description": "将数值四舍五入到最接近的倍数。",
+                "example": "MROUND(-10, -3)"
+            },
+            {
+                "name": "MULTINOMIAL",
+                "value": "MULTINOMIAL()",
+                "syntax": "MULTINOMIAL(整数1, 整数2, ...)",
+                "description": "计算多项式系数，参数为两个或多个非负整数。",
+                "example": "MULTINOMIAL(2, 3, 4)"
+            },
+            {
+                "name": "ODD",
+                "value": "ODD()",
+                "syntax": "ODD(数值)",
+                "description": "将数值向上舍入到最接近的奇数。",
+                "example": "ODD(-1.5)"
+            },
+            {
+                "name": "POWER",
+                "value": "POWER()",
+                "syntax": "POWER(底数, 指数)",
+                "description": "计算幂次方。",
+                "example": "POWER(5, 2)"
+            },
+            {
+                "name": "PRODUCT",
+                "value": "PRODUCT()",
+                "syntax": "PRODUCT(数值1, 数值2, ...)",
+                "description": "计算多个数值的乘积，参数为一个或多个数值。",
+                "example": "PRODUCT(5, 15, 30)"
+            },
+            {
+                "name": "QUOTIENT",
+                "value": "QUOTIENT()",
+                "syntax": "QUOTIENT(被除数, 除数)",
+                "description": "计算两数相除的商，不包括余数。",
+                "example": "QUOTIENT(-10, 3)"
+            },
+            {
+                "name": "RADIANS",
+                "value": "RADIANS()",
+                "syntax": "RADIANS(角度)",
+                "description": "将角度转换为弧度。",
+                "example": "RADIANS(180)"
+            },
+            {
+                "name": "RAND",
+                "value": "RAND()",
+                "syntax": "RAND()",
+                "description": "生成0到1之间的随机实数，无参数。",
+                "example": "RAND()"
+            },
+            {
+                "name": "RANDBETWEEN",
+                "value": "RANDBETWEEN()",
+                "syntax": "RANDBETWEEN(下限, 上限)",
+                "description": "生成指定范围内的随机整数。",
+                "example": "RANDBETWEEN(-1, 1)"
+            },
+            {
+                "name": "ROUND",
+                "value": "ROUND()",
+                "syntax": "ROUND(数值, 位数)",
+                "description": "按指定位数四舍五入数值。",
+                "example": "ROUND(626.3, -3)"
+            },
+            {
+                "name": "ROUNDDOWN",
+                "value": "ROUNDDOWN()",
+                "syntax": "ROUNDDOWN(数值, 位数)",
+                "description": "将数值向下舍入到指定位数。",
+                "example": "ROUNDDOWN(-3.14159, 2)"
+            },
+            {
+                "name": "ROUNDUP",
+                "value": "ROUNDUP()",
+                "syntax": "ROUNDUP(数值, 位数)",
+                "description": "将数值向上舍入到指定位数。",
+                "example": "ROUNDUP(-3.14159, 2)"
+            },
+            {
+                "name": "SEC",
+                "value": "SEC()",
+                "syntax": "SEC(角度)",
+                "description": "计算正割值（弧度），参数为弧度制角度。",
+                "example": "SEC(45)"
+            },
+            {
+                "name": "SECH",
+                "value": "SECH()",
+                "syntax": "SECH(数值)",
+                "description": "计算双曲正割值，参数为任意数值。",
+                "example": "SECH(45)"
+            },
+            {
+                "name": "SIGN",
+                "value": "SIGN()",
+                "syntax": "SIGN(数值)",
+                "description": "返回数值的符号，正数返回1，负数返回-1，0返回0。",
+                "example": "SIGN(-0.00001)"
+            },
+            {
+                "name": "SIN",
+                "value": "SIN()",
+                "syntax": "SIN(角度)",
+                "description": "计算正弦值（弧度），参数为弧度制角度。",
+                "example": "SIN(1)"
+            },
+            {
+                "name": "SINH",
+                "value": "SINH()",
+                "syntax": "SINH(数值)",
+                "description": "计算双曲正弦值，参数为任意数值。",
+                "example": "SINH(1)"
+            },
+            {
+                "name": "SQRT",
+                "value": "SQRT()",
+                "syntax": "SQRT(非负数值)",
+                "description": "计算平方根，参数为非负数值。",
+                "example": "SQRT(16)"
+            },
+            {
+                "name": "SQRTPI",
+                "value": "SQRTPI()",
+                "syntax": "SQRTPI(非负数值)",
+                "description": "计算数值与π的乘积的平方根，参数为非负数值。",
+                "example": "SQRTPI(2)"
+            },
+            {
+                "name": "SUBTOTAL",
+                "value": "SUBTOTAL()",
+                "syntax": "SUBTOTAL(函数号, 数组1, 数组2, ...)",
+                "description": "计算子集的汇总值，忽略隐藏行。",
+                "example": "SUBTOTAL(9, [-5,15], [32,'Hello World!'])"
+            },
+            {
+                "name": "SUM",
+                "value": "SUM()",
+                "syntax": "SUM(数值1, 数值2, ...)",
+                "description": "计算数值总和，忽略文本，参数为一个或多个数值。",
+                "example": "SUM(-5, 15, 32, 'Hello World!')"
+            },
+            {
+                "name": "SUMIF",
+                "value": "SUMIF()",
+                "syntax": "SUMIF(数组, 条件)",
+                "description": "根据条件求和。",
+                "example": "SUMIF([2,4,8,16], '>5')"
+            },
+            {
+                "name": "SUMIFS",
+                "value": "SUMIFS()",
+                "syntax": "SUMIFS(求和数组, 条件数组1, 条件1, 条件数组2, 条件2, ...)",
+                "description": "根据多个条件求和，参数为成对的条件数组和条件。",
+                "example": "SUMIFS([2,4,8,16], [1,2,3,4], '>=2', [1,2,4,8], '<=4')"
+            },
+            {
+                "name": "SUMPRODUCT",
+                "value": "SUMPRODUCT()",
+                "syntax": "SUMPRODUCT(数组1, 数组2, ...)",
+                "description": "计算数组元素的乘积之和，参数为两个或多个数组。",
+                "example": "SUMPRODUCT([[1,2],[3,4]], [[1,0],[0,1]])"
+            },
+            {
+                "name": "SUMSQ",
+                "value": "SUMSQ()",
+                "syntax": "SUMSQ(数值1, 数值2, ...)",
+                "description": "计算数值的平方和，参数为一个或多个数值。",
+                "example": "SUMSQ(3, 4)"
+            },
+            {
+                "name": "SUMX2MY2",
+                "value": "SUMX2MY2()",
+                "syntax": "SUMX2MY2(数组1, 数组2)",
+                "description": "计算两个数组对应元素平方差之和。",
+                "example": "SUMX2MY2([1,2], [3,4])"
+            },
+            {
+                "name": "SUMX2PY2",
+                "value": "SUMX2PY2()",
+                "syntax": "SUMX2PY2(数组1, 数组2)",
+                "description": "计算两个数组对应元素平方和之和。",
+                "example": "SUMX2PY2([1,2], [3,4])"
+            },
+            {
+                "name": "SUMXMY2",
+                "value": "SUMXMY2()",
+                "syntax": "SUMXMY2(数组1, 数组2)",
+                "description": "计算两个数组对应元素差的平方和。",
+                "example": "SUMXMY2([1,2], [3,4])"
+            },
+            {
+                "name": "TAN",
+                "value": "TAN()",
+                "syntax": "TAN(角度)",
+                "description": "计算正切值（弧度），参数为弧度制角度。",
+                "example": "TAN(1)"
+            },
+            {
+                "name": "TANH",
+                "value": "TANH()",
+                "syntax": "TANH(数值)",
+                "description": "计算双曲正切值，参数为任意数值。",
+                "example": "TANH(-2)"
+            },
+            {
+                "name": "TRUNC",
+                "value": "TRUNC()",
+                "syntax": "TRUNC(数值, [位数])",
+                "description": "截断数值，不进行四舍五入，位数为可选参数。",
+                "example": "TRUNC(-8.9)"
+            }
+        ]
+    },
+    {
+        "name": "统计",
+        "list": [
+            {
+                "name": "AVEDEV",
+                "value": "AVEDEV()",
+                "syntax": "AVEDEV(数值数组1, 数值数组2, ...)",
+                "description": "计算平均绝对偏差，参数为表示数据点的数值数组。",
+                "example": "AVEDEV([2,4], [8,16])"
+            },
+            {
+                "name": "AVERAGE",
+                "value": "AVERAGE()",
+                "syntax": "AVERAGE(数值数组1, 数值数组2, ...)",
+                "description": "计算算术平均值，参数为要平均的数据点数值数组。",
+                "example": "AVERAGE([2,4], [8,16])"
+            },
+            {
+                "name": "AVERAGEA",
+                "value": "AVERAGEA()",
+                "syntax": "AVERAGEA(值数组1, 值数组2, ...)",
+                "description": "计算包含文本和逻辑值在内的平均值，参数为数值、文本或逻辑值的数组。",
+                "example": "AVERAGEA([2,4], [8,16])"
+            },
+            {
+                "name": "AVERAGEIF",
+                "value": "AVERAGEIF()",
+                "syntax": "AVERAGEIF(数值数组, 条件, [平均数组])",
+                "description": "基于单个条件计算平均值，平均数组为可选参数。",
+                "example": "AVERAGEIF([2,4,8,16], '>5', [1, 2, 3, 4])"
+            },
+            {
+                "name": "AVERAGEIFS",
+                "value": "AVERAGEIFS()",
+                "syntax": "AVERAGEIFS(数值数组, 条件数组1, 条件1, 条件数组2, 条件2, ...)",
+                "description": "基于多个条件计算平均值，参数为成对的条件数组和条件表达式。",
+                "example": "AVERAGEIFS([2,4,8,16], [1,2,3,4], '>=2', [1,2,4,8], '<=4')"
+            },
+            {
+                "name": "BETADIST",
+                "value": "BETADIST()",
+                "syntax": "BETADIST(值, α, β, 累积标志, [A], [B])",
+                "description": "计算累积贝塔概率密度函数，A和B为可选参数。",
+                "example": "BETADIST(2, 8, 10, true, 1, 3)"
+            },
+            {
+                "name": "BETAINV",
+                "value": "BETAINV()",
+                "syntax": "BETAINV(概率, α, β, [A], [B])",
+                "description": "计算累积贝塔概率密度函数的反函数，A和B为可选参数。",
+                "example": "BETAINV(0.6854705810117458, 8, 10, 1, 3)"
+            },
+            {
+                "name": "BINOMDIST",
+                "value": "BINOMDIST()",
+                "syntax": "BINOMDIST(试验次数, 成功次数, 成功概率, 累积标志)",
+                "description": "计算二项分布的概率。",
+                "example": "BINOMDIST(6, 10, 0.5, false)"
+            },
+            {
+                "name": "CORREL",
+                "value": "CORREL()",
+                "syntax": "CORREL(数据集1, 数据集2)",
+                "description": "计算两个数据集的相关系数，参数为两个数值数组。",
+                "example": "CORREL([3,2,4,5,6], [9,7,12,15,17])"
+            },
+            {
+                "name": "COUNT",
+                "value": "COUNT()",
+                "syntax": "COUNT(数值数组1, 数值数组2, ...)",
+                "description": "计算数值单元格的数量，参数为数值数组或范围。",
+                "example": "COUNT([1,2], [3,4])"
+            },
+            {
+                "name": "COUNTA",
+                "value": "COUNTA()",
+                "syntax": "COUNTA(值数组1, 值数组2, ...)",
+                "description": "计算非空单元格的数量，参数为任意类型的数组或范围。",
+                "example": "COUNTA([1, null, 3, 'a', '', 'c'])"
+            },
+            {
+                "name": "COUNTBLANK",
+                "value": "COUNTBLANK()",
+                "syntax": "COUNTBLANK(值数组1, 值数组2, ...)",
+                "description": "计算空白单元格的数量，参数为任意类型的数组或范围。",
+                "example": "COUNTBLANK([1, null, 3, 'a', '', 'c'])"
+            },
+            {
+                "name": "COUNTIF",
+                "value": "COUNTIF()",
+                "syntax": "COUNTIF(值数组, 条件)",
+                "description": "基于条件计算单元格数量，参数为数值或文本数组以及条件。",
+                "example": "COUNTIF(['Caen', 'Melbourne', 'Palo Alto', 'Singapore'], 'a')"
+            },
+            {
+                "name": "COUNTIFS",
+                "value": "COUNTIFS()",
+                "syntax": "COUNTIFS(条件数组1, 条件1, 条件数组2, 条件2, ...)",
+                "description": "基于多个条件计算单元格数量，参数为成对的条件数组和条件表达式。",
+                "example": "COUNTIFS([2,4,8,16], [1,2,3,4], '>=2', [1,2,4,8], '<=4')"
+            },
+            {
+                "name": "COVARIANCEP",
+                "value": "COVARIANCEP()",
+                "syntax": "COVARIANCEP(数据集1, 数据集2)",
+                "description": "计算总体协方差，参数为两个数值数组。",
+                "example": "COVARIANCEP([3,2,4,5,6], [9,7,12,15,17])"
+            },
+            {
+                "name": "COVARIANCES",
+                "value": "COVARIANCES()",
+                "syntax": "COVARIANCES(数据集1, 数据集2)",
+                "description": "计算样本协方差，参数为两个数值数组。",
+                "example": "COVARIANCES([2,4,8], [5,11,12])"
+            },
+            {
+                "name": "DEVSQ",
+                "value": "DEVSQ()",
+                "syntax": "DEVSQ(数值数组)",
+                "description": "计算偏差平方和，参数为表示数据点的数值数组。",
+                "example": "DEVSQ([2,4,8,16])"
+            },
+            {
+                "name": "EXPONDIST",
+                "value": "EXPONDIST()",
+                "syntax": "EXPONDIST(值, λ, 累积标志)",
+                "description": "计算指数分布。",
+                "example": "EXPONDIST(0.2, 10, true)"
+            },
+            {
+                "name": "First",
+                "value": "First()",
+                "syntax": "First(<数值表达式>)",
+                "description": "返回指定表达式的第一个值。",
+                "example": "First(ProductNumber)"
+            },
+            {
+                "name": "First（with scope）",
+                "value": "First()",
+                "syntax": "First(<数值表达式>, <作用域>)",
+                "description": "在指定作用域内，返回指定表达式的第一个值。",
+                "example": "First(ProductNumber, \"Category\")"
+            },
+            {
+                "name": "FDIST",
+                "value": "FDIST()",
+                "syntax": "FDIST(值, 自由度1, 自由度2, 累积标志)",
+                "description": "计算F概率分布。",
+                "example": "FDIST(15.2069, 6, 4, false)"
+            },
+            {
+                "name": "FINV",
+                "value": "FINV()",
+                "syntax": "FINV(概率, 自由度1, 自由度2)",
+                "description": "计算F概率分布的反函数。",
+                "example": "FINV(0.01, 6, 4)"
+            },
+            {
+                "name": "FISHER",
+                "value": "FISHER()",
+                "syntax": "FISHER(相关系数)",
+                "description": "计算费舍尔变换，参数为表示相关系数的数值。",
+                "example": "FISHER(0.75)"
+            },
+            {
+                "name": "FISHERINV",
+                "value": "FISHERINV()",
+                "syntax": "FISHERINV(费舍尔变换结果)",
+                "description": "计算费舍尔逆变换，参数为费舍尔变换的结果数值。",
+                "example": "FISHERINV(0.9729550745276566)"
+            },
+            {
+                "name": "FORECAST",
+                "value": "FORECAST()",
+                "syntax": "FORECAST(新x值, 已知y值数组, 已知x值数组)",
+                "description": "根据已知的x和y值预测新x值的y值。",
+                "example": "FORECAST(30, [6,7,9,15,21], [20,28,31,38,40])"
+            },
+            {
+                "name": "FREQUENCY",
+                "value": "FREQUENCY()",
+                "syntax": "FREQUENCY(数据数组, 分组边界数组)",
+                "description": "计算频数分布。",
+                "example": "FREQUENCY([79,85,78,85,50,81,95,88,97], [70,79,89])"
+            },
+            {
+                "name": "GAMMA",
+                "value": "GAMMA()",
+                "syntax": "GAMMA(正数)",
+                "description": "计算伽玛函数值，参数为正数。",
+                "example": "GAMMA(2.5)"
+            },
+            {
+                "name": "GAMMALN",
+                "value": "GAMMALN()",
+                "syntax": "GAMMALN(正数)",
+                "description": "计算伽玛函数的自然对数，参数为正数。",
+                "example": "GAMMALN(10)"
+            },
+            {
+                "name": "GAUSS",
+                "value": "GAUSS()",
+                "syntax": "GAUSS(z分数)",
+                "description": "计算标准正态分布下的概率，参数为表示z分数的数值。",
+                "example": "GAUSS(2)"
+            },
+            {
+                "name": "GEOMEAN",
+                "value": "GEOMEAN()",
+                "syntax": "GEOMEAN(数值数组1, 数值数组2, ...)",
+                "description": "计算几何平均值，参数为表示数据点的数值数组。",
+                "example": "GEOMEAN([2,4], [8,16])"
+            },
+            {
+                "name": "GROWTH",
+                "value": "GROWTH()",
+                "syntax": "GROWTH(已知y值数组, 已知x值数组, 新x值数组)",
+                "description": "根据已知数据预测指数增长值。",
+                "example": "GROWTH([2,4,8,16], [1,2,3,4], [5])"
+            },
+            {
+                "name": "HARMEAN",
+                "value": "HARMEAN()",
+                "syntax": "HARMEAN(数值数组1, 数值数组2, ...)",
+                "description": "计算调和平均值，参数为表示数据点的数值数组。",
+                "example": "HARMEAN([2,4], [8,16])"
+            },
+            {
+                "name": "HYPGEOMDIST",
+                "value": "HYPGEOMDIST()",
+                "syntax": "HYPGEOMDIST(样本成功次数, 样本大小, 总体成功次数, 总体大小, 累积标志)",
+                "description": "计算超几何分布。",
+                "example": "HYPGEOMDIST(1, 4, 8, 20, false)"
+            },
+            {
+                "name": "INTERCEPT",
+                "value": "INTERCEPT()",
+                "syntax": "INTERCEPT(已知y值数组, 已知x值数组)",
+                "description": "计算线性回归的截距。",
+                "example": "INTERCEPT([2,3,9,1,8], [6,5,11,7,5])"
+            },
+            {
+                "name": "KURT",
+                "value": "KURT()",
+                "syntax": "KURT(数值数组)",
+                "description": "计算峰度，参数为表示数据点的数值数组。",
+                "example": "KURT([3,4,5,2,3,4,5,6,4,7])"
+            },
+            {
+                "name": "LARGE",
+                "value": "LARGE()",
+                "syntax": "LARGE(数值数组, k值)",
+                "description": "返回第k大的值。",
+                "example": "LARGE([3,5,3,5,4,4,2,4,6,7], 3)"
+            },
+            {
+                "name": "LINEST",
+                "value": "LINEST()",
+                "syntax": "LINEST(已知y值数组, 已知x值数组, 是否返回附加统计, 是否返回更多统计)",
+                "description": "执行线性回归分析。",
+                "example": "LINEST([1,9,5,7], [0,4,2,3], true, true)"
+            },
+            {
+                "name": "LOGNORMDIST",
+                "value": "LOGNORMDIST()",
+                "syntax": "LOGNORMDIST(值, 平均值, 标准差, 累积标志)",
+                "description": "计算对数正态分布。",
+                "example": "LOGNORMDIST(4, 3.5, 1.2, true)"
+            },
+            {
+                "name": "LOGNORMINV",
+                "value": "LOGNORMINV()",
+                "syntax": "LOGNORMINV(概率, 平均值, 标准差, 累积标志)",
+                "description": "计算对数正态分布的反函数。",
+                "example": "LOGNORMINV(0.0390835557068005, 3.5, 1.2, true)"
+            },
+            {
+                "name": "MAX",
+                "value": "MAX()",
+                "syntax": "MAX(数值数组1, 数值数组2, ...)",
+                "description": "返回最大值，参数为数值数组。",
+                "example": "MAX([0.1,0.2], [0.4,0.8], [true, false])"
+            },
+            {
+                "name": "MAXA",
+                "value": "MAXA()",
+                "syntax": "MAXA(值数组1, 值数组2, ...)",
+                "description": "返回包括文本和逻辑值的最大值，参数为数值、文本或逻辑值的数组。",
+                "example": "MAXA([0.1,0.2], [0.4,0.8], [true, false])"
+            },
+            {
+                "name": "MEDIAN",
+                "value": "MEDIAN()",
+                "syntax": "MEDIAN(数值数组1, 数值数组2, ...)",
+                "description": "返回中位数，参数为数值数组。",
+                "example": "MEDIAN([1,2,3], [4,5,6])"
+            },
+            {
+                "name": "MIN",
+                "value": "MIN()",
+                "syntax": "MIN(数值数组1, 数值数组2, ...)",
+                "description": "返回最小值，参数为数值数组。",
+                "example": "MIN([0.1,0.2], [0.4,0.8], [true, false])"
+            },
+            {
+                "name": "MINA",
+                "value": "MINA()",
+                "syntax": "MINA(值数组1, 值数组2, ...)",
+                "description": "返回包括文本和逻辑值的最小值，参数为数值、文本或逻辑值的数组。",
+                "example": "MINA([0.1,0.2], [0.4,0.8], [true, false])"
+            },
+            {
+                "name": "MODEMULT",
+                "value": "MODEMULT()",
+                "syntax": "MODEMULT(数值数组)",
+                "description": "返回出现频率最高的值数组，参数为数值数组。",
+                "example": "MODEMULT([1,2,3,4,3,2,1,2,3])"
+            },
+            {
+                "name": "MODESNGL",
+                "value": "MODESNGL()",
+                "syntax": "MODESNGL(数值数组)",
+                "description": "返回最常出现的单个值，参数为数值数组。",
+                "example": "MODESNGL([1,2,3,4,3,2,1,2,3])"
+            },
+            {
+                "name": "NORMDIST",
+                "value": "NORMDIST()",
+                "syntax": "NORMDIST(值, 平均值, 标准差, 累积标志)",
+                "description": "计算正态分布。",
+                "example": "NORMDIST(42, 40, 1.5, true)"
+            },
+            {
+                "name": "NORMINV",
+                "value": "NORMINV()",
+                "syntax": "NORMINV(概率, 平均值, 标准差)",
+                "description": "计算正态分布的反函数。",
+                "example": "NORMINV(0.9087887802741321, 40, 1.5)"
+            },
+            {
+                "name": "NORMSDIST",
+                "value": "NORMSDIST()",
+                "syntax": "NORMSDIST(z分数, 累积标志)",
+                "description": "计算标准正态分布，参数为表示z分数的数值。",
+                "example": "NORMSDIST(1, true)"
+            },
+            {
+                "name": "NORMSINV",
+                "value": "NORMSINV()",
+                "syntax": "NORMSINV(概率)",
+                "description": "计算标准正态分布的反函数，参数为概率值。",
+                "example": "NORMSINV(0.8413447460685429)"
+            },
+            {
+                "name": "PEARSON",
+                "value": "PEARSON()",
+                "syntax": "PEARSON(数据集1, 数据集2)",
+                "description": "计算皮尔逊乘积矩相关系数，参数为两个数值数组。",
+                "example": "PEARSON([9,7,5,3,1], [10,6,1,5,3])"
+            },
+            {
+                "name": "PERCENTILEEXC",
+                "value": "PERCENTILEEXC()",
+                "syntax": "PERCENTILEEXC(数值数组, k值)",
+                "description": "计算排除百分位数。",
+                "example": "PERCENTILEEXC([1,2,3,4], 0.3)"
+            },
+            {
+                "name": "PERCENTILEINC",
+                "value": "PERCENTILEINC()",
+                "syntax": "PERCENTILEINC(数值数组, k值)",
+                "description": "计算包含百分位数。",
+                "example": "PERCENTILEINC([1,2,3,4], 0.3)"
+            },
+            {
+                "name": "PERCENTRANKEXC",
+                "value": "PERCENTRANKEXC()",
+                "syntax": "PERCENTRANKEXC(数值数组, x值, [显著性])",
+                "description": "计算排除百分比排名，显著性为可选参数。",
+                "example": "PERCENTRANKEXC([1,2,3,4], 2, 2)"
+            },
+            {
+                "name": "PERCENTRANKINC",
+                "value": "PERCENTRANKINC()",
+                "syntax": "PERCENTRANKINC(数值数组, x值, [显著性])",
+                "description": "计算包含百分比排名，显著性为可选参数。",
+                "example": "PERCENTRANKINC([1,2,3,4], 2, 2)"
+            },
+            {
+                "name": "PERMUT",
+                "value": "PERMUT()",
+                "syntax": "PERMUT(总数n, 选择数k)",
+                "description": "计算排列数。",
+                "example": "PERMUT(100, 3)"
+            },
+            {
+                "name": "PERMUTATIONA",
+                "value": "PERMUTATIONA()",
+                "syntax": "PERMUTATIONA(总数n, 选择数k)",
+                "description": "计算允许重复的排列数。",
+                "example": "PERMUTATIONA(4, 3)"
+            },
+            {
+                "name": "PHI",
+                "value": "PHI()",
+                "syntax": "PHI(z分数)",
+                "description": "计算标准正态分布的密度函数，参数为表示z分数的数值。",
+                "example": "PHI(0.75)"
+            },
+            {
+                "name": "POISSONDIST",
+                "value": "POISSONDIST()",
+                "syntax": "POISSONDIST(事件次数, 平均值, 累积标志)",
+                "description": "计算泊松分布。",
+                "example": "POISSONDIST(2, 5, true)"
+            },
+            {
+                "name": "PROB",
+                "value": "PROB()",
+                "syntax": "PROB(数值数组, 概率数组, 下限, 上限)",
+                "description": "计算概率之和。",
+                "example": "PROB([1,2,3,4], [0.1,0.2,0.2,0.1], 2, 3)"
+            },
+            {
+                "name": "QUARTILEEXC",
+                "value": "QUARTILEEXC()",
+                "syntax": "QUARTILEEXC(数值数组, quart值)",
+                "description": "计算排除四分位数。",
+                "example": "QUARTILEEXC([1,2,3,4], 1)"
+            },
+            {
+                "name": "QUARTILEINC",
+                "value": "QUARTILEINC()",
+                "syntax": "QUARTILEINC(数值数组, quart值)",
+                "description": "计算包含四分位数。",
+                "example": "QUARTILEINC([1,2,3,4], 1)"
+            },
+            {
+                "name": "RANKAVG",
+                "value": "RANKAVG()",
+                "syntax": "RANKAVG(数值, 数值数组, 排序方式)",
+                "description": "计算平均排名，排序方式false为降序，true为升序。",
+                "example": "RANKAVG(4, [2,4,4,8,8,16], false)"
+            },
+            {
+                "name": "RANKEQ",
+                "value": "RANKEQ()",
+                "syntax": "RANKEQ(数值, 数值数组, 排序方式)",
+                "description": "计算等于指定值的排名，排序方式false为降序，true为升序。",
+                "example": "RANKEQ(4, [2,4,4,8,8,16], false)"
+            },
+            {
+                "name": "RSQ",
+                "value": "RSQ()",
+                "syntax": "RSQ(数据集1, 数据集2)",
+                "description": "计算决定系数，参数为两个数值数组。",
+                "example": "RSQ([9,7,5,3,1], [10,6,1,5,3])"
+            },
+            {
+                "name": "SKEW",
+                "value": "SKEW()",
+                "syntax": "SKEW(数值数组)",
+                "description": "计算偏度，参数为表示数据点的数值数组。",
+                "example": "SKEW([3,4,5,2,3,4,5,6,4,7])"
+            },
+            {
+                "name": "SKEWP",
+                "value": "SKEWP()",
+                "syntax": "SKEWP(数值数组)",
+                "description": "计算基于总体的偏度，参数为表示数据点的数值数组。",
+                "example": "SKEWP([3,4,5,2,3,4,5,6,4,7])"
+            },
+            {
+                "name": "SLOPE",
+                "value": "SLOPE()",
+                "syntax": "SLOPE(已知y值数组, 已知x值数组)",
+                "description": "计算线性回归的斜率。",
+                "example": "SLOPE([1,9,5,7], [0,4,2,3])"
+            },
+            {
+                "name": "SMALL",
+                "value": "SMALL()",
+                "syntax": "SMALL(数值数组, k值)",
+                "description": "返回第k小的值。",
+                "example": "SMALL([3,5,3,5,4,4,2,4,6,7], 3)"
+            },
+            {
+                "name": "STANDARDIZE",
+                "value": "STANDARDIZE()",
+                "syntax": "STANDARDIZE(值, 平均值, 标准差)",
+                "description": "将值标准化为z分数。",
+                "example": "STANDARDIZE(42, 40, 1.5)"
+            },
+            {
+                "name": "STDEVA",
+                "value": "STDEVA()",
+                "syntax": "STDEVA(值数组1, 值数组2, ...)",
+                "description": "计算包含文本和逻辑值的标准差，参数为数值、文本或逻辑值的数组。",
+                "example": "STDEVA([2,4], [8,16], [true, false])"
+            },
+            {
+                "name": "STDEVP",
+                "value": "STDEVP()",
+                "syntax": "STDEVP(数值数组1, 数值数组2, ...)",
+                "description": "计算总体标准差，参数为数值数组。",
+                "example": "STDEVP([2,4], [8,16], [true, false])"
+            },
+            {
+                "name": "STDEVPA",
+                "value": "STDEVPA()",
+                "syntax": "STDEVPA(值数组1, 值数组2, ...)",
+                "description": "计算基于总体并包含文本和逻辑值的标准差，参数为数值、文本或逻辑值的数组。",
+                "example": "STDEVPA([2,4], [8,16], [true, false])"
+            },
+            {
+                "name": "STDEVS",
+                "value": "STDEVS()",
+                "syntax": "STDEVS(数值数组1, 数值数组2, ...)",
+                "description": "计算样本标准差，参数为数值数组。",
+                "example": "STDEVS([2,4], [8,16], [true, false])"
+            },
+            {
+                "name": "STEYX",
+                "value": "STEYX()",
+                "syntax": "STEYX(已知y值数组, 已知x值数组)",
+                "description": "计算预测值的标准误差。",
+                "example": "STEYX([2,3,9,1,8,7,5], [6,5,11,7,5,4,4])"
+            },
+            {
+                "name": "TINV",
+                "value": "TINV()",
+                "syntax": "TINV(概率, 自由度)",
+                "description": "计算t分布的反函数。",
+                "example": "TINV(0.9946953263673741, 1)"
+            },
+            {
+                "name": "TRIMMEAN",
+                "value": "TRIMMEAN()",
+                "syntax": "TRIMMEAN(数值数组, 修剪比例)",
+                "description": "计算内部平均值。",
+                "example": "TRIMMEAN([4,5,6,7,2,3,4,5,1,2,3], 0.2)"
+            },
+            {
+                "name": "VARA",
+                "value": "VARA()",
+                "syntax": "VARA(值数组1, 值数组2, ...)",
+                "description": "计算包含文本和逻辑值的方差，参数为数值、文本或逻辑值的数组。",
+                "example": "VARA([2,4], [8,16], [true, false])"
+            },
+            {
+                "name": "VARP",
+                "value": "VARP()",
+                "syntax": "VARP(数值数组1, 数值数组2, ...)",
+                "description": "计算总体方差，参数为数值数组。",
+                "example": "VARP([2,4], [8,16], [true, false])"
+            },
+            {
+                "name": "VARPA",
+                "value": "VARPA()",
+                "syntax": "VARPA(值数组1, 值数组2, ...)",
+                "description": "计算基于总体并包含文本和逻辑值的方差，参数为数值、文本或逻辑值的数组。",
+                "example": "VARPA([2,4], [8,16], [true, false])"
+            },
+            {
+                "name": "VARS",
+                "value": "VARS()",
+                "syntax": "VARS(数值数组1, 数值数组2, ...)",
+                "description": "计算样本方差，参数为数值数组。",
+                "example": "VARS([2,4], [8,16], [true, false])"
+            },
+            {
+                "name": "WEIBULLDIST",
+                "value": "WEIBULLDIST()",
+                "syntax": "WEIBULLDIST(值, α, β, 累积标志)",
+                "description": "计算韦伯分布。",
+                "example": "WEIBULLDIST(105, 20, 100, true)"
+            },
+            {
+                "name": "ZTEST",
+                "value": "ZTEST()",
+                "syntax": "ZTEST(数值数组, 假设平均值)",
+                "description": "计算z检验的单尾概率。",
+                "example": "ZTEST([3,6,7,8,6,5,4,2,1,9], 4)"
+            }
+        ]
+    },
+    {
+        "name": "文本",
+        "list": [
+            {
+                "name": "CHAR",
+                "value": "CHAR()",
+                "syntax": "CHAR(数字代码)",
+                "description": "将数字代码转换为对应的字符。",
+                "example": "CHAR(65)"
+            },
+            {
+                "name": "CLEAN",
+                "value": "CLEAN()",
+                "syntax": "CLEAN(文本字符串)",
+                "description": "移除文本中的所有非打印字符。",
+                "example": "CLEAN('Monthly report')"
+            },
+            {
+                "name": "CODE",
+                "value": "CODE()",
+                "syntax": "CODE(单个字符的文本字符串)",
+                "description": "返回文本字符串中第一个字符的数字代码。",
+                "example": "CODE('A')"
+            },
+            {
+                "name": "CONCATENATE",
+                "value": "CONCATENATE()",
+                "syntax": "CONCATENATE(文本字符串1, 文本字符串2, ...)",
+                "description": "将多个文本字符串合并为一个字符串，参数为一个或多个要连接的文本。",
+                "example": "CONCATENATE('Andreas', ' ', 'Hauser')"
+            },
+            {
+                "name": "EXACT",
+                "value": "EXACT()",
+                "syntax": "EXACT(文本字符串1, 文本字符串2)",
+                "description": "检查两个字符串是否完全相同，区分大小写。",
+                "example": "EXACT('Word', 'word')"
+            },
+            {
+                "name": "FIND",
+                "value": "FIND()",
+                "syntax": "FIND(要查找的文本, 源文本, [起始位置])",
+                "description": "从起始位置开始查找子字符串的位置，起始位置为可选参数。",
+                "example": "FIND('M', 'Miriam McGovern', 3)"
+            },
+            {
+                "name": "LEFT",
+                "value": "LEFT()",
+                "syntax": "LEFT(文本字符串, 提取字符数)",
+                "description": "从字符串左侧提取指定数量的字符。",
+                "example": "LEFT('Sale Price', 4)"
+            },
+            {
+                "name": "LEN",
+                "value": "LEN()",
+                "syntax": "LEN(文本字符串)",
+                "description": "返回文本字符串中的字符数。",
+                "example": "LEN('Phoenix, AZ')"
+            },
+            {
+                "name": "LOWER",
+                "value": "LOWER()",
+                "syntax": "LOWER(文本字符串)",
+                "description": "将所有字符转换为小写。",
+                "example": "LOWER('E. E. Cummings')"
+            },
+            {
+                "name": "MID",
+                "value": "MID()",
+                "syntax": "MID(文本字符串, 起始位置, 提取字符数)",
+                "description": "从字符串中间提取指定数量的字符。",
+                "example": "MID('Fluid Flow', 7, 20)"
+            },
+            {
+                "name": "NUMBERVALUE",
+                "value": "NUMBERVALUE()",
+                "syntax": "NUMBERVALUE(文本字符串, 小数分隔符, 组分隔符)",
+                "description": "根据指定的分隔符将文本转换为数字。",
+                "example": "NUMBERVALUE('2.500,27', ',', '.')"
+            },
+            {
+                "name": "PROPER",
+                "value": "PROPER()",
+                "syntax": "PROPER(文本字符串)",
+                "description": "将每个单词的首字母大写。",
+                "example": "PROPER('this is a TITLE')"
+            },
+            {
+                "name": "REPLACE",
+                "value": "REPLACE()",
+                "syntax": "REPLACE(原始文本, 起始位置, 替换字符数, 新文本)",
+                "description": "用新文本替换旧文本中的部分。",
+                "example": "REPLACE('abcdefghijk', 6, 5, '*')"
+            },
+            {
+                "name": "REPT",
+                "value": "REPT()",
+                "syntax": "REPT(文本字符串, 重复次数)",
+                "description": "根据指定次数重复文本。",
+                "example": "REPT('*-', 3)"
+            },
+            {
+                "name": "RIGHT",
+                "value": "RIGHT()",
+                "syntax": "RIGHT(文本字符串, 提取字符数)",
+                "description": "从字符串右侧提取指定数量的字符。",
+                "example": "RIGHT('Sale Price', 5)"
+            },
+            {
+                "name": "ROMAN",
+                "value": "ROMAN()",
+                "syntax": "ROMAN(阿拉伯数字)",
+                "description": "将阿拉伯数字转换为罗马数字。",
+                "example": "ROMAN(499)"
+            },
+            {
+                "name": "SEARCH",
+                "value": "SEARCH()",
+                "syntax": "SEARCH(要查找的文本, 源文本)",
+                "description": "在文本中查找子字符串，不区分大小写。",
+                "example": "SEARCH('margin', 'Profit Margin')"
+            },
+            {
+                "name": "SUBSTITUTE",
+                "value": "SUBSTITUTE()",
+                "syntax": "SUBSTITUTE(原始文本, 旧文本, 新文本, [替换实例])",
+                "description": "用新文本替换旧文本中的特定实例，替换实例为可选参数。",
+                "example": "SUBSTITUTE('Quarter 1, 2011', '1', '2', 3)"
+            },
+            {
+                "name": "T",
+                "value": "T()",
+                "syntax": "T(任意类型数据)",
+                "description": "如果参数是文本，则返回该文本；否则返回空字符串。",
+                "example": "T('Rainfall')"
+            },
+            {
+                "name": "TRIM",
+                "value": "TRIM()",
+                "syntax": "TRIM(文本字符串)",
+                "description": "去除文本前后的空格，内部多于一个的空格保留为一个。",
+                "example": "TRIM(' First Quarter Earnings ')"
+            },
+            {
+                "name": "TEXTJOIN",
+                "value": "TEXTJOIN()",
+                "syntax": "TEXTJOIN(分隔符, 忽略空值标志, 文本项1, 文本项2, ...)",
+                "description": "将多个文本项连接成一个字符串，使用指定的分隔符。",
+                "example": "TEXTJOIN(' ', true, 'The', '', 'sun', 'will', 'come', 'up', 'tomorrow.')"
+            },
+            {
+                "name": "UNICHAR",
+                "value": "UNICHAR()",
+                "syntax": "UNICHAR(Unicode数字)",
+                "description": "返回给定Unicode数字对应的字符。",
+                "example": "UNICHAR(66)"
+            },
+            {
+                "name": "UNICODE",
+                "value": "UNICODE()",
+                "syntax": "UNICODE(单个字符的文本字符串)",
+                "description": "返回文本的第一个字符的Unicode数字。",
+                "example": "UNICODE('B')"
+            },
+            {
+                "name": "UPPER",
+                "value": "UPPER()",
+                "syntax": "UPPER(文本字符串)",
+                "description": "将所有字符转换为大写。",
+                "example": "UPPER('total')"
+            }
+        ]
+    }
+]

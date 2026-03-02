@@ -1,0 +1,85 @@
+// element组件库主题自定义
+
+@forward "element-plus/theme-chalk/src/common/var.scss"with ($colors: ("primary": ( //主题色
+      "base": #205f78,
+    ),
+    "success": ( //成功色
+      "base": #67C23A,
+    ),
+    "warning": ( //警告色
+      "base": #E6A23C,
+    ),
+    "danger": ( //危险色
+      "base": #F56C6C,
+    ),
+    "error": ( //错误色
+      "base": #F56C6C,
+    ),
+    "info": ( //信息色
+      "base": #909399,
+    ),
+  ),
+);
+
+.el-dialog {
+  padding: 0;
+}
+
+.el-dialog__header {
+  padding: 15px 20px;
+  background-color: var(--el-color-primary);
+  border-radius: 4px 4px 0 0;
+  color: #fff;
+
+  .el-dialog__title {
+    color: #fff;
+  }
+
+  .el-dialog__headerbtn .el-dialog__close {
+    color: #fff;
+  }
+}
+
+.el-dialog__body {
+  padding: 15px 20px;
+}
+
+.el-dialog__footer {
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+}
+
+.custom-cell-field-picker {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  z-index: 10;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  line-height: 7px;
+  border: 1px solid #000;
+  text-align: center;
+  margin-top: -8px;
+  display: none;
+  cursor: pointer;
+  color: #000;
+  font-size: 13px;
+}
+
+.custom-cell-field-picker::before {
+  content: "…";
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.wh-100 {
+  width: 100%;
+  height: 100%;
+}

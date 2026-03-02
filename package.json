@@ -1,0 +1,49 @@
+{
+  "name": "report-design",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
+    "lint:eslint": "eslint . --fix --cache",
+    "lint": "run-s lint:*"
+  },
+  "dependencies": {
+    "@handsontable/vue3": "^16.2.0",
+    "@vueup/vue-quill": "^1.2.0",
+    "axios": "^1.13.2",
+    "draggable-resizable-vue3": "^1.0.94-beta",
+    "element-plus": "^2.12.0",
+    "handsontable": "^16.2.0",
+    "jsbarcode": "^3.12.3",
+    "pinia": "^3.0.4",
+    "qrcode": "^1.5.4",
+    "undo-manager": "^1.1.1",
+    "uuid": "^13.0.0",
+    "vue": "^3.5.25",
+    "vue-draggable-plus": "^0.6.0",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vitejs/plugin-vue-jsx": "^5.1.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-oxlint": "~1.29.0",
+    "eslint-plugin-vue": "~10.5.1",
+    "globals": "^16.5.0",
+    "npm-run-all2": "^8.0.4",
+    "oxlint": "~1.29.0",
+    "sass": "^1.97.0",
+    "unplugin-auto-import": "^21.0.0",
+    "unplugin-vue-components": "^31.0.0",
+    "vite": "npm:rolldown-vite@latest",
+    "vite-plugin-vue-devtools": "^8.0.5"
+  }
+}
