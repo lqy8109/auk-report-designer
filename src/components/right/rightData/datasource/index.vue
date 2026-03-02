@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-22 10:00:37
  * @LastEditors: xwj
- * @LastEditTime: 2026-02-04 17:40:08
+ * @LastEditTime: 2026-03-02 14:08:22
  * @description: 
 -->
 <script setup>
@@ -50,15 +50,7 @@ const dataSources = computed(() => {
 
 // const dataSources = ref(dataSourcesData.value || []);
 
-watch(
-  () => dataSourcesData.value,
-  (newV) => {
-    console.log(newV);
-  },
-  {
-    deep: true,
-  }
-);
+
 const form = ref({});
 
 const typeList = ref([
