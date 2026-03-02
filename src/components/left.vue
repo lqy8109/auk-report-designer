@@ -4,7 +4,7 @@
     <div ref="dragPreviewRef" class="drag-preview"></div>
     <transition name="sidebarLogoFade">
       <div class="sidebar-logo-container" :class="{ collapse: collapse }">
-        <!-- <img :src="logo" alt="" class="sidebar-logo" /> -->
+        <img :src="logo" alt="" class="sidebar-logo" />
         <h1 class="sidebar-title" v-if="!collapse">报表设计器</h1>
       </div>
     </transition>
