@@ -35,7 +35,7 @@
 <script setup>
 import { ref, defineProps, defineEmits } from "vue";
 import logo from "@/assets/zhlogo.png";
-
+import dragList from "@/config/leftDragList.js";
 // 定义Props：接收外部传入的折叠状态（可选，也可内部维护）
 const props = defineProps({
   collapse: {
@@ -47,66 +47,7 @@ const props = defineProps({
 // 定义Emits：拖拽开始时向父组件传递拖拽元素
 const emit = defineEmits(["drag-start", "toggle-collapse"]);
 
-// 左侧拖拽源列表（可通过Props传入，这里简化为内部定义）
-const dragList = ref([
-  {
-    icon: "icon-Label",
-    name: "标签",
-    id: "1",
-    bgColor: "#fff",
-    type: "label",
-    fontSize:'12px',
-    marginLieft:'-3px'
-  },
-  {
-    icon: "icon-wenbenkuang_fuzhi",
-    name: "文本",
-    id: "1",
-    bgColor: "#fff",
-    type: "text",
-  },
-  {
-    icon: "icon-biaoge_fuzhi",
-    name: "表格",
-    id: "2",
-    bgColor: "#fff",
-    type: "table",
-  },
 
-  {
-    icon: "icon-xiantiao",
-    name: "线条",
-    id: "3",
-    bgColor: "#fff",
-    type: "line",
-  },
-  {
-    icon: "icon-tuxing",
-    name: "图形",
-    id: "3",
-    bgColor: "#fff",
-    type: "graphic",
-  },
-  {
-    icon: "icon-tiaoxingma",
-    name: "条形码",
-    id: "3",
-    bgColor: "#fff",
-    type: "qrcode",
-  },
-  {
-    icon: "icon-tupiankuang_fuzhi",
-    name: "图片",
-    id: "4",
-    type: "image",
-  },
-   {
-    icon: "icon-fuwenben",
-    name: "富文本",
-    id: "4",
-    type: "richText",
-  },
-]);
 
 // 暂存当前拖拽的元素（内部使用）
 const currentDragItem = ref(null);

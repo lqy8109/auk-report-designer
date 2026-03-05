@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-27 11:15:26
  * @LastEditors: xwj
- * @LastEditTime: 2026-02-03 10:49:42
+ * @LastEditTime: 2026-03-03 10:16:16
  * @description: 全局选择框（添加显示/隐藏动画 - 有效版）
 -->
 <template>
@@ -293,6 +293,7 @@ import { ref, computed, onMounted, onUnmounted, watch, reactive } from "vue";
 import { useSelectFieldStore } from "@/stores/selectField";
 import { Search, ArrowDown, ArrowRight, Close } from "@element-plus/icons-vue";
 import Expression from "@/components/expression/index.vue";
+
 const store = useSelectFieldStore();
 const hoverIndex = ref(-1);
 const searchTexts = ref([]);

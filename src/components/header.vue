@@ -35,6 +35,7 @@ const props = defineProps({
   },
   elements: { type: Object, default: () => {} },
 });
+console.log(props.elements)
 const headerWidth = computed(() => {
   return !props.leftCollapse ? "calc(100vw - 200px)" : "calc(100vw - 54px)";
 });
@@ -262,7 +263,7 @@ const handleSave = () => {
           <el-tab-pane label="报表" name="statements"></el-tab-pane>
         </el-tabs>
       </div>
-      <div class="appbar_center flex align-center text-primary text-bold">报表</div>
+      <div class="appbar_center flex align-center text-primary text-bold">{{elements.name}}</div>
       <div class="appbar_right">
          <el-button
           type="primary"

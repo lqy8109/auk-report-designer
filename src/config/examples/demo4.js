@@ -7,7 +7,7 @@
  * @description: 
  */
 export default {
-    "name": "标签打印.rdlx",
+    "name": "demo4",
     "type": "report",
     "reportItems": [
         {

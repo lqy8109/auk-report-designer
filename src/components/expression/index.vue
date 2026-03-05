@@ -1,16 +1,17 @@
 <!--
- * @Version: 1.0
+ * @Version: 1.2
  * @Autor: xwj
  * @Date: 2026-02-02 14:54:00
  * @LastEditors: xwj
- * @Date: 2026-02-03 15:00:00
- * @description: 表达式编辑器-双击节点插入值，光标在大括号外自动加{}，内则不加
+ * @LastEditTime: 2026-03-03 17:30:52
+ * @description: 表达式编辑器-双击插入值+换行对齐+修复滚动条跳动
 -->
 <script setup>
 import { ref, nextTick } from "vue";
 import { left_list } from "./data.js";
 import functionData from "@/static/function.json";
 import { useSelectFieldStore } from "@/stores/selectField";
+
 const store = useSelectFieldStore();
 
 const functionList = ref(functionData);
@@ -22,6 +23,8 @@ const lastCursorPos = ref({
   start: 0,
   end: 0,
 });
+// 新增：保存textarea滚动位置，避免聚焦时滚动
+const textareaScrollTop = ref(0);
 const defaultProps = {
   children: "list",
   label: "name",
@@ -41,6 +44,17 @@ const handleOpen = (value = "", options) => {
       start: expression.value.length,
       end: expression.value.length,
     };
+    // 优化：聚焦但不滚动
+    if (expressionTextarea.value) {
+      // 先定位光标，再恢复滚动位置
+      expressionTextarea.value.focus();
+      expressionTextarea.value.setSelectionRange(
+        lastCursorPos.value.start,
+        lastCursorPos.value.end
+      );
+      // 初始滚动位置为0，避免空内容时滚动异常
+      expressionTextarea.value.scrollTop = 0;
+    }
   });
 };
 
@@ -58,41 +72,92 @@ const handleNodeClick = (node) => {
 const updateCursorPos = () => {
   if (!expressionTextarea.value) return;
   const textarea = expressionTextarea.value;
+  // 保存当前滚动位置
+  textareaScrollTop.value = textarea.scrollTop;
   lastCursorPos.value = {
     start: textarea.selectionStart,
     end: textarea.selectionEnd,
   };
 };
 
-// 核心新增：判断光标位置是否在任意一对合法的大括号 {} 内（支持嵌套）
-const isCursorInBrackets = (str, cursorPos) => {
-  // 去除首尾空白（不影响光标位置判断，仅统一字符串处理）
-  const trimedStr = str.trim();
-  if (trimedStr.length === 0) return false; // 空字符串，光标不在括号内
+// 核心：处理textarea换行自动缩进对齐
+const handleTextareaKeydown = (e) => {
+  if (e.key === 'Enter' && !e.shiftKey && !e.ctrlKey && !e.altKey) {
+    e.preventDefault();
+    
+    const textarea = e.target;
+    // 保存按下回车前的滚动位置
+    const currentScrollTop = textarea.scrollTop;
+    const cursorPos = textarea.selectionStart;
+    const fullText = textarea.value;
+    
+    // 1. 截取光标前的内容，找到上一行
+    const textBeforeCursor = fullText.substring(0, cursorPos);
+    const lastLineBreakIndex = textBeforeCursor.lastIndexOf('\n');
+    const currentLine = lastLineBreakIndex === -1 
+      ? textBeforeCursor 
+      : textBeforeCursor.substring(lastLineBreakIndex + 1);
 
-  let bracketCount = 0; // 大括号计数器：{+1，}-1
+    // 2. 计算当前行的缩进空格数
+    const indentMatch = currentLine.match(/^(\s+)/);
+    let indentSpaces = indentMatch ? indentMatch[1] : '';
+
+    // 3. 智能缩进优化
+    const prevLineContent = lastLineBreakIndex === -1 
+      ? '' 
+      : textBeforeCursor.substring(lastLineBreakIndex + 1);
+    if (prevLineContent.trim().endsWith('{') || prevLineContent.trim().endsWith('(') || prevLineContent.trim().endsWith('[')) {
+      indentSpaces += '    ';
+    }
+
+    // 4. 拼接新内容
+    const newText = 
+      fullText.substring(0, cursorPos) + 
+      '\n' + indentSpaces + 
+      fullText.substring(cursorPos);
+
+    // 5. 更新内容并调整光标位置
+    expression.value = newText;
+    const newCursorPos = cursorPos + 1 + indentSpaces.length;
+    lastCursorPos.value = {
+      start: newCursorPos,
+      end: newCursorPos
+    };
+    
+    // 关键：先定位光标，再恢复滚动位置（避免滚动条跳动）
+    nextTick(() => {
+      textarea.setSelectionRange(newCursorPos, newCursorPos);
+      textarea.scrollTop = currentScrollTop; // 恢复滚动位置
+    });
+  }
+};
+
+// 修复大括号判断bug
+const isCursorInBrackets = (str, cursorPos) => {
+  const trimedStr = str.trim();
+  if (trimedStr.length === 0) return false;
+
+  let bracketCount = 0;
   for (let i = 0; i < cursorPos; i++) {
-    // 超出字符串长度则终止循环
     if (i >= str.length) break;
     const char = str[i];
     if (char === "{") bracketCount++;
     if (char === "}") bracketCount--;
-    // 计数器最小为0（避免右括号多于左括号导致负数）
     if (bracketCount < 0) bracketCount = 0;
   }
-  // 计数器>0 → 光标前有未闭合的{ → 光标在大括号内
   return bracketCount > 0;
 };
 
-// 双击节点插入值（光标外自动加{}，内则不加）+ 精准光标定位 + 光标末尾加前置空格
+// 双击节点插入值
 const handleNodeDblclick = (node) => {
   console.log(node);
   if (!node?.value || !expressionTextarea.value) return;
 
   const textarea = expressionTextarea.value;
+  // 保存插入前的滚动位置 ✨ 核心修复点
+  const currentScrollTop = textarea.scrollTop;
+  
   let insertText = node.value;
-
-  // 数据集字段原有处理逻辑
   if (node.type === "dataSet") {
     insertText = `First(${node.value}, "${node.dataSetName}")`;
   }
@@ -100,22 +165,19 @@ const handleNodeDblclick = (node) => {
   const originBracketIndex = insertText.indexOf("(");
   const { start: lastStart, end: lastEnd } = lastCursorPos.value;
   const cursorInBrackets = isCursorInBrackets(expression.value, lastStart);
-  // 保留光标末尾判断（非0位置）
   const isCursorAtLast = lastStart === expression.value.length && lastStart > 0;
 
-  // ########## 核心调整：大括号包裹时，根据光标位置加前置空格 ##########
   if (!cursorInBrackets) {
-    // 光标在末尾+非0位置 → 大括号前加空格；否则直接包裹{}
     insertText = isCursorAtLast ? ` {${insertText}}` : `{${insertText}}`;
   }
 
-  // 原有内容插入/替换逻辑（无改动）
+  // 插入内容
   expression.value =
     expression.value.substring(0, lastStart) +
     insertText +
     expression.value.substring(lastEnd);
 
-  // ########## 补充：光标定位偏移适配（因空格仅占1位，需调整小括号定位逻辑） ##########
+  // 计算新光标位置
   let newCursorPos;
   if (node.type === "dataSet") {
     newCursorPos = lastStart + insertText.length;
@@ -123,17 +185,21 @@ const handleNodeDblclick = (node) => {
     if (cursorInBrackets) {
       newCursorPos = lastStart + originBracketIndex + 1;
     } else {
-      // 光标在大括号外：偏移量 = 空格(1) + 左大括号(1) + 小括号索引 + 1
       newCursorPos = lastStart + (isCursorAtLast ? 1 : 0) + 1 + originBracketIndex + 1;
     }
   } else {
     newCursorPos = lastStart + insertText.length;
   }
 
-  // 原有光标聚焦和位置更新逻辑（无改动）
+  // 原有光标聚焦和位置更新逻辑（修复滚动问题）✨
   nextTick(() => {
-    textarea.focus();
+    // 1. 先定位光标，不触发滚动
     textarea.setSelectionRange(newCursorPos, newCursorPos);
+    // 2. 恢复之前的滚动位置（关键：避免滚动到最下方）
+    textarea.scrollTop = currentScrollTop;
+    // 3. 最后聚焦（此时光标已定位，聚焦不会触发滚动）
+    textarea.focus();
+    // 4. 同步更新光标位置记录
     updateCursorPos();
   });
 };
@@ -158,6 +224,9 @@ defineExpose({
     :before-close="handleClose"
     append-to-body
     @click.stop
+    :close-on-click-modal="false"
+    draggable
+    align-center
   >
     <div class="flex content">
       <div class="left">
@@ -177,7 +246,10 @@ defineExpose({
           class="expression-textarea"
           @input="updateCursorPos"
           @click="updateCursorPos"
+          @keydown="handleTextareaKeydown"
+          @scroll="textareaScrollTop = $event.target.scrollTop"
         />
+     
         <div class="right_bottom flex flex-sub">
           <div class="right_bottom_left flex-sub">
             <tree-node
@@ -213,7 +285,7 @@ defineExpose({
 
 <style lang="scss" scoped>
 .content {
-  height: 500px;
+  height: 600px;
   .left {
     width: 30%;
     border-right: 1px solid #e4e7ed;
@@ -226,9 +298,8 @@ defineExpose({
   .right {
     padding-left: 10px;
     .expression-textarea {
-      height: 200px;
+      height: 300px;
       width: 100%;
-      //   outline: 1px solid #e4e7ed;
       border: none;
       resize: none;
       padding: 8px;
@@ -236,14 +307,19 @@ defineExpose({
       background-color: rgba(0, 0, 0, 0.1);
       box-shadow: none;
       border-radius: 4px;
+      font-family: "Consolas", "Monaco", monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      // 新增：优化滚动行为，避免平滑滚动导致的延迟
+      scroll-behavior: auto;
+      overflow-y: auto;
     }
     .expression-textarea:focus {
       outline: none;
-      color: var(--el-color-primary);
     }
     .right_bottom {
       user-select: none;
-      max-height: calc(100% - 210px);
+      max-height: calc(100% - 310px);
       margin-top: 10px;
       .right_bottom_left {
         padding-right: 10px;
@@ -253,7 +329,6 @@ defineExpose({
       }
       .right_bottom_right {
         padding-left: 15px;
-
         .title {
           font-weight: bold;
           height: 30px;
@@ -261,7 +336,6 @@ defineExpose({
           font-size: 13px;
           color: #000;
         }
-
         .cont {
           color: #666;
           font-size: 12px;
@@ -273,5 +347,33 @@ defineExpose({
 }
 .dialog-footer {
   text-align: right;
+}
+:deep(.jsoneditor) {
+  border: 0;
+  .ace-jsoneditor.ace_editor {
+    background-color: transparent;
+  }
+}
+:deep(.jsoneditor-menu) {
+  display: none;
+}
+:deep(.jsoneditor-outer.has-main-menu-bar) {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+:deep(.jsoneditor-statusbar) {
+  display: none;
+}
+:deep(.ace_gutter) {
+  display: none;
+}
+:deep(.ace_scroller) {
+  left: 10px !important;
+  background-color: transparent !important;
+}
+:deep(.full-screen) {
+  display: none;
 }
 </style>

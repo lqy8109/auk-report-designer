@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-05 10:47:11
  * @LastEditors: xwj
- * @LastEditTime: 2026-03-02 11:20:35
+ * @LastEditTime: 2026-03-02 14:34:28
  * @description: 
 -->
 <script setup>
@@ -90,13 +90,14 @@ const handleChange = (value) => {
   switch (judgeStringType(props.type)) {
     case "multiLevel":
       var newData = setValueByPath(selectedComp.value, props.type, value);
-      console.log(newData);
       updateCompProps(selectedComp.value, newData);
 
       props.updateOther.forEach((item) => {
         if (item.isValue === value) {
           var newData = setValueByPath(selectedComp.value, item.key, item.value);
-          console.log(newData);
+          updateCompProps(selectedComp.value, newData);
+        } else if (item.noIsValue != value) {
+          var newData = setValueByPath(selectedComp.value, item.key, item.value);
           updateCompProps(selectedComp.value, newData);
         }
       });

@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-04 10:24:44
  * @LastEditors: xwj
- * @LastEditTime: 2026-02-26 17:38:23
+ * @LastEditTime: 2026-03-03 09:18:30
  * @description: 
  */
 export const STYLE_CATEGORIES = {
@@ -109,7 +109,7 @@ export const ECHARTS_TYPES = [
   { label: '饼图', value: 'pie' },
   { label: '散点图', value: 'scatter' },
   { label: '雷达图', value: 'radar' },
-  { label: '热力图', value: 'heatmap' },
+  { label: '仪表盘图', value: 'gauge' },
   { label: '漏斗图', value: 'funnel' }
 ]
 export const ECHARTS_TRIGGER_TYPES = [

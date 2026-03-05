@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-02-02 15:56:14
  * @LastEditors: xwj
- * @LastEditTime: 2026-02-02 17:54:15
+ * @LastEditTime: 2026-03-03 16:32:36
  * @description: 树形组件（带连接线）
 -->
 <template>
@@ -94,7 +94,7 @@ const handleDblclick = () => {
 <style scoped>
 .tree-node {
   line-height: 28px;
-  cursor: default;
+  cursor: pointer;
   position: relative; /* 为连接线伪元素定位做基础 */
   padding-left: 10px;
 }

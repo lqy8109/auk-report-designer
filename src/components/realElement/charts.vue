@@ -69,11 +69,10 @@ const textMenuList = ref([
 const chartRef = ref(null);
 let chartInstance = null;
 
-console.log(props);
+
 const initChart = () => {
   chartInstance = echarts.init(chartRef.value);
   chartInstance.setOption(props.dataItem.echartsOption || {});
-  console.log(props.dataItem);
 };
 
 onMounted(() => {
@@ -90,7 +89,8 @@ watch(
   () => props.dataItem.echartsOption,
   (newVal) => {
     if (chartInstance) {
-      chartInstance.setOption(props.dataItem.echartsOption || {});
+      chartInstance.dispose();
+      initChart();
     }
   },
   { deep: true }

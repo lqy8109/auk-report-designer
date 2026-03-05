@@ -130,7 +130,9 @@
                   v-model:h="item.height"
                   @activated="() => onElementActivated(item, `reportItems[${index}]`)"
                   @deactivated="() => onElementDeactivated(item, `reportItems[${index}]`)"
-                  :drag-handle="item.type === 'table' ? '.handle' : ''"
+                  :drag-handle="
+                    item.type === 'table' || item.type === 'tablix' ? '.handle' : ''
+                  "
                   :cancel="item.type === 'table' ? '.htCore' : ''"
                   :resizable="item.type !== 'table' && item.type !== 'line'"
                   :class-name="
@@ -284,6 +286,7 @@ import {
   TImage,
   TLabel,
   TRichText,
+  TCharts,
 } from "@/components/dragElement/index.js";
 
 import {
@@ -297,6 +300,7 @@ import {
   Label,
   RichText,
   Charts,
+  Tablix,
 } from "@/components/realElement/index.js";
 import { useSettingStore } from "@/stores/index.js";
 import { parsePathString1 } from "@/utils/parsePathString.js";
@@ -383,6 +387,7 @@ const getComponentByType = (type) => {
     label: Label,
     richText: RichText,
     charts: Charts,
+    tablix: Tablix,
   };
   return componentMap[type] || null;
 };
@@ -397,6 +402,7 @@ const getTComponentByType = (type) => {
     image: TImage,
     label: TLabel,
     richText: TRichText,
+    charts: TCharts,
   };
   return componentMap[type] || null;
 };
@@ -858,6 +864,7 @@ const handleDrop = (e) => {
     isActive: false,
     cloneId: Date.now() + Math.random().toString(36).substr(2, 9),
   };
+  console.log(newElement);
 
   if (newElement.type === "line") {
     newElement.startPoint.x = x;

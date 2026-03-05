@@ -1,5 +1,5 @@
 export default {
-    "Name": "Report",
+    "Name": "demo1",
     "Width": "21cm",
     "Layers": [
         {

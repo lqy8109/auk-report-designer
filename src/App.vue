@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2025-12-18 11:07:22
  * @LastEditors: xwj
- * @LastEditTime: 2026-02-26 10:17:11
+ * @LastEditTime: 2026-03-05 09:33:10
  * @description: 
 -->
 <script setup>
@@ -169,7 +169,7 @@ provide("handleSelect", handleSelect);
   </div>
 </template>
 <style lang="scss" scoped>
-@import url("//at.alicdn.com/t/c/font_5092047_wfh1pv12rk.css");
+@import url("https://at.alicdn.com/t/c/font_5092047_j01z684dnp.css");
 .container {
   width: 100vw;
   height: 100vh;

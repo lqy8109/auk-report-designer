@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2025-12-18 11:07:22
  * @LastEditors: xwj
- * @LastEditTime: 2026-01-23 14:03:02
+ * @LastEditTime: 2026-03-03 17:12:52
  * @description: 
  */
 import { fileURLToPath, URL } from 'node:url'
@@ -31,7 +31,7 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
-    }),
+    })
   ],
   resolve: {
     alias: {

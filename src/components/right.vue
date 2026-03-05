@@ -40,7 +40,6 @@ const props = defineProps({
   },
   dataSources: { type: Array, default: () => [] },
   dataSets: { type: Array, default: () => [] },
-  parameters: { type: Array, default: () => [] },
   embeddedImages: { type: Array, default: () => [] },
 });
 

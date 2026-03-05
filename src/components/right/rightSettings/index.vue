@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-04 10:24:25
  * @LastEditors: xwj
- * @LastEditTime: 2026-03-02 11:44:36
+ * @LastEditTime: 2026-03-03 10:01:41
  * @description: 
 -->
 <template>
@@ -74,6 +74,7 @@ import BackgroundImage from "./components/controls/BackgroundImage.vue";
 import BackgroundPositionLevel from "./components/controls/image/BackgroundPositionLevel.vue";
 import BackgroundPositionVertical from "./components/controls/image/BackgroundPositionVertical.vue";
 import ListData from "./components/controls/ListData.vue";
+import EchartsOption from "./components/controls/EchartsOption.vue";
 const props = defineProps({
   dataSources: {
     type: Array,
@@ -243,6 +244,7 @@ const getComponentByType = (type) => {
     backgroundPositionLevel: BackgroundPositionLevel,
     backgroundPositionVertical: BackgroundPositionVertical,
     listData: ListData,
+    echartsOption: EchartsOption,
   };
   return componentMap[type] || Input;
 };

@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-04 10:24:58
  * @LastEditors: xwj
- * @LastEditTime: 2026-03-02 11:48:30
+ * @LastEditTime: 2026-03-03 10:00:29
  * @description: 
  */
 // src/components/StyleEditor/constants/componentStyleConfigs.js
@@ -164,7 +164,19 @@ export const COMMON_STYLE_CONFIGS = {
             { name: 'Customer Support', max: 38000 },
             { name: 'Development', max: 52000 },
             { name: 'Marketing', max: 25000 }
-          ]
+          ],
+
+        }, {
+          noIsValue: 'radar',
+          key: 'echartsOption.radar.indicator',
+          value: [],
+        }, {
+          isValue: 'gauge',
+          key: 'echartsOption.series[0].data',
+          value: [{
+            value: 50,
+            name: 'SCORE'
+          }],
         }]
       },
       {
@@ -246,7 +258,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：1月,2月,3月（英文逗号分隔）',
         updateType: 'base',
-        // hide: ['pie', 'radar', 'heatmap', 'funnel']
+        // hide: ['pie', 'radar', 'gauge', 'funnel']
       },
       {
         key: 'echartsOption.yAxis.show',
@@ -263,7 +275,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：销量（件）',
         updateType: 'base',
-        // hide: ['pie', 'radar', 'heatmap', 'funnel']
+        // hide: ['pie', 'radar', 'gauge', 'funnel']
       },
       {
         key: 'echartsOption.xAxis.axisLabel.rotate',
@@ -272,7 +284,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：-45 / 0',
         updateType: 'style',
-        // hide: ['pie', 'radar', 'heatmap', 'funnel']
+        // hide: ['pie', 'radar', 'gauge', 'funnel']
       },
     ],
     default: {
@@ -280,7 +292,7 @@ export const COMMON_STYLE_CONFIGS = {
       'echartsOption.yAxis.name': '',
       'echartsOption.xAxis.axisLabel.rotate': 0
     },
-    // hide: ['pie', 'radar', 'heatmap', 'funnel'], // 新增
+    // hide: ['pie', 'radar', 'gauge', 'funnel'], // 新增
   },
 
   // ========== 折线图专属配置组 ==========
@@ -294,7 +306,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: [{ label: '是', value: true }, { label: '否', value: false }],
         updateType: 'style',
-        hide: ['bar', 'pie', 'radar', 'heatmap', 'funnel', 'scatter']
+        hide: ['bar', 'pie', 'radar', 'gauge', 'funnel', 'scatter']
       },
       {
         key: 'echartsOption.series[0].symbol',
@@ -303,7 +315,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: ECHARTS_SYMBOL_TYPES,
         updateType: 'style',
-        hide: ['bar', 'pie', 'radar', 'heatmap', 'funnel', 'scatter']
+        hide: ['bar', 'pie', 'radar', 'gauge', 'funnel', 'scatter']
       },
       {
         key: 'echartsOption.series[0].lineStyle.type',
@@ -312,7 +324,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: ECHARTS_LINE_STYLES,
         updateType: 'style',
-        hide: ['bar', 'pie', 'radar', 'heatmap', 'funnel', 'scatter']
+        hide: ['bar', 'pie', 'radar', 'gauge', 'funnel', 'scatter']
       },
       {
         key: 'echartsOption.series[0].symbolSize',
@@ -321,7 +333,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: ECHARTS_SYMBOL_SIZES,
         updateType: 'style',
-        hide: ['bar', 'pie', 'radar', 'heatmap', 'funnel', 'scatter']
+        hide: ['bar', 'pie', 'radar', 'gauge', 'funnel', 'scatter']
       },
     ],
     default: {
@@ -330,7 +342,7 @@ export const COMMON_STYLE_CONFIGS = {
       'echartsOption.series[0].lineStyle.type': 'solid',
       'echartsOption.series[0].symbolSize': 20
     },
-    hide: ['bar', 'pie', 'radar', 'heatmap', 'funnel', 'scatter'], // 新增
+    hide: ['bar', 'pie', 'radar', 'gauge', 'funnel', 'scatter'], // 新增
   },
 
   // ========== 柱状图专属配置组 ==========
@@ -344,7 +356,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：30 / 50%',
         updateType: 'style',
-        hide: ['line', 'pie', 'radar', 'heatmap', 'funnel', 'scatter']
+        hide: ['line', 'pie', 'radar', 'gauge', 'funnel', 'scatter']
       },
       {
         key: 'echartsOption.series[0].barGap',
@@ -353,14 +365,14 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：20% / 0',
         updateType: 'style',
-        hide: ['line', 'pie', 'radar', 'heatmap', 'funnel', 'scatter']
+        hide: ['line', 'pie', 'radar', 'gauge', 'funnel', 'scatter']
       },
     ],
     default: {
       'echartsOption.series[0].barWidth': '30',
       'echartsOption.series[0].barGap': '20%'
     },
-    hide: ['line', 'pie', 'radar', 'heatmap', 'funnel', 'scatter'], // 新增
+    hide: ['line', 'pie', 'radar', 'gauge', 'funnel', 'scatter'], // 新增
   },
 
   // ========== 饼图专属配置组 ==========
@@ -374,7 +386,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：40% / 0',
         updateType: 'style',
-        hide: ['line', 'bar', 'radar', 'heatmap', 'funnel', 'scatter']
+        hide: ['line', 'bar', 'radar', 'gauge', 'funnel', 'scatter']
       },
       {
         key: 'echartsOption.series[0].radius[1]',
@@ -383,7 +395,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：70%',
         updateType: 'style',
-        hide: ['line', 'bar', 'radar', 'heatmap', 'funnel', 'scatter']
+        hide: ['line', 'bar', 'radar', 'gauge', 'funnel', 'scatter']
       },
       {
         key: 'echartsOption.series[0].label.show',
@@ -392,7 +404,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: [{ label: '是', value: true }, { label: '否', value: false }],
         updateType: 'style',
-        hide: ['line', 'bar', 'radar', 'heatmap', 'funnel', 'scatter']
+        hide: ['line', 'bar', 'radar', 'gauge', 'funnel', 'scatter']
       },
       {
         key: 'echartsOption.series[0].roseType',
@@ -401,7 +413,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: [{ label: '无', value: false }, { label: '半径', value: 'radius' }, { label: '面积', value: 'area' }],
         updateType: 'style',
-        hide: ['line', 'bar', 'radar', 'heatmap', 'funnel', 'scatter']
+        hide: ['line', 'bar', 'radar', 'gauge', 'funnel', 'scatter']
       },
     ],
     default: {
@@ -410,7 +422,7 @@ export const COMMON_STYLE_CONFIGS = {
       'echartsOption.series[0].label.show': true,
       'echartsOption.series[0].roseType': false
     },
-    hide: ['line', 'bar', 'radar', 'heatmap', 'funnel', 'scatter'], // 新增
+    hide: ['line', 'bar', 'radar', 'gauge', 'funnel', 'scatter'], // 新增
   },
 
   // ========== 新增：散点图专属配置组 ==========
@@ -424,7 +436,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: ECHARTS_SYMBOL_TYPES,
         updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'radar', 'heatmap', 'funnel']
+        hide: ['line', 'bar', 'pie', 'radar', 'gauge', 'funnel']
       },
       {
         key: 'echartsOption.series[0].symbolSize',
@@ -433,7 +445,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: ECHARTS_SYMBOL_SIZES,
         updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'radar', 'heatmap', 'funnel']
+        hide: ['line', 'bar', 'pie', 'radar', 'gauge', 'funnel']
       },
       {
         key: 'echartsOption.series[0].itemStyle.opacity',
@@ -442,7 +454,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：0.5 / 1（0-1之间）',
         updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'radar', 'heatmap', 'funnel']
+        hide: ['line', 'bar', 'pie', 'radar', 'gauge', 'funnel']
       },
     ],
     default: {
@@ -450,7 +462,7 @@ export const COMMON_STYLE_CONFIGS = {
       'echartsOption.series[0].symbolSize': 20,
       'echartsOption.series[0].itemStyle.opacity': 1
     },
-    hide: ['line', 'bar', 'pie', 'radar', 'heatmap', 'funnel']
+    hide: ['line', 'bar', 'pie', 'radar', 'gauge', 'funnel']
   },
 
   // ========== 新增：雷达图专属配置组 ==========
@@ -464,7 +476,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：[{"name":"维度1","max":100},{"name":"维度2","max":100}]',
         updateType: 'base',
-        hide: ['line', 'bar', 'pie', 'heatmap', 'funnel', 'scatter'],
+        hide: ['line', 'bar', 'pie', 'gauge', 'funnel', 'scatter'],
         listKey: 'name',
         listValue: 'max'
       },
@@ -475,7 +487,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：70% / 80',
         updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'heatmap', 'funnel', 'scatter']
+        hide: ['line', 'bar', 'pie', 'gauge', 'funnel', 'scatter']
       },
       {
         key: 'echartsOption.series[0].areaStyle.opacity',
@@ -484,7 +496,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：0.3 / 0.5（0-1之间）',
         updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'heatmap', 'funnel', 'scatter']
+        hide: ['line', 'bar', 'pie', 'gauge', 'funnel', 'scatter']
       },
     ],
     default: {
@@ -492,59 +504,28 @@ export const COMMON_STYLE_CONFIGS = {
       'echartsOption.radar.radius': '70%',
       'echartsOption.series[0].areaStyle.opacity': 0.3
     },
-    hide: ['line', 'bar', 'pie', 'heatmap', 'funnel', 'scatter']
+    hide: ['line', 'bar', 'pie', 'gauge', 'funnel', 'scatter']
   },
 
-  // ========== 新增：热力图专属配置组 ==========
-  echartsHeatmap: {
-    label: '热力图专属配置',
+  // ========== 新增：仪表盘图专属配置组 ==========
+  echartsGauge: {
+    label: '仪表盘图专属配置',
     items: [
       {
-        key: 'echartsOption.visualMap.min',
-        label: '最小值',
-        type: 'input',
-        dataType: 'echarts',
-        placeholder: '如：0',
-        updateType: 'base',
-        hide: ['line', 'bar', 'pie', 'radar', 'funnel', 'scatter']
-      },
-      {
-        key: 'echartsOption.visualMap.max',
-        label: '最大值',
-        type: 'input',
-        dataType: 'echarts',
-        placeholder: '如：100',
-        updateType: 'base',
-        hide: ['line', 'bar', 'pie', 'radar', 'funnel', 'scatter']
-      },
-      {
-        key: 'echartsOption.visualMap.inRange.color',
-        label: '颜色渐变',
+        key: 'echartsOption.series[0].progress.show',
+        label: '是否显示进度条',
         type: 'select',
         dataType: 'echarts',
-        options: ECHARTS_COLOR_GRADIENTS,
+        options: [{ label: '是', value: true }, { label: '否', value: false }],
         updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'radar', 'funnel', 'scatter']
-      },
-      {
-        key: 'echartsOption.series[0].emphasis.itemStyle.shadowBlur',
-        label: '高亮阴影大小',
-        type: 'input',
-        dataType: 'echarts',
-        placeholder: '如：10 / 20',
-        updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'radar', 'funnel', 'scatter']
+        hide: ['line', 'bar', 'pie', 'funnel', 'scatter']
       },
     ],
     default: {
-      'echartsOption.visualMap.min': 0,
-      'echartsOption.visualMap.max': 100,
-      'echartsOption.visualMap.inRange.color': '["#313695", "#4575b4", "#74add1", "#abd9e9", "#e0f3f8", "#ffffbf", "#fee090", "#fdae61", "#f46d43", "#d73027", "#a50026"]',
-      'echartsOption.series[0].emphasis.itemStyle.shadowBlur': 10
+      'echartsOption.series[0].progress.show': true
     },
-    hide: ['line', 'bar', 'pie', 'radar', 'funnel', 'scatter']
+    hide: ['line', 'bar', 'pie', 'funnel', 'scatter']
   },
-
   // ========== 新增：漏斗图专属配置组 ==========
   echartsFunnel: {
     label: '漏斗图专属配置',
@@ -556,7 +537,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: ECHARTS_POSITIONS,
         updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'radar', 'heatmap', 'scatter']
+        hide: ['line', 'bar', 'pie', 'radar', 'gauge', 'scatter']
       },
       {
         key: 'echartsOption.series[0].gap',
@@ -565,7 +546,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         placeholder: '如：2 / 5（像素）',
         updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'radar', 'heatmap', 'scatter']
+        hide: ['line', 'bar', 'pie', 'radar', 'gauge', 'scatter']
       },
       {
         key: 'echartsOption.series[0].orient',
@@ -574,7 +555,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: ECHARTS_FUNNEL_ORIENT,
         updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'radar', 'heatmap', 'scatter']
+        hide: ['line', 'bar', 'pie', 'radar', 'gauge', 'scatter']
       },
       {
         key: 'echartsOption.series[0].label.position',
@@ -583,7 +564,7 @@ export const COMMON_STYLE_CONFIGS = {
         dataType: 'echarts',
         options: [{ label: '内部', value: 'inside' }, { label: '外部', value: 'outside' }],
         updateType: 'style',
-        hide: ['line', 'bar', 'pie', 'radar', 'heatmap', 'scatter']
+        hide: ['line', 'bar', 'pie', 'radar', 'gauge', 'scatter']
       },
     ],
     default: {
@@ -592,7 +573,20 @@ export const COMMON_STYLE_CONFIGS = {
       'echartsOption.series[0].orient': 'vertical',
       'echartsOption.series[0].label.position': 'inside'
     },
-    hide: ['line', 'bar', 'pie', 'radar', 'heatmap', 'scatter']
+    hide: ['line', 'bar', 'pie', 'radar', 'gauge', 'scatter']
+  },
+  echartsOption: {
+    label: 'ECharts配置项',
+    items: [
+      {
+        key: 'echartsOption',
+        label: '图表完整配置',
+        type: 'echartsOption',
+        dataType: 'echarts',
+        placeholder: '请配置完整的ECharts配置',
+        updateType: 'base'
+      }
+    ],
   },
 
   // ========== ECharts 数据配置组 ==========
@@ -615,6 +609,7 @@ export const COMMON_STYLE_CONFIGS = {
         placeholder: '如：产品A',
         updateType: 'base'
       },
+
     ],
     default: {
       'echartsOption.series[0].data': [],
@@ -676,6 +671,7 @@ export const COMPONENT_STYLE_MAP = {
   charts: [
     'background',
     'border',
+    'echartsOption',
     'echartsBase',
     'echartsAxis',
     'echartsLine', // 折线图
@@ -683,7 +679,7 @@ export const COMPONENT_STYLE_MAP = {
     'echartsPie', // 饼图
     'echartsScatter', // 散点图
     'echartsRadar',   // 雷达图
-    'echartsHeatmap', // 热力图
+    'echartsGauge', // 仪表盘图
     'echartsFunnel',  // 漏斗图
     'echartsData'
   ]

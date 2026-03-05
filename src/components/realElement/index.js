@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2025-12-18 16:36:02
  * @LastEditors: xwj
- * @LastEditTime: 2026-02-26 15:03:00
+ * @LastEditTime: 2026-03-04 10:38:08
  * @description: 
  */
 import Text from "./text.vue";
@@ -15,6 +15,7 @@ import Image from './image.vue';
 import Label from './label.vue';
 import RichText from './richText.vue';
 import Charts from './charts.vue';
+import Tablix from './tablix.vue';
 
 
 // 组件类型常量
@@ -40,6 +41,7 @@ export {
     Label,
     RichText,
     Charts,
+    Tablix,
 }
 
 export const ComponentJson = {
@@ -443,6 +445,41 @@ export const ComponentJson = {
             "text-align": "left",
         },
     },
+    charts: {
+        "type": "charts",
+        "canGrow": true,
+        "name": "ECharts1",
+        "top": "15cm",
+        "left": "0cm",
+        "width": 657,
+        "height": 285,
+        "zIndex": 5,
+        "style": {
+            "border-width": "1px",
+            "border-style": "solid",
+            "border-color": "#e0e0e0",
+            "background-color": "#ffffff"
+        },
+        "echartsOption": {
+            "title": { "text": "月度销量趋势", "left": "center" },
+            "tooltip": { "trigger": "item" },
+            "legend": { "show": true, "bottom": 0 },
+            "backgroundColor": "#ffffff",
+            "xAxis": { "type": "category", "data": ["1月", "2月", "3月"], "axisLabel": { "rotate": 0 } },
+            "yAxis": { "type": "value", "name": "销量（件）" },
+
+            "series": [{
+                "name": "产品A",
+                "type": "line",
+                "data": [120, 200, 150],
+                "smooth": true,
+                "symbol": "circle",
+                "lineStyle": { "type": "solid" }
+            }]
+        },
+        "keepTogether": true,
+        "dataElementName": "ECharts1"
+    }
 }
 
 

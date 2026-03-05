@@ -61,9 +61,9 @@ watch(
   () => localList.value,
   (newList) => {
     // 通知父组件更新v-model
-    emit("update:modelValue", JSON.parse(JSON.stringify(newList)));
+    // emit("update:modelValue", JSON.parse(JSON.stringify(newList)));
     // 更新到编辑器组件属性
-    updateCompData(newList);
+    // updateCompData(newList);
   },
   { deep: true }
 );
@@ -71,6 +71,8 @@ watch(
 // 处理输入框值变化（简化：直接由v-model自动更新，此处保留可扩展）
 const handleInputChange = () => {
   // 可添加输入值校验等逻辑
+  console.log(33333);
+  updateCompData();
 };
 
 // 添加新的数组项
@@ -81,6 +83,7 @@ const handleAddItem = () => {
     [listValue]: 100,
   };
   localList.value.push(newItem);
+  updateCompData();
 };
 
 // 删除指定索引的数组项
@@ -91,6 +94,7 @@ const handleDeleteItem = (index) => {
     return;
   }
   localList.value.splice(index, 1);
+  updateCompData();
 };
 
 // 统一更新组件属性的方法
@@ -171,11 +175,6 @@ const updateCompData = (data = localList.value) => {
 <style lang="scss" scoped>
 .dimension-list-container {
   padding: 4px 0;
-}
-
-:deep(.el-input__inner) {
-  font-size: 13px;
-  min-width: 80px;
 }
 
 :deep(.el-input-group__append) {
