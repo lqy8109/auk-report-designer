@@ -15,6 +15,8 @@ import TImage from "@/components/dragElement/image.vue";
 import TLabel from "@/components/dragElement/label.vue";
 import TRichText from "@/components/dragElement/richtext.vue";
 import TCharts from "@/components/dragElement/charts.vue";
+import TTablix from "@/components/dragElement/tablix.vue";
+
 
 
 export {
@@ -27,4 +29,5 @@ export {
     TLabel,
     TRichText,
     TCharts,
+    TTablix,
 }

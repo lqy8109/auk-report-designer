@@ -1,13 +1,5 @@
 <template>
-  <div
-    style="width: 100%; height: 100%; position: relative"
-    :class="{
-      table_active:
-        settingStore.selectedParentPath == props.path &&
-        settingStore.selected.type == 'table',
-    }"
-    ref="tableWrapper"
-  >
+  <div style="width: 100%; height: 100%; position: relative" ref="tableWrapper">
     <div ref="hotTableContainer" style="width: 100%; height: 100%">
       <hot-table :settings="state.settings" ref="hotTableComponent"></hot-table>
     </div>
@@ -27,13 +19,15 @@ import { Rank } from "@element-plus/icons-vue";
 import { registerCellType, NumericCellType } from "handsontable/cellTypes";
 import { registerPlugin, UndoRedo } from "handsontable/plugins";
 import convertJsonToHandsontableConfig from "@/utils/tablix";
-import { useSettingStore } from "@/stores/index";
 import parsePathString from "@/utils/parsePathString";
 import { useUndoManager } from "@/utils/undoManager";
 import deepClone from "@/utils/deepClone";
 import { useLowcodeEditor } from "@/composables/useLowcodeEditor";
 
 const {
+  selectedComp,
+  selectedPageType,
+  selectedIndex,
   selectComp,
   handleCompValueChange,
   selectTableCell,
@@ -41,8 +35,8 @@ const {
   updateComp,
   deleteComp,
 } = useLowcodeEditor();
-// 引入抽离的工具方法和常量
 
+// 引入抽离的工具方法和常量
 import {
   CONST,
   ROW_MAP_CACHE,
@@ -70,7 +64,6 @@ const emit = defineEmits(["handleDeleteItem", "handleUndoDeleteItem", "setWidth"
 // 注入依赖
 const contextMenuState = inject("contextMenuState");
 const { closeMenu } = contextMenuState;
-const settingStore = useSettingStore();
 const handleSelect = inject("handleSelect");
 
 // 模板引用
@@ -116,22 +109,7 @@ let originalDeselectCell = null; // 保存原始方法
 
 //
 const handleSelectTable = () => {
-  console.log(props);
-
-  const selectedData = {
-    ...cloneConfig.value,
-    // style: mergeStyles(cellMetas),
-    type: "table",
-    // sameData: processItemData(selectMetaData),
-  };
-
   selectComp(props.dataItem, props.pageType, props.index);
-
-  // console.log(selectedData);
-
-  // settingStore.setSelectedParentPath(props.path);
-  // settingStore.setSelected(selectedData);
-  // settingStore.setIsPage(false);
 };
 
 // ===================== 3. 核心业务方法（组件特有） =====================
@@ -167,10 +145,9 @@ const getSelectedCellMetas = debounce(function (row, column, row2, column2) {
   const selectedData = {
     ...processItemData(selectMetaData),
     style: mergeStyles(cellMetas),
-    type: "tableCell",
+    type: "tablixCell",
     dataSetName: cloneConfig.value.dataSetName,
   };
-  console.log(cloneConfig.value);
 
   selectTableCell(
     selectMetaData,
@@ -179,12 +156,6 @@ const getSelectedCellMetas = debounce(function (row, column, row2, column2) {
     props.index,
     updateSelected
   );
-
-  // selectComp(selectedData, props.pageType, props.index);
-
-  // settingStore.setSelectedParentPath(props.path);
-  // settingStore.setSelected(selectedData);
-  // settingStore.setIsPage(false);
 });
 
 /**
@@ -194,7 +165,6 @@ const getSelectedCellMetas = debounce(function (row, column, row2, column2) {
  */
 const updateValue = (values, source) => {
   if (source != "edit" || !Array.isArray(values) || values.length == 0) return;
-  console.log(values);
   const hot = hotTableComponent.value?.hotInstance;
   if (!hot) return;
   const updateCellValue = (items, isUndo = false, isSetDataAtCell = true) => {
@@ -212,7 +182,6 @@ const updateValue = (values, source) => {
 
   updateCellValue(values, false, false);
 
-
   updateComp(props.pageType, props.index, cloneConfig.value);
 
   // 注册撤销重做
@@ -228,13 +197,11 @@ const updateValue = (values, source) => {
  */
 const updateSelected = (newData) => {
   if (!newData) return;
-  // const selectData = settingStore.selected;
   const hot = hotTableComponent.value?.hotInstance;
   if (!hot) return;
 
   selectedTableCells.value.forEach((item) => {
     const current = parsePathString(item.path, cloneConfig.value);
-    console.log(current, cloneConfig.value);
     if (!current) return;
 
     const keys = Object.keys(newData);
@@ -249,6 +216,11 @@ const updateSelected = (newData) => {
         //更新cloneConfig.value
         updateObjectByPath(item.path, current);
         hot.render();
+      } else if (key == "expand") {
+        hot.setCellMeta(item.row, item.col, "expand", newData[key]);
+        current.item[key] = newData[key];
+        updateObjectByPath(item.path, current);
+        hot.render();
       } else {
         current.item[key] = newData[key];
         updateObjectByPath(item.path, current);
@@ -256,8 +228,6 @@ const updateSelected = (newData) => {
       }
     });
   });
-
-  console.log(cloneConfig.value);
 
   updateComp(props.pageType, props.index, cloneConfig.value);
 };
@@ -688,7 +658,6 @@ const initTableConfig = () => {
     getProps,
     props.index
   );
-  console.log(baseConfig.value);
 
   state.sectionRowCounts = baseConfig.value.sectionRowCounts || {};
   state.cellStyles = baseConfig.value.cellStyles || [];
@@ -738,62 +707,46 @@ const initTableConfig = () => {
 
   nextTick(() => {
     initCellStyle(state.cellStyles);
+    console.log(hotTableComponent.value.hotInstance.getSettings())
   });
 };
 
 // ===================== 6. 暴露给外部的方法 =====================
 const myExternalMethods = {
-  insertRowAbove: (params) => insertRow({ ...params, position: CONST.POSITION.ABOVE }),
-  insertRowBelow: (params) => insertRow({ ...params, position: CONST.POSITION.BELOW }),
-  removeRow,
-  unRemoveRow,
-  insertColStart: (params) => insertCol({ ...params, position: CONST.POSITION.START }),
-  insertColEnd: (params) => insertCol({ ...params, position: CONST.POSITION.END }),
-  removeCol,
-  unRemoveCol,
-  insertRowGroup,
-  removeRowGroup,
-  unRemoveRowGroup: undoBatchGroupChanges,
-  mergeCell,
+  insertRowAbove: (params) => insertRow({ ...params, position: CONST.POSITION.ABOVE }), // 插入行（上）
+  insertRowBelow: (params) => insertRow({ ...params, position: CONST.POSITION.BELOW }), // 插入行（下）
+  removeRow, // 删除行
+  unRemoveRow, // 撤销删除行
+  insertColStart: (params) => insertCol({ ...params, position: CONST.POSITION.START }), // 插入列（前）
+  insertColEnd: (params) => insertCol({ ...params, position: CONST.POSITION.END }), // 插入列（后）
+  removeCol, // 删除列
+  unRemoveCol, // 撤销删除列
+  insertRowGroup, // 插入行分组
+  removeRowGroup, // 删除行分组
+  unRemoveRowGroup: undoBatchGroupChanges, // 撤销删除行分组
+  mergeCell, // 合并单元格
   mergeCellUndo: (params) => {
     if (params?.oldCloneConfig) cloneConfig.value = deepClone(params.oldCloneConfig);
-  },
-  unMergeCell,
+  }, // 撤销合并单元格（通过恢复旧配置实现）
+  unMergeCell, // 撤销合并单元格
   insertRowHeader: () =>
-    batchRowOperation(CONST.SECTION_TYPE.HEADER, CONST.OP_TYPE.INSERT),
+    batchRowOperation(CONST.SECTION_TYPE.HEADER, CONST.OP_TYPE.INSERT), // 插入行头（上）
   insertRowDetail: (params) =>
-    batchRowOperation(CONST.SECTION_TYPE.DETAILS, CONST.OP_TYPE.INSERT, params),
+    batchRowOperation(CONST.SECTION_TYPE.DETAILS, CONST.OP_TYPE.INSERT, params), // 插入行详情（下）
   insertRowFooter: (params) =>
-    batchRowOperation(CONST.SECTION_TYPE.FOOTER, CONST.OP_TYPE.INSERT, params),
+    batchRowOperation(CONST.SECTION_TYPE.FOOTER, CONST.OP_TYPE.INSERT, params), // 插入行脚（下）
   removeRowHeader: () =>
-    batchRowOperation(CONST.SECTION_TYPE.HEADER, CONST.OP_TYPE.DELETE),
-  unRemoveRowHeader: (params) => undoBatchRowChanges(CONST.SECTION_TYPE.HEADER, params),
+    batchRowOperation(CONST.SECTION_TYPE.HEADER, CONST.OP_TYPE.DELETE), // 删除行头
+  unRemoveRowHeader: (params) => undoBatchRowChanges(CONST.SECTION_TYPE.HEADER, params), // 撤销删除行头
   removeRowDetail: () =>
-    batchRowOperation(CONST.SECTION_TYPE.DETAILS, CONST.OP_TYPE.DELETE),
-  unRemoveRowDetail: (params) => undoBatchRowChanges(CONST.SECTION_TYPE.DETAILS, params),
+    batchRowOperation(CONST.SECTION_TYPE.DETAILS, CONST.OP_TYPE.DELETE), // 删除行详情
+  unRemoveRowDetail: (params) => undoBatchRowChanges(CONST.SECTION_TYPE.DETAILS, params), // 撤销删除行详情
   removeRowFooter: () =>
-    batchRowOperation(CONST.SECTION_TYPE.FOOTER, CONST.OP_TYPE.DELETE),
-  unRemoveRowFooter: (params) => undoBatchRowChanges(CONST.SECTION_TYPE.FOOTER, params),
-  removeTable: () => deleteComp(props.pageType, props.index),
-  updateSectionRowCounts: (counts) => (state.sectionRowCounts = counts || {}),
+    batchRowOperation(CONST.SECTION_TYPE.FOOTER, CONST.OP_TYPE.DELETE), // 删除行脚
+  unRemoveRowFooter: (params) => undoBatchRowChanges(CONST.SECTION_TYPE.FOOTER, params), // 撤销删除行脚
+  removeTable: () => deleteComp(props.pageType, props.index), // 删除表格
+  updateSectionRowCounts: (counts) => (state.sectionRowCounts = counts || {}), // 更新各部分行数（header/groupHeader/details/groupFooter/footer）
 };
-
-// ===================== 7. 监听/清理 =====================
-// 监听更新标识
-watch(
-  () => settingStore.updateFlag,
-  (newVal) => {
-    if (props.path === settingStore.selectedParentPath) {
-      if (settingStore.selected.type == "table") {
-        cloneConfig.value[newVal.type] = newVal.value;
-      } else {
-        console.log(newVal);
-        updateSelected(newVal);
-      }
-    }
-  },
-  { immediate: false, flush: "post" }
-);
 
 // 初始化表格
 initTableConfig();

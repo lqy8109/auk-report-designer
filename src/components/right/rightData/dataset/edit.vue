@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-22 16:59:08
  * @LastEditors: xwj
- * @LastEditTime: 2026-01-27 09:15:59
+ * @LastEditTime: 2026-03-06 09:24:21
  * @description: 
 -->
 <script setup>
@@ -62,7 +62,6 @@ const handleOpen = (sourceData1, data = {}, title = "添加数据集", edit = fa
   addOpen.value = true;
   form.value = { ...data };
   sourceData.value = { ...sourceData1 };
-  console.log(sourceData1, data);
   if (!edit) {
     form.value.name = props.originalDataSets
       ? `Dataset${props.originalDataSets.length + 1}`
@@ -108,9 +107,6 @@ const addHeader = () => {
 };
 
 const saveDataSet = () => {
-  console.log(newDataset.value);
-  console.log(form.value);
-  console.log(sourceData.value);
   var data={
     dataSourceType: dataSourceType.value,
     dataSourceName: dataSourceName.value,
@@ -142,13 +138,9 @@ const newDataset = ref([]);
 const showCalculatedFields = ref(false);
 
 const getFields = async () => {
-  console.log(form.value);
   if (dataSourceType.value == "database") {
   } else if (dataSourceType.value == "url") {
-    console.log(form.value);
-
     loading.value = true;
-
     var params = {};
     if (form.value.queryParams) {
       form.value.queryParams.forEach((item) => {
@@ -181,15 +173,12 @@ const getFields = async () => {
       newDatasetConfig.push(item);
     });
     newDataset.value = newDatasetConfig;
-    console.log(newDatasetConfig);
     form.value.fields = keys.map((item) => {
       return {
         name: item,
         dataField: item,
       };
     });
-    console.log(props.originalDataSets);
-    console.log(keys, datasetConfig);
   } else if (dataSourceType.value == "file") {
     var data = JSON.parse(sourceData.value.json);
     const keys = getAllKeys(data);
@@ -212,26 +201,6 @@ const getFields = async () => {
         dataField: item,
       };
     });
-
-    console.log(data, keys);
-    // var datasetConfig = generateDatasetConfig(data, form, dataSourceName);
-    // console.log(data)
-    // loading.value = false;
-    // var newDatasetConfig = deepClone(props.originalDataSets);
-
-    // datasetConfig.map((item) => {
-    //   newDatasetConfig.push(item);
-    // });
-    // newDataset.value = newDatasetConfig;
-    // console.log(newDatasetConfig);
-    // form.value.fields = keys.map((item) => {
-    //   return {
-    //     name: item,
-    //     dataField: item,
-    //   };
-    // });
-    // console.log(props.originalDataSets);
-    // console.log(keys, datasetConfig);
   }
 };
 
@@ -334,16 +303,13 @@ function autoDetectAllSubPaths(originalData, parentPath = "", subPathSet = new S
     return Array.from(subPathSet).sort();
   }
 
-  console.log(originalData);
   Object.entries(originalData).forEach(([key, value]) => {
     // 拼接当前层级的完整路径（如 "address" → "address.geo"）
     const currentPath = parentPath ? `${parentPath}.${key}` : key;
 
     // 如果当前值是对象，加入子路径集合，并递归识别其内部嵌套
-    console.log(key, value);
     if (typeof value === "object" && value !== null && !Array.isArray(value)) {
       subPathSet.add(currentPath);
-      console.log(value);
       autoDetectAllSubPaths(value, currentPath, subPathSet);
     }
   });
@@ -395,7 +361,6 @@ function generateDatasetConfig(originalData, form, dataSourceName, customSubPath
     }));
 
   // 4. 主数据集配置（使用form.value.name和dataSourceName.value）
-  console.log(form);
   const mainConfig = {
     name: form.value.name,
     fields: buildFields(mainFields),

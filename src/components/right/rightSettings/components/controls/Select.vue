@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-05 10:47:11
  * @LastEditors: xwj
- * @LastEditTime: 2026-03-02 14:34:28
+ * @LastEditTime: 2026-03-06 09:21:08
  * @description: 
 -->
 <script setup>
@@ -58,6 +58,7 @@ const emit = defineEmits(["update:modelValue", "change"]);
 
 const value = computed(() => props.modelValue);
 
+
 // watch(
 //   () => props.modelValue,
 //   (val) => {
@@ -86,12 +87,10 @@ const formattedOptions = computed(() => {
 });
 
 const handleChange = (value) => {
-  console.log(judgeStringType(props.type), formattedOptions.value);
   switch (judgeStringType(props.type)) {
     case "multiLevel":
       var newData = setValueByPath(selectedComp.value, props.type, value);
       updateCompProps(selectedComp.value, newData);
-
       props.updateOther.forEach((item) => {
         if (item.isValue === value) {
           var newData = setValueByPath(selectedComp.value, item.key, item.value);

@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2025-12-18 11:07:22
  * @LastEditors: xwj
- * @LastEditTime: 2026-03-05 09:33:10
+ * @LastEditTime: 2026-03-05 15:04:49
  * @description: 
 -->
 <script setup>
@@ -13,7 +13,7 @@ import Left from "@/components/left.vue";
 import Main from "@/components/main.vue";
 import Right from "@/components/right.vue";
 import Footer from "@/components/footer.vue";
-import data from "@/config/examples/demo3.js";
+import data from "@/config/examples/demo5.js";
 import { useSettingStore } from "@/stores/index.js";
 import { convertCmToPxInObject, convertPxToCmInObject } from "@/utils/unitConversion.js";
 import { useLowcodeEditor } from "@/composables/useLowcodeEditor";

@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-04 10:24:58
  * @LastEditors: xwj
- * @LastEditTime: 2026-03-03 10:00:29
+ * @LastEditTime: 2026-03-05 16:32:20
  * @description: 
  */
 // src/components/StyleEditor/constants/componentStyleConfigs.js
@@ -111,6 +111,13 @@ export const COMMON_STYLE_CONFIGS = {
       { key: 'value', label: '数据', type: 'data', placeholder: '', dataType: '', updateType: 'base' },
     ],
     default: {}
+  },
+  expand: {
+    label: '数据展开方向',
+    items: [
+      { key: 'expand', label: '数据展开方向', type: 'select', dataType: 'data',updateType: 'base' , options: [{ label: '无', value: '' }, { label: '向下', value: 'down' }, { label: '向右', value: 'right' }] },
+    ],
+    default: { expand: '' }
   },
   text: {
     label: '数据选项',
@@ -662,6 +669,7 @@ export const COMPONENT_STYLE_MAP = {
   page: ['background', 'paper', 'margin'],
   table: ['dataSource'],
   tableCell: ['data', 'background', 'border', 'font'],
+  tablixCell: ['data', 'expand', 'background', 'border', 'font'],
   line: ['lineBorder'],
   graphic: ['background', 'border', 'borderRadius'],
   qrcode: ['data', 'qrcodeType', 'background', 'qrcodeFont'],

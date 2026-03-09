@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-04 10:24:25
  * @LastEditors: xwj
- * @LastEditTime: 2026-03-03 10:01:41
+ * @LastEditTime: 2026-03-06 09:31:53
  * @description: 
 -->
 <template>
@@ -100,7 +100,7 @@ const {
 watch(
   () => selectedComp,
   (newVal) => {
-    // console.log(newVal.value);
+    
   },
   { deep: true }
 );

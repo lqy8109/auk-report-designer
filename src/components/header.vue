@@ -35,7 +35,7 @@ const props = defineProps({
   },
   elements: { type: Object, default: () => {} },
 });
-console.log(props.elements)
+
 const headerWidth = computed(() => {
   return !props.leftCollapse ? "calc(100vw - 200px)" : "calc(100vw - 54px)";
 });
@@ -127,7 +127,7 @@ onUnmounted(() => {
 watch(
   () => selectedCompType.value,
   (newVal) => {
-    console.log(selectedComp.value);
+    // console.log(selectedComp.value);
   }
 );
 

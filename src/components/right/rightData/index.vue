@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-22 09:58:01
  * @LastEditors: xwj
- * @LastEditTime: 2026-02-04 17:18:22
+ * @LastEditTime: 2026-03-06 09:23:54
  * @description: 
 -->
 <script setup>
@@ -89,7 +89,7 @@ function buildDataSetTree(config) {
   return tree;
 }
 // dataSetTree.value = buildDataSetTree(deepClone(props.dataSets));
-console.log(dataSetTree.value);
+
 const datasetEditRef = ref(null);
 
 const handleAddDataset = (sourceData) => {
@@ -102,7 +102,6 @@ const handleSaveDataset = (dataSet) => {
     //  props.dataSets.push(dataSet);
      dataSets.value.push(dataSet);
 
-     console.log(props.dataSets);
 //   dataSet.forEach((item) => {
 //     props.dataSets.push(item);
 //   });

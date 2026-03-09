@@ -280,14 +280,14 @@ const bridgeApi = {
      * @param {*} newProps 要更新的属性（支持style深层更新）
      */
     updateComp: (section, setIndex, newComp) => {
-        if (!section || !setIndex || !newComp) return false;
+        if (!section  || !newComp) return false;
         const compList = bridgeApi._getCompList(section);
 
         compList.splice(setIndex, 1, newComp);
         console.log(compList);
     },
 
-    getComp:(section, setIndex) => {
+    getComp: (section, setIndex) => {
         const compList = bridgeApi._getCompList(section);
         return compList[setIndex];
     },
@@ -301,19 +301,15 @@ const bridgeApi = {
      * @returns {boolean} 是否更新成功
      */
     updateCompProps: (section, setIndex, targetComp, newProps) => {
-        console.log(section, setIndex, targetComp, newProps);
         if (!section || !targetComp || !newProps) return false;
-
-        //单元格属性更新
+        //单元格属性更新 因为不好找具体单元格，所以先更新选中的数据，再回调方法，方法内会整体更新表格数据，再由整体表格数据更新
         if (dataPool.updateSelectedCellCallBack) {
-            console.log(newProps);
             for (const [key, val] of Object.entries(newProps)) {
                 dataPool.selectedComp = {
                     ...dataPool.selectedComp,
                     [key]: val,
                 }
                 dataPool.updateSelectedCellCallBack({ [key]: val });
-
             }
         } else {
             // 普通组件

@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-22 10:00:37
  * @LastEditors: xwj
- * @LastEditTime: 2026-02-04 17:40:27
+ * @LastEditTime: 2026-03-06 09:25:27
  * @description: 
 -->
 <script setup>
@@ -92,8 +92,6 @@ const handleAdd = () => {
     name: parameters.value?.length ? `params${parameters.value.length + 1}` : "params",
     dataType: "String",
   };
-
-  console.log(form.value);
 };
 
 const handleEdit = (item, index) => {

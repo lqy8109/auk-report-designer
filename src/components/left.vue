@@ -60,7 +60,6 @@ const previewItem = ref({}); // 预览元素的信息
  */
 // 修改：拖拽开始事件 - 自定义预览图
 const handleDragStart = (e, item) => {
-  console.log(item);
   currentDragItem.value = item;
   previewItem.value = item; // 赋值预览元素信息
   e.dataTransfer.setData("text/plain", JSON.stringify(item));
@@ -69,7 +68,6 @@ const handleDragStart = (e, item) => {
   // 关键：自定义拖拽预览图
   if (dragPreviewRef.value) {
     // setDragImage(预览DOM, 偏移x, 偏移y)
-    console.log(dragPreviewRef.value);
     e.dataTransfer.setDragImage(dragPreviewRef.value, 20, 20);
   }
 

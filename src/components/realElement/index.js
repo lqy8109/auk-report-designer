@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2025-12-18 16:36:02
  * @LastEditors: xwj
- * @LastEditTime: 2026-03-04 10:38:08
+ * @LastEditTime: 2026-03-06 09:28:30
  * @description: 
  */
 import Text from "./text.vue";
@@ -479,7 +479,314 @@ export const ComponentJson = {
         },
         "keepTogether": true,
         "dataElementName": "ECharts1"
-    }
+    },
+    tablix: {
+        "type": "tablix",
+        "name": "表格1",
+        "zIndex": 10,
+        "style": {
+            "border": {
+                "style": "Solid",
+                "width": "1px"
+            },
+            "fontFamily": "微软雅黑"
+        },
+        "tableColumns": [
+            {
+                "width": "94px"
+            },
+            {
+                "width": "94px"
+            },
+            {
+                "width": "94px"
+            },
+        ],
+        "header": {
+            "tableRows": [
+                {
+                    "height": "28.34px",
+                    "tableCells": [
+                        {
+                            "item": {
+                                "type": "textbox",
+                                "name": "文本框70",
+                                "keepTogether": true,
+                                "value": "",
+                                "style": {
+                                    "border": {
+                                        "color": "DimGray",
+                                        "style": "Solid"
+                                    },
+                                    "fontFamily": "宋体",
+                                    "paddingLeft": "2pt",
+                                    "paddingRight": "2pt",
+                                    "paddingTop": "2pt",
+                                    "paddingBottom": "2pt",
+                                    "textAlign": "Center",
+                                    "verticalAlign": "Middle",
+                                    "backgroundColor": "#ffffff",
+                                    "shrinkToFit": "=True"
+                                },
+                                "left": "0cm",
+                                "top": "0cm",
+                                "width": "2.5cm",
+                                "height": "28.34px"
+                            },
+                            "colSpan": 1
+                        },
+                        {
+                            "item": {
+                                "type": "textbox",
+                                "name": "文本框70",
+                                "keepTogether": true,
+                                "value": "",
+                                "style": {
+                                    "border": {
+                                        "color": "DimGray",
+                                        "style": "Solid"
+                                    },
+                                    "fontFamily": "宋体",
+                                    "paddingLeft": "2pt",
+                                    "paddingRight": "2pt",
+                                    "paddingTop": "2pt",
+                                    "paddingBottom": "2pt",
+                                    "textAlign": "Center",
+                                    "verticalAlign": "Middle",
+                                    "backgroundColor": "#ffffff",
+                                    "shrinkToFit": "=True"
+                                },
+                                "left": "0cm",
+                                "top": "0cm",
+                                "width": "2.5cm",
+                                "height": "28.34px"
+                            },
+                            "colSpan": 1
+                        },
+                        {
+                            "item": {
+                                "type": "textbox",
+                                "name": "文本框70",
+                                "keepTogether": true,
+                                "value": "",
+                                "style": {
+                                    "border": {
+                                        "color": "DimGray",
+                                        "style": "Solid"
+                                    },
+                                    "fontFamily": "宋体",
+                                    "paddingLeft": "2pt",
+                                    "paddingRight": "2pt",
+                                    "paddingTop": "2pt",
+                                    "paddingBottom": "2pt",
+                                    "textAlign": "Center",
+                                    "verticalAlign": "Middle",
+                                    "backgroundColor": "#ffffff",
+                                    "shrinkToFit": "=True"
+                                },
+                                "left": "0cm",
+                                "top": "0cm",
+                                "width": "2.5cm",
+                                "height": "28.34px"
+                            },
+                            "colSpan": 1
+                        }
+                    ]
+                }
+            ],
+            "repeatOnNewPage": true
+        },
+        "details": {
+            "tableRows": [
+                {
+                    "height": "28.34px",
+                    "tableCells": [
+                        {
+                            "item": {
+                                "type": "textbox",
+                                "name": "文本框71",
+                                "keepTogether": true,
+                                "value": "",
+                                "style": {
+                                    "border": {
+                                        "color": "DimGray",
+                                        "style": "Solid"
+                                    },
+                                    "fontFamily": "宋体",
+                                    "paddingLeft": "2pt",
+                                    "paddingRight": "2pt",
+                                    "paddingTop": "2pt",
+                                    "paddingBottom": "2pt",
+                                    "textAlign": "Center",
+                                    "verticalAlign": "Middle",
+                                    "backgroundColor": "#ffffff",
+                                    "shrinkToFit": "=True"
+                                },
+                                "left": "0cm",
+                                "top": "0cm",
+                                "width": "2.5cm",
+                                "height": "28.34px"
+                            },
+                            "colSpan": 1
+                        },
+                        {
+                            "item": {
+                                "type": "textbox",
+                                "name": "文本框71",
+                                "keepTogether": true,
+                                "value": "",
+                                "style": {
+                                    "border": {
+                                        "color": "DimGray",
+                                        "style": "Solid"
+                                    },
+                                    "fontFamily": "宋体",
+                                    "paddingLeft": "2pt",
+                                    "paddingRight": "2pt",
+                                    "paddingTop": "2pt",
+                                    "paddingBottom": "2pt",
+                                    "textAlign": "Center",
+                                    "verticalAlign": "Middle",
+                                    "backgroundColor": "#ffffff",
+                                    "shrinkToFit": "=True"
+                                },
+                                "left": "0cm",
+                                "top": "0cm",
+                                "width": "2.5cm",
+                                "height": "28.34px"
+                            },
+                            "colSpan": 1
+                        },
+                        {
+                            "item": {
+                                "type": "textbox",
+                                "name": "文本框71",
+                                "keepTogether": true,
+                                "value": "",
+                                "style": {
+                                    "border": {
+                                        "color": "DimGray",
+                                        "style": "Solid"
+                                    },
+                                    "fontFamily": "宋体",
+                                    "paddingLeft": "2pt",
+                                    "paddingRight": "2pt",
+                                    "paddingTop": "2pt",
+                                    "paddingBottom": "2pt",
+                                    "textAlign": "Center",
+                                    "verticalAlign": "Middle",
+                                    "backgroundColor": "#ffffff",
+                                    "shrinkToFit": "=True"
+                                },
+                                "left": "0cm",
+                                "top": "0cm",
+                                "width": "2.5cm",
+                                "height": "28.34px"
+                            },
+                            "colSpan": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        "footer": {
+            "tableRows": [
+                {
+                    "height": "28.34px",
+                    "tableCells": [
+                        {
+                            "item": {
+                                "type": "textbox",
+                                "name": "文本框71",
+                                "keepTogether": true,
+                                "value": "",
+                                "style": {
+                                    "border": {
+                                        "color": "DimGray",
+                                        "style": "Solid"
+                                    },
+                                    "fontFamily": "宋体",
+                                    "paddingLeft": "2pt",
+                                    "paddingRight": "2pt",
+                                    "paddingTop": "2pt",
+                                    "paddingBottom": "2pt",
+                                    "textAlign": "Center",
+                                    "verticalAlign": "Middle",
+                                    "backgroundColor": "#ffffff",
+                                    "shrinkToFit": "=True"
+                                },
+                                "left": "0cm",
+                                "top": "0cm",
+                                "width": "2.5cm",
+                                "height": "28.34px"
+                            },
+                            "colSpan": 1
+                        },
+                        {
+                            "item": {
+                                "type": "textbox",
+                                "name": "文本框71",
+                                "keepTogether": true,
+                                "value": "",
+                                "style": {
+                                    "border": {
+                                        "color": "DimGray",
+                                        "style": "Solid"
+                                    },
+                                    "fontFamily": "宋体",
+                                    "paddingLeft": "2pt",
+                                    "paddingRight": "2pt",
+                                    "paddingTop": "2pt",
+                                    "paddingBottom": "2pt",
+                                    "textAlign": "Center",
+                                    "verticalAlign": "Middle",
+                                    "backgroundColor": "#ffffff",
+                                    "shrinkToFit": "=True"
+                                },
+                                "left": "0cm",
+                                "top": "0cm",
+                                "width": "2.5cm",
+                                "height": "28.34px"
+                            },
+                            "colSpan": 1
+                        },
+                        {
+                            "item": {
+                                "type": "textbox",
+                                "name": "文本框71",
+                                "keepTogether": true,
+                                "value": "",
+                                "style": {
+                                    "border": {
+                                        "color": "DimGray",
+                                        "style": "Solid"
+                                    },
+                                    "fontFamily": "宋体",
+                                    "paddingLeft": "2pt",
+                                    "paddingRight": "2pt",
+                                    "paddingTop": "2pt",
+                                    "paddingBottom": "2pt",
+                                    "textAlign": "Center",
+                                    "verticalAlign": "Middle",
+                                    "backgroundColor": "#ffffff",
+                                    "shrinkToFit": "=True"
+                                },
+                                "left": "0cm",
+                                "top": "0cm",
+                                "width": "2.5cm",
+                                "height": "28.34px"
+                            },
+                            "colSpan": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        "left": "0cm",
+        "top": "5.8cm",
+        "width": "283",
+        "height": "88"
+    },
 }
 
 

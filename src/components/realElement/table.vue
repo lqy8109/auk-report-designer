@@ -76,7 +76,6 @@ const handleSelect = inject("handleSelect");
 const hotTableComponent = ref(null);
 const tableWrapper = ref(null);
 const hotTableContainer = ref(null);
-
 const initTable = ref(false);
 
 // 接收父组件传参
@@ -147,14 +146,12 @@ const getSelectedCellMetas = debounce(function (row, column, row2, column2) {
 
   // 格式化数据并更新store
   const selectMetaData = getSelectMetaData(cellMetas, cloneConfig.value);
-  console.log(selectMetaData);
   const selectedData = {
     ...processItemData(selectMetaData),
     style: mergeStyles(cellMetas),
     type: "tableCell",
     dataSetName: cloneConfig.value.dataSetName,
   };
-  console.log(cloneConfig.value);
 
   selectTableCell(
     selectMetaData,
@@ -210,7 +207,6 @@ const updateSelected = (newData) => {
 
   selectedTableCells.value.forEach((item) => {
     const current = parsePathString(item.path, cloneConfig.value);
-    console.log(current, cloneConfig.value);
     if (!current) return;
 
     const keys = Object.keys(newData);
@@ -233,7 +229,6 @@ const updateSelected = (newData) => {
     });
   });
 
-  console.log(cloneConfig.value);
 
   updateComp(props.pageType, props.index, cloneConfig.value);
 };
@@ -602,8 +597,8 @@ const undoBatchRowChanges = (type, params) => {
       CONST.SECTION_TYPE.DETAILS,
       CONST.SECTION_TYPE.FOOTER,
     ].includes(type)
-  )
-    return;
+  )  return;
+
   cloneConfig.value[type].tableRows = params.rowData;
   updateComp(props.pageType, props.index, cloneConfig.value);
 };
@@ -616,10 +611,6 @@ const undoBatchRowChanges = (type, params) => {
 const initCellStyle = (cellStyles) => {
   const hot = hotTableComponent.value?.hotInstance;
   if (!hot || !Array.isArray(cellStyles)) return;
-
-  cellStyles.forEach((item) => {
-    // hot.setCellMetaObject(item.row, item.col, { style: item.style });
-  });
   hot.render();
 };
 

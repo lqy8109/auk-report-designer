@@ -44,7 +44,6 @@ const handleExpand = (name) => {
 };
 
 const handleEdit = (item, index) => {
-  console.log("编辑：", item, index);
   openType.value='edit';
   editIndex.value = index;
   datasetEditRef.value.handleOpen({}, item, "编辑数据集", true);

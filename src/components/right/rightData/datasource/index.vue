@@ -3,7 +3,7 @@
  * @Autor: xwj
  * @Date: 2026-01-22 10:00:37
  * @LastEditors: xwj
- * @LastEditTime: 2026-03-02 14:08:22
+ * @LastEditTime: 2026-03-06 09:24:05
  * @description: 
 -->
 <script setup>
@@ -88,11 +88,9 @@ const handleAdd = () => {
     type: "database",
   };
 
-  console.log(form.value);
 };
 
 const handleEdit = (item, index) => {
-  console.log(item);
   addOpen.value = true;
   openTitle.value = "编辑数据源";
   form.value = deepClone(item);
@@ -150,7 +148,6 @@ const handleFileChange = (e) => {
     try {
       // 解析JSON字符串
       const content = JSON.parse(event.target.result);
-      console.log(content);
       form.value.json = JSON.stringify(content, null, 2);
       fileInput.value.value = "";
     } catch (error) {

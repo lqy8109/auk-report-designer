@@ -133,10 +133,10 @@
                   :drag-handle="
                     item.type === 'table' || item.type === 'tablix' ? '.handle' : ''
                   "
-                  :cancel="item.type === 'table' ? '.htCore' : ''"
-                  :resizable="item.type !== 'table' && item.type !== 'line'"
+                  :cancel="item.type === 'table' || item.type === 'tablix' ? '.htCore' : ''"
+                  :resizable="item.type !== 'table' && item.type !== 'tablix' && item.type !== 'line'"
                   :class-name="
-                    item.type === 'table'
+                    item.type === 'table' || item.type === 'tablix'
                       ? 'drv table-element'
                       : item.type == 'line'
                       ? 'drv_line'
@@ -287,6 +287,7 @@ import {
   TLabel,
   TRichText,
   TCharts,
+  TTablix,
 } from "@/components/dragElement/index.js";
 
 import {
@@ -403,6 +404,7 @@ const getTComponentByType = (type) => {
     label: TLabel,
     richText: TRichText,
     charts: TCharts,
+    tablix: TTablix,
   };
   return componentMap[type] || null;
 };
